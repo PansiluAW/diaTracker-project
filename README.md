@@ -1,5 +1,5 @@
 
-<img src="diatracker-logo.png" width="1500" height = "1000"/>
+<img align = "right" src="diatracker-logo.png" width="500" height = "400"/>
 
 # Project DiaTracker
 
