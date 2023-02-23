@@ -179,7 +179,6 @@ header{
 
   .head-btn{
     align-self: auto;
-    border-radius: 1px;
   }
 
 
@@ -188,5 +187,6 @@ header{
     padding: 1em 3em;
     color: #e3e3e3;
     text-decoration: none;
+    
   }
 
