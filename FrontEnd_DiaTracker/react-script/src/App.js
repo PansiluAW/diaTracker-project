@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import Loading from './components/Loading';
-import css from './css/loading.css'
+import './css/loading.css'
 
 function App() {
   return (
