@@ -1,5 +1,6 @@
 import React from 'react'
 import './loading.css'
+import './style.css'
 
 export default function Content() {
   return (
