@@ -1,11 +1,11 @@
 import logo from './logo.svg';
-import Loading from './components/Loading';
 import './css/loading.css'
+import GetStart from './Pages/GetStart';
 
 function App() {
   return (
     <div className = "App">
-      <Loading/>
+      <GetStart/>
     </div>
   );
 }

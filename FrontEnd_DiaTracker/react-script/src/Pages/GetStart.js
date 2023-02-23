@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/style.css'
 
-export default function Index() {
+export default function GetStart() {
   return (
     <>
         <div class="box">
