@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './css/loading.css'
 import GetStarted from './Pages/GetStarted';
 
 

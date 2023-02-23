@@ -1,7 +1,12 @@
 import React from 'react'
+import Content from '../components/Content'
+import NavigationBar from '../components/NavigationBar'
 
 export default function GetStarted() {
   return (
-    <div>GetStarted</div>
+    <div>
+        <NavigationBar/>
+        <Content/>
+    </div>
   )
 }
