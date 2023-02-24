@@ -27,6 +27,7 @@
     font-size: 3em;
     line-height: 1em;
     margin-bottom: .5em;
+    color: #000;
 
   }
 
@@ -47,7 +48,7 @@
   }
 
   .head-btn a:hover {
-    color: #beba36;
+    color: #ddda2b;
     background-color: rgb(34, 35, 34);
   }
 
