@@ -15,7 +15,7 @@ export default function Description() {
                     the ease of diabetes patients in managing diabetes with one single app </p>
             </div>
             <div class="head-btn">
-                <a href="index.html">Get started</a>
+                <a href="Login.js">Get started</a>
             </div>
 
         </div>

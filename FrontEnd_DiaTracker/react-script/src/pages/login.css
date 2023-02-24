@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    background:#fbcd08;
+ 
+  }
+
+  body{
+    list-style: none;
+    text-decoration: none;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .box{
+    background: #111;
+    color: #fbcd08;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 55px 60px;
+    border-radius: 8px;
+}
+
+.user{
+    width: 100px;
+    height: 85px;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 50px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+p{
+    color: #fbcd08;
+    margin: 0;
+    padding: 0;
+    font-size: 21px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 10px;
+}
+
+ input[type="text"], input[type="password"] ,input[type="email"]
+{
+    border: none;
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    height: 30px;
+    color: #EEE;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fbcd08;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+
+}
+
+
+input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #886f00;
+}
+
+a
+{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #069818;
+}
+
+
+a:hover
+{
+    color:#fbcd08;
+}
