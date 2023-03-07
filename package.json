@@ -1,0 +1,23 @@
+{
+  "name": "diatracker-project",
+  "version": "1.0.0",
+  "description": "<img align = \"right\" src=\"diatracker-logo.png\" width=\"500\" height = \"400\"/>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PansiluAW/diaTracker-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PansiluAW/diaTracker-project/issues"
+  },
+  "homepage": "https://github.com/PansiluAW/diaTracker-project#readme",
+  "dependencies": {
+    "firebase": "^9.17.1"
+  }
+}
