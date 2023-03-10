@@ -1,0 +1,188 @@
+.SignUpScreenChild,
+.SignUpScreenItem {
+  height: 40.29%;
+  width: 26.91%;
+  top: 0;
+  bottom: 59.71%;
+}
+.SignUpScreenChild {
+  position: absolute;
+  right: -4.22%;
+  left: 77.31%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.SignUpScreenItem {
+  right: -0.46%;
+  left: 73.55%;
+}
+.ellipseIcon,
+.logoNoBackground1Icon,
+.signUpScreenInner,
+.signUpScreenItem {
+  position: absolute;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.logoNoBackground1Icon {
+  height: 20.59%;
+  width: 19.97%;
+  top: 6.09%;
+  right: 40.05%;
+  bottom: 73.32%;
+  left: 39.99%;
+  object-fit: cover;
+}
+.ellipseIcon,
+.signUpScreenInner {
+  height: 53.89%;
+  width: 36.52%;
+  top: 47.45%;
+  right: 63.48%;
+  bottom: -1.34%;
+  left: 0;
+}
+.ellipseIcon {
+  top: 57.48%;
+  bottom: -11.37%;
+}
+.rectangleDiv {
+  position: absolute;
+  height: 67.14%;
+  width: 34.95%;
+  top: 32.14%;
+  right: 32.29%;
+  bottom: 0.72%;
+  left: 32.75%;
+  border-radius: 40px;
+  background-color: #a5a4a3;
+}
+.registerWithUs,
+.yourInformationIs {
+  position: absolute;
+  display: inline-block;
+}
+.registerWithUs {
+  width: 13.6%;
+  top: 36.62%;
+  left: 43.81%;
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: #000;
+}
+.yourInformationIs {
+  height: 1.7%;
+  width: 25.87%;
+  top: 39.93%;
+  left: 37.67%;
+  font-weight: 500;
+  color: var(--color-gray-100);
+}
+.alreadyHaveAn {
+  font-weight: 500;
+}
+.SignIn {
+  font-weight: 800;
+  color: #fbcd08;
+}
+.alreadyHaveAnContainer {
+  position: absolute;
+  height: 1.7%;
+  width: 25.87%;
+  top: 90.96%;
+  left: 37.67%;
+  font-size: 18px;
+  text-align: left;
+  display: inline-block;
+  color: var(--color-gray-100);
+}
+.SignUpScreenChild1 {
+  position: absolute;
+  height: 4.83%;
+  width: 25.06%;
+  top: 83.97%;
+  right: 37.27%;
+  bottom: 11.19%;
+  left: 37.67%;
+  border-radius: var(--br-xl);
+  background-color: #372e18;
+}
+.SignUpScreenChild2,
+.SignUpScreenChild3,
+.SignUpScreenChild4,
+.SignUpScreenChild5 {
+  position: absolute;
+  height: 4.83%;
+  width: 25.06%;
+  top: 49.15%;
+  right: 37.27%;
+  bottom: 46.02%;
+  left: 37.67%;
+  border-radius: var(--br-xl);
+  background-color: var(--color-white);
+}
+.SignUpScreenChild3,
+.SignUpScreenChild4,
+.SignUpScreenChild5 {
+  top: 56.13%;
+  bottom: 39.03%;
+}
+.SignUpScreenChild4,
+.SignUpScreenChild5 {
+  top: 63.12%;
+  bottom: 32.05%;
+}
+.SignUpScreenChild5 {
+  top: 70.1%;
+  bottom: 25.07%;
+}
+.SignUp {
+  position: absolute;
+  width: 6.19%;
+  top: 85.32%;
+  left: 47.05%;
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-white);
+  display: inline-block;
+}
+.confirmYourPassword,
+.enterYourEmail,
+.enterYourFull,
+.enterYourPassword {
+  position: absolute;
+  height: 1.7%;
+  width: 25.93%;
+  top: 50.76%;
+  left: 32.29%;
+  font-weight: 500;
+  display: inline-block;
+}
+.confirmYourPassword,
+.enterYourEmail,
+.enterYourPassword {
+  top: 57.65%;
+  left: 33.68%;
+}
+.confirmYourPassword,
+.enterYourPassword {
+  top: 64.64%;
+  left: 32.35%;
+}
+.confirmYourPassword {
+  top: 71.71%;
+  left: 33.28%;
+}
+.SignUpScreen {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1117px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}
