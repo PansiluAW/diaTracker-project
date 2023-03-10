@@ -1,0 +1,13 @@
+AddBoxIcon
+{
+    cursor: pointer;
+}
+.inputPane
+{
+    visibility: none;
+}
+.bottomContainer
+{
+    display: flex;
+    width: 100%;
+}
