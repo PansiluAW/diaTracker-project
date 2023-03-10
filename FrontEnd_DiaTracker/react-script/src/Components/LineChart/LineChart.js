@@ -10,7 +10,7 @@ const current = new Date();
 
 const LineData = [
   ['x', 'Suger Level'],
-  [date, 0],
+  [date, 15],
   [1, 10],
   [2, 23],
   [3, 17],
@@ -29,6 +29,17 @@ const LineChartOptions = {
   series: {
     1: { curveType: 'function' },
   },
+  backgroundColor:'#fcdc52',
+  vAxis:{
+    gridlines: {
+      color: '#5b563f'
+    }
+  },
+  series: {
+    0: {
+      color: '#372e18'
+    }
+  }
 }
 class LineChart extends Component {
   render() {

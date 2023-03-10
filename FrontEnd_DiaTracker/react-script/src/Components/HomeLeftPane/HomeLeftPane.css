@@ -6,7 +6,19 @@
 }
 .sugarcontainer {
     text-align: center;
-    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-
-
+.addsugarsontainer{
+    text-align: center;
+    border-radius: 10px;
+    background-color: #372e18;
+    padding: 4%;
+    color: #fbcd08;
+}
+.sugarinput:focus{
+    background-color: #f7e079 !important;
+}
+.sugarinput{
+    background-color: #fddc49 !important;
+}

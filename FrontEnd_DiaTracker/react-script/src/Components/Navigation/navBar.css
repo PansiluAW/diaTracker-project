@@ -26,12 +26,10 @@
     background: #fbcd08;
     transition: opacity 7s, visibility .5s;
   }
-  
   .loader--hidden {
     opacity: 0;
     visibility: hidden;
   }
-  
   .loader::after {
     content: "";
     width: 75px;
@@ -79,11 +77,10 @@
     color: #000;
 
   }
+  
   .logo img{
     width:100px;
-
   }
-
 
   li {
     width: 150px;

@@ -3,7 +3,10 @@ import LineChart from "../../Components/LineChart/LineChart";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import "./HomeLeftPane.css";
 import {useRef} from 'react';
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.css'
 <script src="./src/Components/LineChart/LineChart"></script>
+
 
 export default function HomeLeftPane() {
     
@@ -28,7 +31,7 @@ export default function HomeLeftPane() {
   return (
 
       <>
-      <div className="leftPaneBox sugarcontainer">
+      <div className="leftPaneBox">
         <div className="iconPane">
 
             
@@ -36,20 +39,22 @@ export default function HomeLeftPane() {
             <AddBoxIcon onClick={() => setElementVisible(!elementVisible)}></AddBoxIcon>
                 
         </div>
-        <div className="sugarLineChart">
+        <div className="sugarLineChart sugarcontainer">
             <LineChart UpdatedSugarLevel={updated}/>
         </div>
         {elementVisible ? (
-                <div className="inputPane">
+                <div className="inputPane addsugarsontainer">
                 <h2>Add New Sugar Level</h2>
-                <div className='addInput'>
-                    <input placeholder="mmol/L" type="number" ref={inputRef} className="addSugarLevel" />
-                </div>
-                <button className="addButton" onClick={inputSugar} >Add</button>
-                <button type="reset">Clear</button>
+                <Form>
+                    <Form.Group className="mb-3" controlId="addsugar">
+                    <Form.Label>_</Form.Label>
+                    <Form.Control type="text" className='sugarinput' placeholder="Sugar Level (mmol/L)" />
+                    </Form.Group>
+                </Form>
+                <button type="button" class="btn mx-2 px-4 btn-outline-warning">Add</button>
+                <button type="button" class="btn mx-2 px-4 btn-warning">Clear</button>
                 </div>
             ) : null}
-        
       </div>
       
           </>
