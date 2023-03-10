@@ -1,6 +1,12 @@
 .leftPaneBox
 {
-    background-color: blue;
-    flex: 4;
+    background-color: #fbcd08;
+    border-radius: 10px;
+    
 }
+.sugarcontainer {
+    text-align: center;
+    display: flex;
+}
+
 

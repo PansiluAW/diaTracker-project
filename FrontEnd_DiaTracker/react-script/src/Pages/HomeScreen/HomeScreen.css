@@ -1,13 +1,6 @@
-AddBoxIcon
-{
-    cursor: pointer;
+.recom{
+    display:flex;
 }
-.inputPane
-{
-    visibility: none;
-}
-.bottomContainer
-{
-    display: flex;
-    width: 100%;
+.homebod{
+    background-color: #FBCD08;
 }

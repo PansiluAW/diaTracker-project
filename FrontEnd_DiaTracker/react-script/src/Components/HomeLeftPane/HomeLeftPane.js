@@ -28,7 +28,7 @@ export default function HomeLeftPane() {
   return (
 
       <>
-      <div className="leftPaneBox">
+      <div className="leftPaneBox sugarcontainer">
         <div className="iconPane">
 
             

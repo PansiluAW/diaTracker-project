@@ -33,7 +33,7 @@ const LineChartOptions = {
 class LineChart extends Component {
   render() {
     return (
-      <div className="container mt-5">
+      <div className="container">
         <h2>Sugar Level Chart</h2>
         <Chart
           width={'700px'}
