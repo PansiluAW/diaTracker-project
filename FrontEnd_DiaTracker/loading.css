@@ -6,6 +6,7 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    background-color: #fbcd08;
  
   }
 /* Set default styles for the body element */
@@ -70,14 +71,16 @@ header{
   }
 /* Style the header image */
   .head-img img{
-    width: 400px;
-    border-radius: 8px;
-
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+    background-color: rgba(55,46,24,0.1);
   }
 /* Style the header text container element */
   .head-text{
     width:500px;
     text-align: center;
+    margin-left: 65px;
   }
 /* Style the header text heading element */
   .head-text h1{
@@ -106,10 +109,21 @@ header{
 
 /* Style the header button link */
   .head-btn a{
-    background-color: #000;
+    background-color: #372e18;
     padding: 1em 3em;
     color: #e3e3e3;
     text-decoration: none;
+    font-weight: 600;
+    border-radius: 10px;
     
   }
 
+  .head-btn a:hover{
+    box-shadow: 0 20px 50px #372e18;
+    transition: 400ms;
+  }
+
+  .head-btn a:active{
+    border: 8px double #fbcd08;
+    transition: 400ms;
+  }
