@@ -1,0 +1,115 @@
+/* Import the 'Poppins' font family from Google Fonts with varying weights */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Set default styles for all elements */
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+ 
+  }
+/* Set default styles for the body element */
+  body{
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+
+  }
+/* Style the loader element, which is a fixed position element that covers the entire viewport */
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbcd08;
+    transition: opacity 7s, visibility 1s;
+  }
+/* Hide the loader element when it is not needed */  
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+ /* Style the rotating loader icon */ 
+  .loader::after {
+    content: "";
+    width: 70px;
+    height:70px;
+    border: 8px solid #5e5e5e;
+    border-top-color: #000;
+    border-radius: 50%;
+    animation: loading .25s ease infinite;
+  }
+/* Define the rotation animation for the loader icon */  
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+/* Style the header element, which covers the entire viewport height */
+header{
+    height: 100vh;
+    width: 100%;
+    background-color: #fbcd08;
+}
+/* Style the banner container element */
+  .banner {
+    padding:5% 12%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+
+  }
+/* Style the header image */
+  .head-img img{
+    width: 400px;
+    border-radius: 8px;
+
+  }
+/* Style the header text container element */
+  .head-text{
+    width:500px;
+    text-align: center;
+  }
+/* Style the header text heading element */
+  .head-text h1{
+    font-size: 3em;
+    line-height: 1em;
+    margin-bottom: .5em;
+
+  }
+/* Style the header text paragraph element */
+  .head-text p{
+    font-size: 15px;
+    line-height: 1.25em;
+    letter-spacing: .35px;
+    margin-bottom: 2em;
+    color: #505050;
+    font-weight: 500;
+
+  }
+/* Style the header button container element */
+  .head-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+  }
+
+/* Style the header button link */
+  .head-btn a{
+    background-color: #000;
+    padding: 1em 3em;
+    color: #e3e3e3;
+    text-decoration: none;
+    
+  }
+
