@@ -42,6 +42,20 @@ export default function HomeLeftPane() {
         <div className="sugarLineChart sugarcontainer">
             <LineChart UpdatedSugarLevel={updated}/>
         </div>
+        <div className='infopane subinfo1'>
+            <div className='col rounded subinfo' id='sub1'>
+                <h5 className='m-0'>Excellant</h5>
+                <p>50-115 mmol/L</p>
+                </div>
+            <div className='col rounded subinfo' id='sub2'>
+                <h5 className='m-0'>Good</h5>
+                <p>150-180 mmol/L</p>
+            </div>
+            <div className='col rounded subinfo' id='sub3'>
+                <h5 className='m-0'>Action Suggested</h5>
+                <p>215-380 mmol/L</p>
+            </div>
+        </div>
         {elementVisible ? (
                 <div className="inputPane addsugarsontainer">
                 <h2>Add New Sugar Level</h2>
