@@ -124,6 +124,10 @@ header{
   }
 
   .head-btn a:active{
-    border: 8px double #fbcd08;
-    transition: 400ms;
+    border: 12px inset #fbcd08;
+    transition: 50ms;
   }
+
+.yellowback{
+  background-color: #fbcd08;
+}
