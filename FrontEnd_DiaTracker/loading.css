@@ -14,10 +14,16 @@
     list-style: none;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-
   }
-/* Style the loader element, which is a fixed position element that covers the entire viewport */
+/* Hide the loader element when it is not needed */  
+  .loader--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
   .loader {
+    width: 48px;
+    height: 48px;
+    position: relative;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,30 +33,55 @@
     align-items: center;
     justify-content: center;
     background: #fbcd08;
-    transition: opacity 7s, visibility 1s;
+    transition: opacity 2s ease-in-out;
+    z-index: 9999;
   }
-/* Hide the loader element when it is not needed */  
-  .loader--hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
- /* Style the rotating loader icon */ 
-  .loader::after {
-    content: "";
-    width: 70px;
-    height:70px;
-    border: 8px solid #5e5e5e;
-    border-top-color: #000;
+  .loader::before , .loader::after{
+    content: '';
+    animation: loading 1s ease infinite;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    width: 48em;
+    height: 48em;
+    background-image:
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0);
+    background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
+                         13em -13em, -13em -13em, 13em 13em, -13em 13em;
+      background-repeat: no-repeat;
+    font-size: 0.5px;
     border-radius: 50%;
-    animation: loading .25s ease infinite;
+    animation: blast 1s ease-in infinite;
   }
-/* Define the rotation animation for the loader icon */  
-  @keyframes loading {
-    from {
-      transform: rotate(0turn);
+  .loader::after {
+    font-size: 1px;
+    background: #fff;
+    animation: bounce 1s ease-in infinite;
+  }
+  
+  @keyframes bounce {
+    0% , 100%{ font-size: 0.75px }
+    50% { font-size: 1.5px }
+  }
+  @keyframes blast {
+    0% , 40% {
+      font-size: 0.5px;
     }
-    to {
-      transform: rotate(1turn);
+    70% {
+      opacity: 1;
+      font-size: 4px;
+    }
+     100% {
+       font-size: 6px;
+      opacity: 0;
     }
   }
 /* Style the header element, which covers the entire viewport height */
@@ -59,6 +90,8 @@ header{
     width: 100%;
     background-color: #fbcd08;
 }
+
+
 /* Style the banner container element */
   .banner {
     padding:5% 12%;
