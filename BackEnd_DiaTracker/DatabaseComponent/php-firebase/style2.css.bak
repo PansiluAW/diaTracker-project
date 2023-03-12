@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    background:#fbcd08;
+	
+    background-size: cover;
+    font-family: 'open sans',sans-serif;
+}
+
+h5{
+    margin-top: 10px;
+	margin-bottom: 0;
+    padding: 0 0 0px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: black;
+	
+}
+
+.container {
+
+    color: #fbcd08;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    padding: 55px 60px;
+    border-radius: 8px;
+}
+
+
+.card-header {
+    background-color: gray;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 5px;
+	background-color: gray;
+}
+
+.form-group-mb-3 label {
+    color: #dc3545;
+    font-weight: gray;
+}
+
+.form-control {
+    border: none;
+	width: 320px;
+	margin: 0 auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: none;
+    border-bottom: 2px solid #6c757d;
+}
+
+.form-control:focus {
+    border-color: black;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+    background-color: black;
+    border-color: black;
+    color: white;
+    font-weight: bold;
+    width: 80%;
+    border-radius: 50px;
+    margin-top: 30px;
+	margin-bottom: 0;
+}
+
+.btn-primary:hover {
+    background-color:#fbcd08 ;
+    border-color: black;
+    color: black;
+}
+
+p {
+    color: black;
+    margin: 10% auto;
+    padding: 0;
+    font-size: 15px;
+	text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+	margin-top: 10px;
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: yellow;
+}
+
+/* Set the style of the link when hovered */
+a:hover {
+    color:#fbcd08;
+}
