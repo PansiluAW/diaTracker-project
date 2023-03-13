@@ -1,78 +1,153 @@
-import React, { useState } from 'react'
-import LineChart from "../../Components/LineChart/LineChart";
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import React, { useState } from "react";
 import "./HomeLeftPane.css";
-import {useRef} from 'react';
-import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.css'
-<script src="./src/Components/LineChart/LineChart"></script>
-
+import LineChart from "../../Components/LineChart/LineChart";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import MedicationIcon from "@mui/icons-material/Medication";
+import SettingsIcon from "@mui/icons-material/Settings";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useRef } from "react";
+import Form from "react-bootstrap/Form";
+import "bootstrap/dist/css/bootstrap.css";
+<script src="./src/Components/LineChart/LineChart"></script>;
 
 export default function HomeLeftPane() {
-    
-    // window.addEventListener("addSugarLevel()", () => {
-    //     if(document.display === "none")
-    //     {
-    //     document.getElementsByClassName("inputPane").display = "block";
-    //     }
-    //     });
+  const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
+    useState(false);
 
-    const [elementVisible, setElementVisible] = useState(false);
+  const inputRef = useRef(null);
+  const [updated, setUpdated] = useState("");
 
+  const clearInput = () => (inputRef.current.value = "");
 
-    const inputRef = useRef(null);
-    const [updated, setUpdated] = useState('');
+  var recentSugarLevel;
+  var previousSugarLevel;
+  var result;
 
-    const inputSugar = () => {
-        // 👇 "inputRef.current.value" is input value
-        setUpdated(inputRef.current.value);
-    };
-        
+  const inputSugar = () => {
+    previousSugarLevel = updated;
+    setUpdated(inputRef.current.value);
+    recentSugarLevel = updated;
+  };
+
+  function RecentSugarLevel() {
+    return recentSugarLevel;
+  }
+
+  function PreviousSugarLevel() {
+    return previousSugarLevel;
+  }
+
+  function RecentChanges() {
+    if (recentSugarLevel >= previousSugarLevel) {
+      result = recentSugarLevel - previousSugarLevel;
+      <ArrowDropUpIcon />;
+    } else {
+      result = previousSugarLevel = recentSugarLevel;
+      <ArrowDropDownIcon />;
+    }
+    return result;
+  }
+
   return (
-
-      <>
+    <>
       <div className="leftPaneBox">
         <div className="iconPane">
+          <span>
+            <MedicationIcon fontSize="large" className="medicationIcon" />
+            <span className="vl"></span>
+            <SettingsIcon fontSize="large" className="settingsIcon" />
+          </span>
 
-            
-
-            <AddBoxIcon onClick={() => setElementVisible(!elementVisible)}></AddBoxIcon>
-                
+          <span>
+            <AddBoxIcon
+              fontSize="large"
+              className="addBoxIcon"
+              onClick={() => {
+                if (isUpdatingTheSugarLevelValue === true) {
+                  setIsUpdatingTheSugarLevelValue(false);
+                } else setIsUpdatingTheSugarLevelValue(true);
+              }}
+            />
+          </span>
         </div>
         <div className="sugarLineChart sugarcontainer">
-            <LineChart UpdatedSugarLevel={updated}/>
+          <LineChart UpdatedSugarLevel={[]} />
         </div>
-        <div className='infopane subinfo1'>
-            <div className='col rounded subinfo' id='sub1'>
-                <h5 className='m-0'>Excellant</h5>
-                <p>50-115 mmol/L</p>
+        <div className="infopane subinfo1">
+          <div className="col rounded subinfo" id="sub1">
+            <h5 className="m-0">Excellant</h5>
+            <p>50-115 mmol/L</p>
+          </div>
+          <div className="col rounded subinfo" id="sub2">
+            <h5 className="m-0">Good</h5>
+            <p>150-180 mmol/L</p>
+          </div>
+          <div className="col rounded subinfo" id="sub3">
+            <h5 className="m-0">Action Suggested</h5>
+            <p>215-380 mmol/L</p>
+          </div>
+        </div>
+        <div className="userInputInfo">
+          {!isUpdatingTheSugarLevelValue ? (
+            <>
+              <div className="userInputSummery">
+                <div className="sugarLevelInfo">
+                  Recent Sugar Level <br />
+                  <RecentSugarLevel /> mmol/L
+                  <hr></hr>
+                  Previous Sugar Level <br />
+                  <PreviousSugarLevel /> mmol/L
                 </div>
-            <div className='col rounded subinfo' id='sub2'>
-                <h5 className='m-0'>Good</h5>
-                <p>150-180 mmol/L</p>
-            </div>
-            <div className='col rounded subinfo' id='sub3'>
-                <h5 className='m-0'>Action Suggested</h5>
-                <p>215-380 mmol/L</p>
-            </div>
-        </div>
-        {elementVisible ? (
-                <div className="inputPane addsugarsontainer">
-                <h2>Add New Sugar Level</h2>
+                <div className="recentChanges sugarLevelInfo ">
+                  Recent Changes
+                  <br />
+                  <RecentChanges />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="inputPane addsugarsontainer">
+                <h2>Add New Sugar Level</h2> <br />
                 <Form>
-                    <Form.Group className="mb-3" controlId="addsugar">
+                  <Form.Group className="mb-3" controlId="addsugar">
                     <Form.Label>_</Form.Label>
-                    <Form.Control type="text" className='sugarinput' placeholder="Sugar Level (mmol/L)" />
-                    </Form.Group>
+                    <Form.Control
+                      type="number"
+                      className="sugarinput"
+                      placeholder="Sugar Level (mmol/L)"
+                      ref={inputRef}
+                    />
+                  </Form.Group>
                 </Form>
-                <button type="button" class="btn mx-2 px-4 btn-outline-warning">Add</button>
-                <button type="button" class="btn mx-2 px-4 btn-warning">Clear</button>
-                </div>
-            ) : null}
+                {/* <div className="addInput">
+                  <input
+                    placeholder="mmol/L"
+                    type="number"
+                    ref={inputRef}
+                    className="addSugarLevel"
+                  />
+                </div> */}
+                <button
+                  type="button"
+                  class="btn mx-2 px-4 btn-outline-warning"
+                  onClick={inputSugar}
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  class="btn mx-2 px-4 btn-warning"
+                  onClick={clearInput}
+                >
+                  Clear
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-      
-          </>
-
-
-  )
+    </>
+  );
 }

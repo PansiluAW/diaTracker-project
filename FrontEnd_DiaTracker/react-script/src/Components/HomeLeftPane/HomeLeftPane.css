@@ -47,3 +47,55 @@
     box-shadow: 0 1px 10px #372e18;
     transition: 300ms;
 }
+hr {
+    width: 40px;
+    color: black;
+    margin-left: 50%;
+    margin-right: 50%;
+
+}
+.userInputSummery{
+    display: flex;
+}
+.vl
+{
+    border-left: 2px solid #372e18;
+    margin-left: 5px;
+    margin-right: 5px;
+  height: 30px;
+}
+.iconPane{
+    display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin-left: 5%;
+
+  padding: 5px 0;
+}
+span {
+    width: 100px;
+    height: 50px;
+    background-color: #ffe159 !important;
+    border-radius: 10px;
+    align-content: center;
+    
+
+  }
+
+.addBoxIcon, .settingsIcon, .medicationIcon{
+    cursor: pointer;
+}
+.sugarLevelInfo{
+    text-align: center;
+    margin: 2% 0 5% 0;
+    padding-top: 2%;
+    background-color: #ffe159 !important;
+    border-radius: 10px;
+}
+.sugarLevelInfo:hover{
+    box-shadow: 0 1px 10px #372e18;
+    transition: 300ms;
+}
+.recentChanges{
+    margin-left: 50px;
+}

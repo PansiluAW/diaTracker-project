@@ -1,6 +1,15 @@
 .recom{
     display:flex;
+
 }
 .homebod{
     background-color: #FBCD08;
+}
+.foodrec{
+    overflow-y: scroll; 
+    
+}
+.excrec{
+    overflow-y: scroll; 
+    
 }
