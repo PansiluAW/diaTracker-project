@@ -25,21 +25,17 @@ const LineChartOptions = {
   },
   vAxis: {
     title: 'Sugar Level',
-  },
-  series: {
-    1: { curveType: 'function' },
-  },
-  backgroundColor:'#fcdc52',
-  vAxis:{
     gridlines: {
       color: '#5b563f'
     }
   },
   series: {
+    1: { curveType: 'function' },
     0: {
       color: '#372e18'
     }
-  }
+  },
+  backgroundColor:'#fcdc52',
 }
 class LineChart extends Component {
   render() {

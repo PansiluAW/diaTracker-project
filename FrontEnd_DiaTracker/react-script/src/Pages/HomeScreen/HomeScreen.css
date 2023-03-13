@@ -6,10 +6,10 @@
     background-color: #FBCD08;
 }
 .foodrec{
-    overflow-y: scroll; 
+    overflow-y: auto; 
     
 }
 .excrec{
-    overflow-y: scroll; 
+    overflow-y: auto; 
     
 }

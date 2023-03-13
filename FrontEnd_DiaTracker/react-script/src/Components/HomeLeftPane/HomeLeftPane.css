@@ -8,6 +8,7 @@
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    border-radius: 100px;
 }
 .addsugarsontainer{
     text-align: center;
@@ -69,6 +70,7 @@ hr {
   justify-content: space-between;
   max-width: 400px;
   margin-left: 5%;
+  margin-top: 3%;
 
   padding: 5px 0;
 }
@@ -91,6 +93,8 @@ span {
     padding-top: 2%;
     background-color: #ffe159 !important;
     border-radius: 10px;
+    padding-left:5%;
+    padding-right: 5%;
 }
 .sugarLevelInfo:hover{
     box-shadow: 0 1px 10px #372e18;
