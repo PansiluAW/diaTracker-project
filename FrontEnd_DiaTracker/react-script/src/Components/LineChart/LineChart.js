@@ -1,12 +1,26 @@
 import React from 'react'
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import { Component } from 'react'
+import { Component, useState, useEffect} from 'react'
 import Chart from 'react-google-charts'
+import axios from "axios";
 <script src="/scripts/bootstrap.min.js"></script>
 
-const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+export default function LineChart() {
 
+const current = new Date();
+const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+const [data, setData] = useState([]);
+
+useEffect(() => {
+  getData();
+}, []);
+
+const getData = () =>{
+  axios.get("#")
+  .then((res) => res.data)
+  .then((r) => setData(r));
+};
 
 const LineData = [
   ['x', 'Suger Level'],
@@ -37,9 +51,8 @@ const LineChartOptions = {
   },
   backgroundColor:'#fcdc52',
 }
-class LineChart extends Component {
-  render() {
-    return (
+  return (
+    (
       <div className="container">
         <h2>Sugar Level Chart</h2>
         <Chart
@@ -53,6 +66,6 @@ class LineChart extends Component {
         />
       </div>
     )
-  }
+  )
 }
-export default LineChart
+

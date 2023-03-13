@@ -72,7 +72,7 @@ export default function HomeLeftPane() {
           </span>
         </div>
         <div className="sugarcontainer sugarLineChart ">
-          <LineChart UpdatedSugarLevel={[]} />
+          <LineChart UpdatedSugarLevel={updated} />
         </div>
         <div className="infopane subinfo1">
           <div className="col rounded subinfo" id="sub1">

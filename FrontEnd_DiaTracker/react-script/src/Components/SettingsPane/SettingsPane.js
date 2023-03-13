@@ -5,6 +5,12 @@ import "./SettingsPane.css";
 import { useState } from "react";
 
 export default function SettingsPane() {
+
+  
+
+
+
+
   const [isSettingsHide, setSettingsHide] = useState(false);
 
   const [value1, setValue1] = React.useState("English");

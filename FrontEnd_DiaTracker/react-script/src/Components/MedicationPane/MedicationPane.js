@@ -48,6 +48,7 @@ export default function MedicationPane() {
           <div className="medicationInput">
             <h3>Add New Reminder</h3>
             <div>
+              <form>
               <table>
                 <tr>
                   <td>
@@ -57,7 +58,8 @@ export default function MedicationPane() {
                     <input
                       type="text"
                       ref={inputRef}
-                      className="addMedicationName"
+                      className="addMedicationName" 
+                      required
                     />
                   </td>
                 </tr>
@@ -77,6 +79,8 @@ export default function MedicationPane() {
                   Add
                 </button>
               </table>
+              </form>
+              
             </div>
             <h3>On-Going Reminder</h3>
             {!isReminderPaneHide ? (
