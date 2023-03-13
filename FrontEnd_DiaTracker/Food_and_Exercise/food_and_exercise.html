@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <title>Display Food & Exercises</title>
 </head>
 <body>
@@ -31,6 +29,7 @@
                     const foodDataDiv = document.getElementById("food-data");
                     exerciseDataDiv.innerHTML = JSON.stringify(data.exercise_data);
                     foodDataDiv.innerHTML = JSON.stringify(data.food_data);
+                    console.log(data.food_data)
                 })
                 .catch(error => {
                     console.error("Error fetching data: ", error);
