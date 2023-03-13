@@ -5,6 +5,7 @@
     <title>Display Food & Exercises</title>
 </head>
 <body>
+    <input type="text" id="cluster-input" placeholder="Enter cluster number">
     <button id="get-data">Get Data</button>
     <div id="exercise-data"></div>
     <div id="food-data"></div>
@@ -15,8 +16,11 @@
 
         // Attach a click event listener to the button
         getDataButton.addEventListener("click", () => {
-            // Make an HTTP GET request to the Flask API endpoint
-            fetch("/data")
+            // Get the cluster input value
+            const clusterInput = document.getElementById("cluster-input").value;
+
+            // Make an HTTP GET request to the Flask API endpoint with the cluster input value as a query parameter
+            fetch(`/data?cluster=${clusterInput}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Network response was not ok");
@@ -29,7 +33,6 @@
                     const foodDataDiv = document.getElementById("food-data");
                     exerciseDataDiv.innerHTML = JSON.stringify(data.exercise_data);
                     foodDataDiv.innerHTML = JSON.stringify(data.food_data);
-                    console.log(data.food_data)
                 })
                 .catch(error => {
                     console.error("Error fetching data: ", error);
