@@ -75,7 +75,7 @@ export default function MedicationPane() {
                     </select>
                   </td>
                 </tr>
-                <button className="addButton" onClick={inputMedication}>
+                <button className="addButton" onClick={inputMedication} type = "submit">
                   Add
                 </button>
               </table>
