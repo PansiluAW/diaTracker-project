@@ -4,21 +4,12 @@ import HomeLeftPane from "../../Components/HomeLeftPane/HomeLeftPane";
 import FoodRecomPane from "../../Components/FoodRecompane/FoodRecomPane";
 import ExerciseRecomPane from "../../Components/ExerciseRecomPane/ExerciseRecomPane";
 import "./HomeScreen.css";
-// import { Line } from "react-chartjs-2";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../../Components/Navigation/NavBar";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function HomeScreen() {
-  // window.addEventListener("inputCollect", () => {
-  //   const loader = document.querySelector(".loader");
 
-  //   loader.classList.add("loader--hidden");
-
-  //   loader.addEventListener("transitionend", () => {
-  //     document.body.removeChild(loader);
-  //   });
-  // });
 
   return (
     <>
