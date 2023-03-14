@@ -1,0 +1,166 @@
+/* Import the 'Poppins' font family from Google Fonts with varying weights */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Set default styles for all elements */
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: #fbcd08;
+ 
+  }
+/* Set default styles for the body element */
+  body{
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+  }
+/* Hide the loader element when it is not needed */  
+  .loader--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .loader {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbcd08;
+    transition: opacity 2s ease-in-out;
+    z-index: 9999;
+  }
+  .loader::before , .loader::after{
+    content: '';
+    animation: loading 1s ease infinite;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    width: 48em;
+    height: 48em;
+    background-image:
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0);
+    background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
+                         13em -13em, -13em -13em, 13em 13em, -13em 13em;
+      background-repeat: no-repeat;
+    font-size: 0.5px;
+    border-radius: 50%;
+    animation: blast 1s ease-in infinite;
+  }
+  .loader::after {
+    font-size: 1px;
+    background: #fff;
+    animation: bounce 1s ease-in infinite;
+  }
+  
+  @keyframes bounce {
+    0% , 100%{ font-size: 0.75px }
+    50% { font-size: 1.5px }
+  }
+  @keyframes blast {
+    0% , 40% {
+      font-size: 0.5px;
+    }
+    70% {
+      opacity: 1;
+      font-size: 4px;
+    }
+     100% {
+       font-size: 6px;
+      opacity: 0;
+    }
+  }
+/* Style the header element, which covers the entire viewport height */
+header{
+    height: 100vh;
+    width: 100%;
+    background-color: #fbcd08;
+}
+
+
+/* Style the banner container element */
+  .banner {
+    padding:5% 12%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+
+  }
+/* Style the header image */
+  .head-img img{
+    width: 600px;
+    height: 500px;
+    border-radius: 20px;
+    background-color: rgba(55,46,24,0.1);
+  }
+/* Style the header text container element */
+  .head-text{
+    width:500px;
+    text-align: center;
+    margin-left: 65px;
+  }
+/* Style the header text heading element */
+  .head-text h1{
+    font-size: 3em;
+    line-height: 1em;
+    margin-bottom: .5em;
+
+  }
+/* Style the header text paragraph element */
+  .head-text p{
+    font-size: 15px;
+    line-height: 1.25em;
+    letter-spacing: .35px;
+    margin-bottom: 2em;
+    color: #505050;
+    font-weight: 500;
+
+  }
+/* Style the header button container element */
+  .head-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+  }
+
+/* Style the header button link */
+  .head-btn a{
+    background-color: #372e18;
+    padding: 1em 3em;
+    color: #e3e3e3;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 10px;
+    
+  }
+
+  .head-btn a:hover{
+    box-shadow: 0 20px 50px #372e18;
+    transition: 400ms;
+  }
+
+  .head-btn a:active{
+    border: 12px inset #fbcd08;
+    transition: 50ms;
+  }
+
+.yellowback{
+  background-color: #fbcd08;
+}

@@ -9,6 +9,11 @@ if(isset($_SESSION['verified_user_id'])) {
 include('includes/header.php');
 
 ?>
+<div class="loader"></div>
+    <!-- This div is for the login form -->
+    <div class="mainbox">
+        <img src="diatracker-logo-transparent.png" alt="diatracker-logo" width="600" class="logo">
+        </div>
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 mt-5">
@@ -21,27 +26,30 @@ include('includes/header.php');
                 }
                 ?>
 
-                <div class="card mt-4">
+                <div class="box">
                     <div class="card-header">
-                        <h5>Welcome Back!</h5>
+                        <h1>Login Here!</h1>
                 </div>
                 <div class="card-body">
                     <form action="logincode.php" method="POST">
                         <div class="form-group-mb-3">
-                            
+                        <p>Email</p>
                             <input type="email" name="email" class="form-control" placeholder="Enter Email Address" required="">
                         </div>
                         <br>
                         <div class="form-group-mb-3">
-                            
+                        <p>Password</p>
                             <input type="password" name = "password" class="form-control" placeholder="Enter Password" required="">
                         </div>
                         <br>
                         <div class="form-group-mb-3 text-center">
-                        <button type="submit" name="login_now_btn" class="btn btn-primary" >Sign Up</button>
+                        <input type="submit" name="login_now_btn" class="btn btn-primary" value="Login"></input>
                         </div>
                         <br>
+                        <script src="loading.js"></script>
                 <p class="text-center">Don't have an account? <a href="register.php">Sign Up</a></p>
+                </div>
+    
 
                 <?php
                 // check if password is incorrect and display error message
