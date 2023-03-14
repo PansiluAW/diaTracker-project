@@ -14,7 +14,7 @@ export default function MedicationPane() {
     setValue1(event.target.value);
   };
 
-  const [isMedicationHide, setMedicationsHide] = useState(false);
+  const [isReminderPaneHide, setReminderPaneHide] = useState(false);
   const inputMedication = () => {
     setUpdated(inputRef.current.value);
     if ((updated === "") & (value1 === "")) {

@@ -89,7 +89,7 @@ export default function HomeLeftPane() {
             </IconContext.Provider>
           </span>
 
-          <span className="vl"></span>
+          {/* <span className="vl"></span> */}
           <span>
             <IconContext.Provider>
               <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
