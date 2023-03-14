@@ -5,6 +5,7 @@ import FoodRecomPane from "../../Components/FoodRecompane/FoodRecomPane";
 import ExerciseRecomPane from "../../Components/ExerciseRecomPane/ExerciseRecomPane";
 import "./HomeScreen.css"
 // import { Line } from "react-chartjs-2";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../../Components/Navigation/NavBar";
 import 'bootstrap/dist/css/bootstrap.css'
 
