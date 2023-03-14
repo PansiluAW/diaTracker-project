@@ -10,28 +10,11 @@ import { useRef } from "react";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.css";
 
-
-
-
-
+import MedicationPane from "../MedicationPane/MedicationPane";
 import SettingsPane from "../SettingsPane/SettingsPane";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import {IconContext} from 'react-icons';
+import { IconContext } from "react-icons";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script src="./src/Components/LineChart/LineChart"></script>;
 
@@ -73,51 +56,60 @@ export default function HomeLeftPane() {
     return result;
   }
 
+  const [sideSettingsBar, setSideSettingsBar] = useState(false);
 
+  const showSideSettingsbar = () => setSideSettingsBar(!sideSettingsBar);
 
-  const [sidebar, setSidebar] = useState(false);
+  const [sideMedicationsBar, setSideMedicationsBar] = useState(false);
 
-  const showSidebar = ()=> setSidebar(!sidebar)
-
-
-
-
-
-
+  const showSideMedicationbar = () =>
+    setSideMedicationsBar(!sideMedicationsBar);
 
   return (
     <>
       <div className="leftPaneBox">
         <div className="iconPane">
           <span>
-            <MedicationIcon fontSize="large" className="medicationIcon" />
-            <span className="vl"></span>
-
-
-
             <IconContext.Provider>
-              <div className="navBar">
-                <Link to="#" className="menue-bars">
-                  <SettingsIcon onClick={showSidebar} />
-                </Link>
-              </div>
-              <div className={sidebar ? "nav-menu active" : "nav-menue"}>
-                <ul className="nav-menu-items" onClick={showSidebar}>
-                  <li className="navbar-toggle">
-                    Settings
-                    <Link to="#" className="menu-bars">
-                      <KeyboardArrowLeftIcon />
-                    </Link>
-                  </li>
-                  <SettingsPane />
-                </ul>
+              <MedicationIcon
+                onClick={showSideMedicationbar}
+                fontSize="large"
+              />
+
+              <div
+                className={sideMedicationsBar ? "nav-menu active" : "nav-menue"}
+              >
+                <div>
+                  {sideMedicationsBar ? (
+                    <>
+                      <KeyboardArrowLeftIcon onClick={showSideMedicationbar} />
+                      <MedicationPane />
+                    </>
+                  ) : null}
+                </div>
               </div>
             </IconContext.Provider>
+          </span>
 
+          <span className="vl"></span>
+          <span>
+            <IconContext.Provider>
+              <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
 
-
-
-            {/* <SettingsIcon fontSize="large" className="settingsIcon" /> */}
+              <div
+                className={sideSettingsBar ? "nav-menu active" : "nav-menue"}
+              >
+                <div>
+                  {sideSettingsBar ? (
+                    <>
+                      Settings
+                      <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
+                      <SettingsPane />
+                    </>
+                  ) : null}
+                </div>
+              </div>
+            </IconContext.Provider>
           </span>
 
           <span>
