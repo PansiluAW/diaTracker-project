@@ -120,21 +120,22 @@ span {
   }
   .nav-menu {
     background-color: blueviolet;
-    width: 250px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+    width: 385px;
+    height: 60vh;
+    display:block;
+    /* justify-content:left; */
     position: fixed;
     top: 0;
     left: -100;
-    transition: 850ms;
+    transition: 50ms;
+    z-index: 1;
   }
   
   .nav-menu .active {
     display: flex;
-    justify-content: start;
+    justify-content: left;
     align-items: center;
     padding: 8px 0px 8px 16px;
-    list-style: none;
-    height: 60px;
+    height: 50px;
   }
+  
