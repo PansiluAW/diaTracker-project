@@ -3,15 +3,15 @@ import './navBar.css'
 import diatraclogo from "./diatraclogo.png";
 
 export default function NavBar() {
-    window.addEventListener("load", () => {
-        const loader = document.querySelector(".loader");
+    // window.addEventListener("load", () => {
+    //     const loader = document.querySelector(".loader");
       
-        loader.classList.add("loader--hidden");
+    //     loader.classList.add("loader--hidden");
       
-        loader.addEventListener("transitionend", () => {
-          document.body.removeChild(loader);
-        });
-      });
+    //     loader.addEventListener("transitionend", () => {
+    //       document.body.removeChild(loader);
+    //     });
+    //   });
   return (
     <>
         {/* <div class = "loader"></div> */}

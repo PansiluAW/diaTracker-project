@@ -103,3 +103,38 @@ span {
 .recentChanges{
     margin-left: 50px;
 }
+
+
+.navBar {
+    background-color: aqua;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .menu-bars {
+    margin-left: 2rem;
+    font-size: 2rem;
+    background-color: none;
+  }
+  .nav-menu {
+    background-color: blueviolet;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100;
+    transition: 850ms;
+  }
+  
+  .nav-menu .active {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    height: 60px;
+  }

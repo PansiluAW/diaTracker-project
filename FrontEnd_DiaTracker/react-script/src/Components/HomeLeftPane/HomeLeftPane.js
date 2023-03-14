@@ -9,6 +9,30 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useRef } from "react";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.css";
+
+
+
+
+
+import SettingsPane from "../SettingsPane/SettingsPane";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import {IconContext} from 'react-icons';
+import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./src/Components/LineChart/LineChart"></script>;
 
 export default function HomeLeftPane() {
@@ -49,6 +73,18 @@ export default function HomeLeftPane() {
     return result;
   }
 
+
+
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = ()=> setSidebar(!sidebar)
+
+
+
+
+
+
+
   return (
     <>
       <div className="leftPaneBox">
@@ -56,7 +92,32 @@ export default function HomeLeftPane() {
           <span>
             <MedicationIcon fontSize="large" className="medicationIcon" />
             <span className="vl"></span>
-            <SettingsIcon fontSize="large" className="settingsIcon" />
+
+
+
+            <IconContext.Provider>
+              <div className="navBar">
+                <Link to="#" className="menue-bars">
+                  <SettingsIcon onClick={showSidebar} />
+                </Link>
+              </div>
+              <div className={sidebar ? "nav-menu active" : "nav-menue"}>
+                <ul className="nav-menu-items" onClick={showSidebar}>
+                  <li className="navbar-toggle">
+                    Settings
+                    <Link to="#" className="menu-bars">
+                      <KeyboardArrowLeftIcon />
+                    </Link>
+                  </li>
+                  <SettingsPane />
+                </ul>
+              </div>
+            </IconContext.Provider>
+
+
+
+
+            {/* <SettingsIcon fontSize="large" className="settingsIcon" /> */}
           </span>
 
           <span>
