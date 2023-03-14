@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     background: #fbcd08;
-
     background-size: cover;
     font-family: 'open sans', sans-serif;
 }
@@ -34,7 +33,7 @@ h5 {
     transform: translate(-50%, -50%);
     padding: 55px 60px;
     border-radius: 8px;
-    background-color: #fbcd08;
+    background-color: white;
 }
 
 .card-header {
@@ -46,7 +45,7 @@ h5 {
 }
 
 .card-body {
-    padding: 5px;
+    padding: 100px;
     background-color: gray;
 }
 

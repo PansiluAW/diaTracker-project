@@ -2,7 +2,10 @@
 session_start();
 include('includes/header.php');
 ?>
-
+        <div class="loader"></div>
+        <div class="mainbox">
+        <img src="diatracker-logo-transparent.png" alt="diatracker-logo" width="600" class="logo">
+        </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class ="col-md-5 mt-5">
@@ -18,32 +21,32 @@ include('includes/header.php');
         
         
         
-        <div class="card">
+        <div class="box">
             <div class="card-header">
-                <h5>Register with us!</h5>
-                <p>Your information is safe with us</p>
+                <h1>Register here!</h1>
+ 
         </div>
         <div class="card-body">
             <form action="code.php" method="POST">
                 
             
-                <div class="form-group-mb-3">
-                    
+                <div class="myform2">
+                <p>Username</p>
                     <input type="text" name="username" class="form-control" placeholder="Enter Username" required="">
                 </div>
                 <br>
                 <div class="form-group-mb-3">
-                    
+                <p>Email</p>  
                     <input type="email" name="email" class="form-control" placeholder="Enter Email Address" required="">
                 </div>
                 <br>
                 <div class="form-group-mb-3">
-                    
+                <p>Password</p>
                     <input type="password" name="password1" class="form-control" placeholder="Enter Password" required="">
                 </div>
                 <br>
                 <div class="form-group-mb-3">
-                    
+                <p>Retype Password</p>
                     <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required="">
                 </div>
                 <?php 
@@ -53,13 +56,15 @@ include('includes/header.php');
                 </div>
                 <?php } ?>
                 <br>
-                <div class="form-group-mb-3 text-center">
-                    <button type="submit" name="register_now_btn" class="btn btn-primary" >Sign Up</button>
+                <div class="myform2 ">
+                    <input type="submit" name="register_now_btn" class="btn btn-primary"value="Register" ></input>
                 </div>
+                
                 <br>
                 <p class="text-center">Already have an account? <a href="login.php">Sign in</a></p>
 
             </form>
+            <script src="loading.js"></script>
         </div>    
     </div>
     </div>
