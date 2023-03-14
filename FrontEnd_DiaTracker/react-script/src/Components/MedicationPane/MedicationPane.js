@@ -1,7 +1,5 @@
 import React from "react";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { useState } from "react";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { useRef } from "react";
 import "./Medication.css";
 import OnGoingReminderPane from "../OnGoingReminderPane/OnGoingReminderPane";

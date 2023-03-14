@@ -9,12 +9,10 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useRef } from "react";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.css";
-
 import MedicationPane from "../MedicationPane/MedicationPane";
 import SettingsPane from "../SettingsPane/SettingsPane";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { IconContext } from "react-icons";
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 <script src="./src/Components/LineChart/LineChart"></script>;
 

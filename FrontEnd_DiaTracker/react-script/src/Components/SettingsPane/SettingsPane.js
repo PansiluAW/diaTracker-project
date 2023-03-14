@@ -1,8 +1,6 @@
 import React from "react";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import diatraclogo from "./diatraclogo.png";
 import "./SettingsPane.css";
-import { useState } from "react";
 
 export default function SettingsPane() {
   // const [isSettingsHide, setSettingsHide] = useState(false);
@@ -91,9 +89,6 @@ export default function SettingsPane() {
     //   </div>
     //   <p>We eat !</p>
     // </div>
-    
-
-
 
     <div className="SettingsPane">
       {/* {!isSettingsHide ? (
@@ -107,70 +102,69 @@ export default function SettingsPane() {
         } else setSettingsHide(true);
       }}
     /> */}
-          <table>
-            <tr>
-              <td>
-                <label>Select Language</label>
-              </td>
-              <td>
-                <select value={value1} onChange={handleChange1}>
-                  <option value="English">English</option>
+      <table>
+        <tr>
+          <td>
+            <label>Select Language</label>
+          </td>
+          <td>
+            <select value={value1} onChange={handleChange1}>
+              <option value="English">English</option>
 
-                  <option value="Sinhala">Sinhala</option>
-                </select>
-              </td>
-            </tr>
+              <option value="Sinhala">Sinhala</option>
+            </select>
+          </td>
+        </tr>
 
-            <tr>
-              <td>
-                <label>Enable Medication Reminder</label>
-              </td>
-              <td>
-                <select value={value2} onChange={handleChange2}>
-                  <option value="Enabled">Enabled</option>
+        <tr>
+          <td>
+            <label>Enable Medication Reminder</label>
+          </td>
+          <td>
+            <select value={value2} onChange={handleChange2}>
+              <option value="Enabled">Enabled</option>
 
-                  <option value="Disabled">Disabled</option>
-                </select>
-              </td>
-            </tr>
+              <option value="Disabled">Disabled</option>
+            </select>
+          </td>
+        </tr>
 
-            <tr>
-              <td>
-                <label>Enable Mindfulness Notification</label>
-              </td>
-              <td>
-                <select value={value3} onChange={handleChange3}>
-                  <option value="Enabled">Enabled</option>
+        <tr>
+          <td>
+            <label>Enable Mindfulness Notification</label>
+          </td>
+          <td>
+            <select value={value3} onChange={handleChange3}>
+              <option value="Enabled">Enabled</option>
 
-                  <option value="Disabled">Disabled</option>
-                </select>
-              </td>
-            </tr>
+              <option value="Disabled">Disabled</option>
+            </select>
+          </td>
+        </tr>
 
-            <tr>
-              <td>App Version</td>
-              <td>V1.0.0</td>
-            </tr>
+        <tr>
+          <td>App Version</td>
+          <td>V1.0.0</td>
+        </tr>
 
-            <tr>
-              <td>Developer Info</td>
-              <td>Team Aspire</td>
-            </tr>
+        <tr>
+          <td>Developer Info</td>
+          <td>Team Aspire</td>
+        </tr>
 
-            <tr>
-              <td>Privacy Policy</td>
-              <td>View Privacy Policies</td>
-            </tr>
-          </table>
-          <div className="logo">
-            <img src={diatraclogo} alt="Diatrac logo" />
-          </div>
-          <div className="copyRightSt">
-            DiaTracker Copyright &copy; 2022 - 2023 Team Aspire. All rights
-            reserved.
-          </div>
-          <p>We eat {value1}!</p>
-        
+        <tr>
+          <td>Privacy Policy</td>
+          <td>View Privacy Policies</td>
+        </tr>
+      </table>
+      <div className="logo">
+        <img src={diatraclogo} alt="Diatrac logo" />
+      </div>
+      <div className="copyRightSt">
+        DiaTracker Copyright &copy; 2022 - 2023 Team Aspire. All rights
+        reserved.
+      </div>
+      <p>We eat {value1}!</p>
     </div>
   );
 }

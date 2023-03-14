@@ -1,9 +1,7 @@
-.vl
-{
-    border-left: 2px solid #372e18;
+.vl {
+  border-left: 2px solid #372e18;
   height: 10px;
 }
-.deleteIcon
-{
-    cursor: pointer;
+.deleteIcon {
+  cursor: pointer;
 }

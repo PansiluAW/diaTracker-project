@@ -12,17 +12,19 @@ export default function OnGoingReminderPane(props) {
   };
   return (
     <>
-      
       {isDelete ? (
-        <><h3>On-Going Reminders</h3><div>
-          {updated}
-          <span className="vl"></span>
+        <>
+          <h3>On-Going Reminders</h3>
+          <div>
+            {updated}
+            <span className="vl"></span>
 
-          {value1}
-          <span className="vl"></span>
-          {/* <DeleteIcon className="deleteIcon" onClick={deleteInput} /> */}
-          <DeleteIcon className="deleteIcon" onClick={deleteInput} />
-        </div></>
+            {value1}
+            <span className="vl"></span>
+            {/* <DeleteIcon className="deleteIcon" onClick={deleteInput} /> */}
+            <DeleteIcon className="deleteIcon" onClick={deleteInput} />
+          </div>
+        </>
       ) : null}
     </>
   );
