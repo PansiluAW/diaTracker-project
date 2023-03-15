@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./HomeLeftPane.css";
 import LineChart from "../../Components/LineChart/LineChart";
 import AddBoxIcon from "@mui/icons-material/AddBox";
@@ -13,46 +13,81 @@ import MedicationPane from "../MedicationPane/MedicationPane";
 import SettingsPane from "../SettingsPane/SettingsPane";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { IconContext } from "react-icons";
+import axios from "axios";
 
 <script src="./src/Components/LineChart/LineChart"></script>;
 
 export default function HomeLeftPane() {
+  const current = new Date();
+  const date = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}`;
+  const [data, setData] = useState([["x", "Suger Level"]]);
+
+  const inputRef = useRef(null);
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // const getData = () => {
+  //   axios
+  //     .get("#")
+  //     .then((res) => res.data)
+  //     .then((r) => setData(r));
+  // };
+
+  const saveValue = async () => {
+
+    const currentInput = Number(inputRef.current.value);
+    if (currentInput) {
+      try {
+        const newRecord = [date, currentInput];
+        // await axios.post("#", newRecord);
+        setData((existingValues) => {
+          const currentValues = [...existingValues];
+          currentValues.push(newRecord);
+
+          return currentValues;
+        });
+      } catch (error) {}
+      inputRef.current.value = "";
+    }
+  };
+
   const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
     useState(false);
 
-  const inputRef = useRef(null);
-  const [updated, setUpdated] = useState("");
+  // const [updated, setUpdated] = useState("");
 
-  const clearInput = () => (inputRef.current.value = "");
+  // var recentSugarLevel;
+  // var previousSugarLevel;
+  // var result;
 
-  var recentSugarLevel;
-  var previousSugarLevel;
-  var result;
+  // const inputSugar = () => {
+  //   previousSugarLevel = updated;
+  //   setUpdated(inputRef.current.value);
+  //   recentSugarLevel = updated;
+  // };
 
-  const inputSugar = () => {
-    previousSugarLevel = updated;
-    setUpdated(inputRef.current.value);
-    recentSugarLevel = updated;
-  };
+  // function RecentSugarLevel() {
+  //   return recentSugarLevel;
+  // }
 
-  function RecentSugarLevel() {
-    return recentSugarLevel;
-  }
+  // function PreviousSugarLevel() {
+  //   return previousSugarLevel;
+  // }
 
-  function PreviousSugarLevel() {
-    return previousSugarLevel;
-  }
-
-  function RecentChanges() {
-    if (recentSugarLevel >= previousSugarLevel) {
-      result = recentSugarLevel - previousSugarLevel;
-      <ArrowDropUpIcon />;
-    } else {
-      result = previousSugarLevel = recentSugarLevel;
-      <ArrowDropDownIcon />;
-    }
-    return result;
-  }
+  // function RecentChanges() {
+  //   if (recentSugarLevel >= previousSugarLevel) {
+  //     result = recentSugarLevel - previousSugarLevel;
+  //     <ArrowDropUpIcon />;
+  //   } else {
+  //     result = previousSugarLevel = recentSugarLevel;
+  //     <ArrowDropDownIcon />;
+  //   }
+  //   return result;
+  // }
 
   const [sideSettingsBar, setSideSettingsBar] = useState(false);
 
@@ -123,7 +158,7 @@ export default function HomeLeftPane() {
           </span>
         </div>
         <div className="sugarcontainer sugarLineChart ">
-          <LineChart UpdatedSugarLevel={updated} />
+          <LineChart existingData={data} />
         </div>
         <div className="infopane subinfo1">
           <div className="col rounded subinfo" id="sub1">
@@ -145,15 +180,15 @@ export default function HomeLeftPane() {
               <div className="userInputSummery">
                 <div className="sugarLevelInfo">
                   Recent Sugar Level <br />
-                  <RecentSugarLevel /> mmol/L
+                  {/* <RecentSugarLevel /> mmol/L */}
                   <hr></hr>
                   Previous Sugar Level <br />
-                  <PreviousSugarLevel /> mmol/L
+                  {/* <PreviousSugarLevel /> mmol/L */}
                 </div>
                 <div className="recentChanges sugarLevelInfo ">
                   Recent Changes
                   <br />
-                  <RecentChanges />
+                  {/* <RecentChanges /> */}
                 </div>
               </div>
             </>
@@ -172,25 +207,17 @@ export default function HomeLeftPane() {
                     />
                   </Form.Group>
                 </Form>
-                {/* <div className="addInput">
-                  <input
-                    placeholder="mmol/L"
-                    type="number"
-                    ref={inputRef}
-                    className="addSugarLevel"
-                  />
-                </div> */}
                 <button
                   type="button"
                   class="btn mx-2 px-4 btn-outline-warning"
-                  onClick={inputSugar}
+                  onClick={() => saveValue()}
                 >
                   Add
                 </button>
                 <button
                   type="button"
                   class="btn mx-2 px-4 btn-warning"
-                  onClick={clearInput}
+                  onClick={() => (inputRef.current.value = "")}
                 >
                   Clear
                 </button>
