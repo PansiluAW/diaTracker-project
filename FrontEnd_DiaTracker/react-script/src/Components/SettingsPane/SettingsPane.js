@@ -1,6 +1,8 @@
 import React from "react";
 import diatraclogo from "./diatraclogo.png";
 import "./SettingsPane.css";
+import "bootstrap/dist/css/bootstrap.css";
+
 
 export default function SettingsPane() {
   // const [isSettingsHide, setSettingsHide] = useState(false);
@@ -102,7 +104,7 @@ export default function SettingsPane() {
         } else setSettingsHide(true);
       }}
     /> */}
-      <table>
+      <table className="table table-responsive justify-cotent-center">
         <tr>
           <td>
             <label>Select Language</label>
@@ -160,7 +162,7 @@ export default function SettingsPane() {
       <div className="logo">
         <img src={diatraclogo} alt="Diatrac logo" />
       </div>
-      <div className="copyRightSt">
+      <div className="copyRightSt text-center">
         DiaTracker Copyright &copy; 2022 - 2023 Team Aspire. All rights
         reserved.
       </div>
