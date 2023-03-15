@@ -4,28 +4,22 @@ import Chart from "react-google-charts";
 import axios from "axios";
 <script src="/scripts/bootstrap.min.js"></script>;
 
-export default function LineChart() {
-  const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+export default function LineChart({existingData}) {
+  console.log(existingData);
+  // const current = new Date();
+  // const date = `${current.getDate()}/${
+  //   current.getMonth() + 1
+  // }/${current.getFullYear()}`;
 
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    axios
-      .get("#")
-      .then((res) => res.data)
-      .then((r) => setData(r));
-  };
-
+  
+// for (let i = 0; i < data.length; i++) {
+//       [data.date, data.value]
+      
+//     }
   const LineData = [
-    ["x", "Suger Level"],
-    [date, 15],
+    // ["x", "Suger Level"],
+    
+    [0, 15],
     [1, 10],
     [2, 23],
     [3, 17],
@@ -60,7 +54,7 @@ export default function LineChart() {
         height={"410px"}
         chartType="LineChart"
         loader={<div>Loading Chart</div>}
-        data={LineData}
+        data={existingData}
         options={LineChartOptions}
         rootProps={{ "data-testid": "2" }}
       />

@@ -16,11 +16,13 @@ export default function MedicationPane() {
 
   const [isReminderPaneHide, setReminderPaneHide] = useState(false);
   const inputMedication = () => {
-    setUpdated(inputRef.current.value);
+    
     if ((updated === "") & (value1 === "")) {
+      
       setReminderPaneHide(isReminderPaneHide);
     } else {
-      setReminderPaneHide(!isReminderPaneHide);
+      setUpdated(inputRef.current.value);
+      // setReminderPaneHide(!isReminderPaneHide);
     }
   };
 
@@ -29,7 +31,7 @@ export default function MedicationPane() {
       <div className="medicationInput">
         <h3>Add New Reminder</h3>
         <div>
-          <form>
+          {/* <form> */}
             <table>
               <tr>
                 <td>
@@ -50,6 +52,7 @@ export default function MedicationPane() {
                 </td>
                 <td>
                   <select value={value1} onChange={handleChange1}>
+                  <option value=""></option>
                     <option value="Every 6 Hours">Every 6 Hours</option>
 
                     <option value="Every 4 Hours">Every 4 Hours</option>
@@ -59,12 +62,12 @@ export default function MedicationPane() {
               <button
                 className="addButton"
                 onClick={inputMedication}
-                type="submit"
+                
               >
                 Add
               </button>
             </table>
-          </form>
+          {/* </form> */}
         </div>
         <div className={isReminderPaneHide ? "nav-menu active" : "nav-menue"}>
           <div>
