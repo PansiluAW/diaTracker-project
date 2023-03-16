@@ -5,8 +5,11 @@
 
 .copyRightSt {
   font-size: smaller;
+  color: #372E18;
 }
 .SettingsPane{
+  width: 25.5%;
+  text-align: left;
   background:linear-gradient(90deg, #ffe263, #ffd930, #FBCD08, #eec200);
   border: 2px solid #372E18;
   padding-top: 20px;

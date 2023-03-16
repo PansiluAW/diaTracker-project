@@ -28,7 +28,6 @@ if(isset($_POST['login_now_btn']))
         } catch (FailedToVerifyToken $e) {
             echo 'The token is invalid: '.$e->getMessage();
         }
-
     } catch (\Kreait\Firebase\Exception\Auth\UserNotFound $e) {
         //echo $e->getMessage();
         $_SESSION['status'] = "<div class='error'>No Email Found</div>";

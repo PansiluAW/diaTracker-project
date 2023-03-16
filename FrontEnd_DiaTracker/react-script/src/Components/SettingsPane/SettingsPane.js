@@ -92,7 +92,7 @@ export default function SettingsPane() {
     //   <p>We eat !</p>
     // </div>
 
-    <div className="SettingsPane justify-cotent-center text-left pt-5">
+    <div className="SettingsPane text-wrap text-left pt-5">
       {/* {!isSettingsHide ? (
         <>
         Settings
@@ -104,7 +104,7 @@ export default function SettingsPane() {
         } else setSettingsHide(true);
       }}
     /> */}
-      <table className="table table-responsive justify-cotent-center mx-3">
+      <table className="table mx-4 table-responsive">
         <tr>
           <td>
             <label>Select Language</label>

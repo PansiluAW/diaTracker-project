@@ -103,9 +103,9 @@ export default function HomeLeftPane() {
       <div className="leftPaneBox">
         <div className="iconPane mx-auto">
           {/* <span className="vl"></span> */}
-          <span className="d-flex span-buttons justify-content-center align-items-center">
+          <span onClick={showSideSettingsbar} className="d-flex span-buttons justify-content-center sticky-top align-items-center">
             <IconContext.Provider>
-              <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
+              <SettingsIcon  fontSize="large" />
 
               <div
                 className={sideSettingsBar ? "nav-menu active" : "nav-menue"}
@@ -117,17 +117,18 @@ export default function HomeLeftPane() {
                         <KeyboardArrowLeftIcon  />
                         Settings
                       </div>
-                      <SettingsPane />
+                      <div className="top-panes">                        
+                      <SettingsPane/>
+                      </div>
                     </>
                   ) : null}
                 </div>
               </div>
             </IconContext.Provider>
           </span>
-          <span className="span-buttons d-flex justify-content-center align-items-center">
+          <span onClick={showSideMedicationbar} className="span-buttons d-flex justify-content-center sticky-top align-items-center">
             <IconContext.Provider>
               <MedicationIcon
-                onClick={showSideMedicationbar}
                 fontSize="large"
               />
 
@@ -137,11 +138,11 @@ export default function HomeLeftPane() {
                 <div>
                   {sideMedicationsBar ? (
                     <>
-                    <div onClick={showSideMedicationbar} className="medication-reminder-block d-flex">
+                    <div onClick={showSideMedicationbar} className="d-flex justify-content-center medication-reminder-block pt-2">
                       <KeyboardArrowLeftIcon/>
-                      <h3 className="pb-4">Add New Reminder</h3>
+                      <h3 className="pb-2 title-font">Add New Reminder</h3>
                     </div>
-                      <MedicationPane />
+                      <MedicationPane/>
                     </>
                   ) : null}
                 </div>
@@ -149,15 +150,14 @@ export default function HomeLeftPane() {
             </IconContext.Provider>
           </span>
 
-          <span className="d-flex span-buttons justify-content-center align-items-center">
-            <AddBoxIcon
-              fontSize="large"
-              className="addBoxIcon"
-              onClick={() => {
+          <span onClick={() => {
                 if (isUpdatingTheSugarLevelValue === true) {
                   setIsUpdatingTheSugarLevelValue(false);
                 } else setIsUpdatingTheSugarLevelValue(true);
-              }}
+              }} className="d-flex span-buttons justify-content-center align-items-center">
+            <AddBoxIcon
+              fontSize="large"
+              className="addBoxIcon"              
             />
           </span>
         </div>
@@ -181,7 +181,7 @@ export default function HomeLeftPane() {
         <div className="userInputInfo addsugarcontainer">
           {!isUpdatingTheSugarLevelValue ? (
             <>              
-            <h2>Add New Sugar Level</h2>
+            <h2>Summary</h2>
             <div className="userInputSummery d-flex justify-content-center">
               
                 <div className="sugarLevelInfo py-4 px-5 mx-2">

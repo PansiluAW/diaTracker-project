@@ -27,7 +27,7 @@ export default function MedicationPane() {
   };
 
   return (
-    <div className="medicationPane d-flex justify-content-center flex-nowrap">
+    <div className="medicationPane d-flex justify-content-center flex-nowrap pt-4">
       <div className="medicationInput">
         <div>
           {/* <form> */}
@@ -47,10 +47,10 @@ export default function MedicationPane() {
               </tr>
               <tr>
                 <td>
-                  <label>Remainder At :</label>
+                  <label className="pt-2">Remainder At :</label>
                 </td>
                 <td>
-                  <select value={value1} class="option-pane" onChange={handleChange1}>
+                  <select value={value1} class="option-pane mt-2" onChange={handleChange1}>
                     <option value="1">Every 1 Hour</option>
                     <option value="6">Every 6 Hours</option>
                     <option value="4">Every 4 Hours</option>
