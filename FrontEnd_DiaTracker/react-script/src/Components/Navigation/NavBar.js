@@ -21,7 +21,7 @@ export default function NavBar() {
               <a href="#">Contact</a>
             </li>
             <li>
-              <a href="#">Log In</a>
+              <a href="#">Log Out</a>
             </li>
           </ul>
         </nav>

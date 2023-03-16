@@ -8,7 +8,11 @@
   padding-bottom: 20px;
   border-radius: 100px;
 }
-.addsugarsontainer {
+.nav-background{
+  background-color: #FBCD08;
+  border-bottom: 1px solid #b39200;
+}
+.addsugarcontainer {
   text-align: center;
   border-radius: 10px;
   background-color: #372e18;
@@ -55,6 +59,9 @@ hr {
 .userInputSummery {
   display: flex;
 }
+.setting-pane{
+  z-index: 999;
+}
 .vl {
   border-left: 2px solid #372e18;
   margin-left: 5px;
@@ -62,6 +69,7 @@ hr {
   height: 30px;
 }
 .iconPane {
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
   max-width: 400px;
@@ -70,38 +78,132 @@ hr {
 
   padding: 5px 0;
 }
-span {
-  width: 100px;
-  height: 50px;
+/* .span-buttons {
+  width: 80px;
+  height: 80px;
   background-color: #ffe159 !important;
-  border-radius: 10px;
+  border-radius: 100%;
   align-content: center;
 }
+.span-buttons:hover{
+  box-shadow: 0 0 20px #372e18;
+} */
+
+
+.span-buttons {
+  width: 80px;
+  height: 80px;
+  border: none;
+  outline: none;
+  color: #372e18;
+  background: #fbcd08;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  text-align: center;
+  padding: 1.5%;
+  border-radius: 100%;
+  font-weight: 400;
+}
+
+.span-buttons:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #fbcd08,
+    #372e18,
+    black,
+    #fbcd08,
+    #372e18,
+    black
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 40s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 100%;
+}
+
+.span-buttons:active {
+  color: #fbcd08;
+}
+.span-buttons:not(active) {
+  transition: 400ms;
+}
+
+.span-buttons:active:after {
+  background: #372e18;
+  box-shadow: 0 0 20px #372e18;
+  transition: 100ms;
+}
+
+.span-buttons:hover:before {
+  opacity: 1;
+}
+
+.span-buttons:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #ffda34;
+  left: 0;
+  top: 0;
+  border-radius: 100%;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 
 .addBoxIcon,
 .settingsIcon,
 .medicationIcon {
   cursor: pointer;
 }
+.changes-data{
+  font-size: 20px;
+}
+.changes-data-recent{
+  padding-top: 10px;
+  font-size: 50px;
+}
 .sugarLevelInfo {
+  padding-top: 8%;
+  height: 12em;
+  width: 20em;
   text-align: center;
   margin: 2% 0 5% 0;
-  padding-top: 2%;
-  background-color: #ffe159 !important;
+  background:linear-gradient(90deg, #ffe263, #ffd930, #FBCD08, #eec200) !important;
+  color: #372e18;
   border-radius: 10px;
   padding-left: 5%;
   padding-right: 5%;
 }
 .sugarLevelInfo:hover {
-  box-shadow: 0 1px 10px #372e18;
+  box-shadow: 0 1px 20px #9e7a1e;
   transition: 300ms;
 }
-.recentChanges {
-  margin-left: 50px;
-}
+
 
 .navBar {
-  background-color: aqua;
   height: 80px;
   display: flex;
   justify-content: start;
@@ -113,10 +215,28 @@ span {
   font-size: 2rem;
   background-color: none;
 }
+.medication-reminder-block:hover{
+  background-color: #FBCD08;
+  transition: 100ms;
+  color: #372e18;
+  border: 8px inset #372e18;
+}
+.medication-pane{
+  border-radius: 10px;
+}
+.medication-reminder-block:not(:hover){
+ transition: 500ms;
+ border: 8px inset #372e18;
+ background-color: #372e18;
+ color: #FBCD08;
+}
 .nav-menu {
-  background-color: blueviolet;
+  /* background:linear-gradient(90deg, #ffe263, #ffd930, #FBCD08, #eec200); */
+  background:linear-gradient(90deg, #4e4630, #4d4227, #41371e, #372e18) !important;
+  color: #FBCD08;
   width: 385px;
   height: 60vh;
+  border-radius: 10px;
   display: block;
   /* justify-content:left; */
   position: fixed;
@@ -132,4 +252,17 @@ span {
   align-items: center;
   padding: 8px 0px 8px 16px;
   height: 50px;
+}
+.settings-block:hover{
+  background-color: #FBCD08;
+  transition: 100ms;
+  color: #372e18;
+  border: 8px inset #372e18;
+}
+
+.settings-block:not(:hover){
+ transition: 500ms;
+ border: 8px inset #372e18;
+ background-color: #372e18;
+ color: #FBCD08;
 }

@@ -27,9 +27,8 @@ export default function MedicationPane() {
   };
 
   return (
-    <div className="medicationPane">
+    <div className="medicationPane d-flex justify-content-center flex-nowrap">
       <div className="medicationInput">
-        <h3>Add New Reminder</h3>
         <div>
           {/* <form> */}
             <table>
@@ -51,22 +50,29 @@ export default function MedicationPane() {
                   <label>Remainder At :</label>
                 </td>
                 <td>
-                  <select value={value1} onChange={handleChange1}>
-                  <option value=""></option>
-                    <option value="Every 6 Hours">Every 6 Hours</option>
-
-                    <option value="Every 4 Hours">Every 4 Hours</option>
+                  <select value={value1} class="option-pane" onChange={handleChange1}>
+                    <option value="1">Every 1 Hour</option>
+                    <option value="6">Every 6 Hours</option>
+                    <option value="4">Every 4 Hours</option>
                   </select>
                 </td>
               </tr>
+              </table>
+              <div className="container">
+              <div className="row pt-4 px-1">
+              <div className="col-sm-12">
+              <div className="d-flex justify-content-end">
+              <hr className="w-100 mx-1 "></hr>
               <button
-                className="addButton"
+                className="btn btn-outline-warning"
                 onClick={inputMedication}
-                
               >
                 Add
               </button>
-            </table>
+              </div>
+              </div>
+              </div>
+              </div>
           {/* </form> */}
         </div>
         <div className={isReminderPaneHide ? "nav-menu active" : "nav-menue"}>

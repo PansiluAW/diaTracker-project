@@ -101,8 +101,30 @@ export default function HomeLeftPane() {
   return (
     <>
       <div className="leftPaneBox">
-        <div className="iconPane">
-          <span>
+        <div className="iconPane mx-auto">
+          {/* <span className="vl"></span> */}
+          <span className="d-flex span-buttons justify-content-center align-items-center">
+            <IconContext.Provider>
+              <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
+
+              <div
+                className={sideSettingsBar ? "nav-menu active" : "nav-menue"}
+              >
+                <div>
+                  {sideSettingsBar ? (
+                    <>
+                      <div className="settings-block p-2" onClick={showSideSettingsbar}>
+                        <KeyboardArrowLeftIcon  />
+                        Settings
+                      </div>
+                      <SettingsPane />
+                    </>
+                  ) : null}
+                </div>
+              </div>
+            </IconContext.Provider>
+          </span>
+          <span className="span-buttons d-flex justify-content-center align-items-center">
             <IconContext.Provider>
               <MedicationIcon
                 onClick={showSideMedicationbar}
@@ -115,7 +137,10 @@ export default function HomeLeftPane() {
                 <div>
                   {sideMedicationsBar ? (
                     <>
-                      <KeyboardArrowLeftIcon onClick={showSideMedicationbar} />
+                    <div onClick={showSideMedicationbar} className="medication-reminder-block d-flex">
+                      <KeyboardArrowLeftIcon/>
+                      <h3 className="pb-4">Add New Reminder</h3>
+                    </div>
                       <MedicationPane />
                     </>
                   ) : null}
@@ -124,28 +149,7 @@ export default function HomeLeftPane() {
             </IconContext.Provider>
           </span>
 
-          {/* <span className="vl"></span> */}
-          <span>
-            <IconContext.Provider>
-              <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
-
-              <div
-                className={sideSettingsBar ? "nav-menu active" : "nav-menue"}
-              >
-                <div>
-                  {sideSettingsBar ? (
-                    <>
-                      Settings
-                      <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
-                      <SettingsPane />
-                    </>
-                  ) : null}
-                </div>
-              </div>
-            </IconContext.Provider>
-          </span>
-
-          <span>
+          <span className="d-flex span-buttons justify-content-center align-items-center">
             <AddBoxIcon
               fontSize="large"
               className="addBoxIcon"
@@ -174,27 +178,33 @@ export default function HomeLeftPane() {
             <p>215-380 mmol/L</p>
           </div>
         </div>
-        <div className="userInputInfo">
+        <div className="userInputInfo addsugarcontainer">
           {!isUpdatingTheSugarLevelValue ? (
-            <>
-              <div className="userInputSummery">
-                <div className="sugarLevelInfo">
-                  Recent Sugar Level <br />
-                  {/* <RecentSugarLevel /> mmol/L */}
-                  <hr></hr>
+            <>              
+            <h2>Add New Sugar Level</h2>
+            <div className="userInputSummery d-flex justify-content-center">
+              
+                <div className="sugarLevelInfo py-4 px-5 mx-2">
+                  <div className="pt-3 pb-2">
+                    Recent Sugar Level <br />
+                    <div className="changes-data">{/* <RecentSugarLevel /> mmol/L */}</div>
+                  </div>
+                  <hr className="mx-auto mt-3"></hr>
+                  <div className="pt-1">
                   Previous Sugar Level <br />
-                  {/* <PreviousSugarLevel /> mmol/L */}
+                  <div className="changes-data">{/* <PreviousSugarLevel /> mmol/L */}</div>
+                  </div>
                 </div>
-                <div className="recentChanges sugarLevelInfo ">
+                <div className="px-5 mx-2 sugarLevelInfo ">
                   Recent Changes
                   <br />
-                  {/* <RecentChanges /> */}
+                  <div className="changes-data-recent">{/* <RecentChanges /> */}</div>
                 </div>
               </div>
             </>
           ) : (
             <>
-              <div className="inputPane addsugarsontainer">
+              <div className="addsugarcontainer">
                 <h2>Add New Sugar Level</h2> <br />
                 <Form>
                   <Form.Group className="mb-3" controlId="addsugar">

@@ -9,5 +9,6 @@
 .SettingsPane{
   background:linear-gradient(90deg, #ffe263, #ffd930, #FBCD08, #eec200);
   border: 2px solid #372E18;
+  padding-top: 20px;
   border-radius: 10px;
 }

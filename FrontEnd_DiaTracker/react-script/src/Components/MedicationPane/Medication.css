@@ -5,3 +5,13 @@
 .deleteIcon {
   cursor: pointer;
 }
+.option-pane{
+  background-color: #FBCD08;
+  border-radius: 5px;
+}
+.addMedicationName{
+  background-color: #FBCD08;
+}
+.medication-pane{
+  border-radius: 10px;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
+import "bootstrap/dist/css/bootstrap.css";
+
 
 export default function OnGoingReminderPane(props) {
   const updated = props.mediName;

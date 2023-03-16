@@ -92,7 +92,7 @@ export default function SettingsPane() {
     //   <p>We eat !</p>
     // </div>
 
-    <div className="SettingsPane">
+    <div className="SettingsPane justify-cotent-center text-left pt-5">
       {/* {!isSettingsHide ? (
         <>
         Settings
@@ -104,7 +104,7 @@ export default function SettingsPane() {
         } else setSettingsHide(true);
       }}
     /> */}
-      <table className="table table-responsive justify-cotent-center">
+      <table className="table table-responsive justify-cotent-center mx-3">
         <tr>
           <td>
             <label>Select Language</label>
@@ -145,24 +145,24 @@ export default function SettingsPane() {
         </tr>
 
         <tr>
-          <td>App Version</td>
+          <td><label>App Version</label></td>
           <td>V1.0.0</td>
         </tr>
 
         <tr>
-          <td>Developer Info</td>
+          <td><label>Developer Info</label></td>
           <td>Team Aspire</td>
         </tr>
 
         <tr>
-          <td>Privacy Policy</td>
+          <td><label>Privacy Policy</label></td>
           <td>View Privacy Policies</td>
         </tr>
       </table>
-      <div className="logo mx-auto">
+      <div className="pt-5 mt-5 pb-1 logo mx-auto">
         <img src={diatraclogo} className="" alt="Diatrac logo" />
       </div>
-      <div className="copyRightSt text-center">
+      <div className="py-4 pb-5 copyRightSt text-center">
         DiaTracker Copyright &copy; 2022 - 2023 Team Aspire. All rights
         reserved.
       </div>

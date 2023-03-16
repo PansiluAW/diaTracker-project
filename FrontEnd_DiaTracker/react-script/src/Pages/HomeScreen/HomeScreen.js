@@ -19,7 +19,7 @@ export default function HomeScreen() {
     <>
       <Router>
         <div className="container-fluid pt-2 pb-5 homebod">
-          <NavBar />
+          <div className="sticky-top nav-background mb-3"><NavBar /></div>
           <div className="row">
             <div className="col">
               <HomeLeftPane />
