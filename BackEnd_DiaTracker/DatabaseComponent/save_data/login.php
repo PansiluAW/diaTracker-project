@@ -1,3 +1,11 @@
+<?php
+    if(isset($_COOKIE['username'])){
+        header('Location:../../../FrontEnd_DiaTracker/react-script/src/App.js');
+        exit;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +29,8 @@
         $result = mysqli_query($con, $query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
-            $_SESSION['username'] = $username;
+            setcookie("username", $username, time()+2592000);
+            // $_SESSION['username'] = $username;
             // Redirect to user dashboard page
             header("Location: dashboard.php");
         } else {

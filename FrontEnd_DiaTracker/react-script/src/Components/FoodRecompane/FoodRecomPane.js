@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import "./FoodRecomPane.css"
+import "../FoodRecompane/FoodRecomData.js"
 
 export default function FoddRecomPane() {
   const [data, setData] = useState([]);

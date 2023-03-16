@@ -7,7 +7,7 @@
   font-size: smaller;
 }
 .SettingsPane{
-  background:linear-gradient(90deg, #b79913, #ceab10, #FBCD08);
+  background:linear-gradient(90deg, #ffe263, #ffd930, #FBCD08, #eec200);
   border: 2px solid #372E18;
   border-radius: 10px;
 }

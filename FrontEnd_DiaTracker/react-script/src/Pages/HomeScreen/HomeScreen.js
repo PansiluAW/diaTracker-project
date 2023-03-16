@@ -8,8 +8,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../../Components/Navigation/NavBar";
 import "bootstrap/dist/css/bootstrap.css";
 
-export default function HomeScreen() {
+//retrieve cookie
+import Cookies from 'js-cookie'
 
+export default function HomeScreen() {
+  //retrieve cookie
+  const username = Cookies.get('username');
 
   return (
     <>

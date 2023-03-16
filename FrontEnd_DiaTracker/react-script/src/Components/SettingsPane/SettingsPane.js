@@ -159,14 +159,13 @@ export default function SettingsPane() {
           <td>View Privacy Policies</td>
         </tr>
       </table>
-      <div className="logo">
-        <img src={diatraclogo} alt="Diatrac logo" />
+      <div className="logo mx-auto">
+        <img src={diatraclogo} className="" alt="Diatrac logo" />
       </div>
       <div className="copyRightSt text-center">
         DiaTracker Copyright &copy; 2022 - 2023 Team Aspire. All rights
         reserved.
       </div>
-      <p>We eat {value1}!</p>
     </div>
   );
 }

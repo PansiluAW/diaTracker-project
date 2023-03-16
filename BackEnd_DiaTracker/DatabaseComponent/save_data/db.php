@@ -3,11 +3,13 @@
     $servername = "localhost";
     $username = "username";
     $password = "";
-    $dbname = "LoginSystem";
+    $dbname = "diaTracker_login_system";
     
-    $con = mysqli_connect("localhost","root","","LoginSystem");
+    $con = mysqli_connect($servername, $username, $password, $dbname);
     // Check connection
     if (mysqli_connect_errno()){
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        echo '<script type="text/javascript">';
+        echo 'alert("Urgh...an unexpected error occured")';
+        echo '<scipt>';
     }
 ?>
