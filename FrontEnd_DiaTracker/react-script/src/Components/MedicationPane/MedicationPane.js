@@ -40,7 +40,7 @@ export default function MedicationPane() {
                   <input
                     type="text"
                     ref={inputRef}
-                    className="addMedicationName"
+                    className="addMedicationName rounded"
                     required
                   />
                 </td>
@@ -64,7 +64,7 @@ export default function MedicationPane() {
               <div className="d-flex justify-content-end">
               <hr className="w-100 mx-1 "></hr>
               <button
-                className="btn btn-outline-warning"
+                className="btn btn-warning border-dark"
                 onClick={inputMedication}
               >
                 Add

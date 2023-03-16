@@ -239,8 +239,9 @@ hr {
 }
 .nav-menu {
   /* background:linear-gradient(90deg, #ffe263, #ffd930, #FBCD08, #eec200); */
-  background:linear-gradient(90deg, #4e4630, #4d4227, #41371e, #372e18) !important;
-  color: #FBCD08;
+  background:linear-gradient(90deg, #ffe263, #ffd930, #FBCD08, #eec200) !important;
+  color: #372e18;
+  border: 2px solid #372e18;
   width: 385px;
   height: 60vh;
   border-radius: 10px;

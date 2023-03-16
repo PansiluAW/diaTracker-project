@@ -12,6 +12,10 @@
 .addMedicationName{
   background-color: #FBCD08;
 }
+button:active{
+  background-color:#372e18 !important;
+  color: #FBCD08 !important;
+}
 .medication-pane{
   border-radius: 10px;
 }
