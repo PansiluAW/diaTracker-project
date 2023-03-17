@@ -17,8 +17,13 @@ include('database_connection.php');
         echo '</script>';
     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $date = $_POST['date'];
-        $sugar_data = $_POST['currentInput'];
+        $last_update = end($_POST);
+        $date = $last_update['date'];
+        $sugar_data = $last_update['currentInput'];
+
+        echo '<script type="text/javascript">';
+        echo 'alert("'.$date[1].'")';
+        echo '</script>'; 
 
         // $sugar_data = json_decode(file_get_contents(""))
         $SQL_INSERT = "INSERT INTO hello(added_date,sugar_data)
