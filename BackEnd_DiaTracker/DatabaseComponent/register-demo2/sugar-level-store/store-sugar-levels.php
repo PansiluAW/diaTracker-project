@@ -2,7 +2,7 @@
 include('database_connection.php');
 if (isset($_COOKIE['username'])){
     $SQL_TABLE = "CREATE TABLE IF NOT EXISTS $_COOKIE['username'] (
-        entry_no INT(1000) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        data DATE,
         sugar_data INT(1000) NOT NULL
     )";
 
@@ -17,8 +17,9 @@ if (isset($_COOKIE['username'])){
     }else{
     }
 
+    $sugar_data = json_decode(file_get_contents(""))
     $SQL_INSERT = "INSERT INTO $_COOKIE['username'](sugar_data)
-    VALUES ('$sugar_data')"
+    VALUES ('$data, $sugar_data')"
 
     if (mysqli_query($conn,$SQL_INSERT)){
         echo '<script type="text/javascript">';

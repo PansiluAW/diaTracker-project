@@ -43,7 +43,7 @@ export default function HomeLeftPane() {
     if (currentInput) {
       try {
         const newRecord = [date, currentInput];
-        // await axios.post("#", newRecord);
+        await axios.post("../../../../../../BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php", newRecord);
         setData((existingValues) => {
           const currentValues = [...existingValues];
           currentValues.push(newRecord);
