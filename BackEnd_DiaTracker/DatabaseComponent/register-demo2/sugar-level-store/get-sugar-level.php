@@ -13,11 +13,11 @@ if (isset($_COOKIE['username'])){
         if ($execSQL){
             echo '<script type="text/javascript">';
             echo 'alert("Data Successfully retireved into the system")';
-            echo '<scipt>';   
+            echo '</script>';   
         }else{
             echo '<script type="text/javascript">';
             echo 'alert("Urgh...an unexpected error occured")';
-            echo '<scipt>';
+            echo '</script>';
         }
 
         $arrayp = mysqli_fetch_array($execSQL)    
