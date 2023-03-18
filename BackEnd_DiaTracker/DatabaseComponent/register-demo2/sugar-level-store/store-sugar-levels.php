@@ -3,7 +3,7 @@ include('database_connection.php');
 // if (isset($_COOKIE['username'])){
     $SQL_TABLE = "CREATE TABLE IF NOT EXISTS hello (
         added_date DATE,
-        sugar_data INT(1000) NOT NULL
+        sugar_data INT(200) NOT NULL
     )";
 
     $execSQL = mysqli_query($conn, $SQL_TABLE);
