@@ -41,9 +41,7 @@ export default function HomeLeftPane() {
     if (currentInput) {
       try {
         const newRecord = [date, currentInput];
-        console.log(newRecord);
         const response = await  axios.post("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php", {date:date, currentInput:currentInput});
-        console.log(response.data);
         setData((existingValues) => {
           const currentValues = [...existingValues];
           currentValues.push(newRecord);
