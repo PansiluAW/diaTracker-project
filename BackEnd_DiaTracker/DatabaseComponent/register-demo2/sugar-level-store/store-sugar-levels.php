@@ -1,9 +1,11 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 include('database_connection.php');
 // if (isset($_COOKIE['username'])){
     $SQL_TABLE = "CREATE TABLE IF NOT EXISTS hello (
         added_date DATE,
-        sugar_data INT(1000) NOT NULL
+        sugar_data INT(200) NOT NULL
     )";
 
     $execSQL = mysqli_query($conn, $SQL_TABLE);
@@ -17,14 +19,17 @@ include('database_connection.php');
         echo '</script>';
     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $last_update = end($_POST);
-        $date = $last_update['date'];
-        $sugar_data = $last_update['currentInput'];
+        // $last_index = count($_POST)-1;
+        // $last_update = $_POST[$last_index];
+        $data = json_decode(file_get_contents("php://input"), true);
+        $date = $data['date'];
+        $sugar_data = $data['currentInput'];
 
-        echo '<script type="text/javascript">';
-        echo 'alert("'.$date[1].'")';
-        echo '</script>'; 
-
+        echo "Date: ".$date."\n";
+        echo "Current Input: ".$sugar_data."\n";
+        // $date = $_POST['date'];
+        // $sugar_data = $_POST['date'];
+        
         // $sugar_data = json_decode(file_get_contents(""))
         $SQL_INSERT = "INSERT INTO hello(added_date,sugar_data)
         VALUES ('$date', '$sugar_data')";
@@ -37,6 +42,7 @@ include('database_connection.php');
             echo '<script type="text/javascript">';
             echo 'alert("Urgh...an unexpected error occured")';
             echo '</script>';
+            exit();
         }
     }
     mysqli_close($conn);
