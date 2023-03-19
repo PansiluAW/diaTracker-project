@@ -6,11 +6,16 @@ include('database_connection.php');
 // if (isset($_COOKIE['username'])){
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         //FROM $_COOKIE['username'] as the table name
-        $SQL_SELECT = "SELECT sugar_data  FROM hello ORDER BY added_date DESC LIMIT 10";
+        $SQL_SELECT = "SELECT added_date, sugar_data  FROM hello ORDER BY added_date DESC LIMIT 10";
 
         $execSQL = mysqli_query($conn,$SQL_SELECT);
 
         if ($execSQL){
+            $result = array();
+            // while($row = mysqli_fetch_array($execSQL)){
+            //     $data[] = $row;
+            // }
+            // echo json_encode($data);
             echo '<script type="text/javascript">';
             echo 'alert("Data Successfully retireved into the system")';
             echo '</script>';   
