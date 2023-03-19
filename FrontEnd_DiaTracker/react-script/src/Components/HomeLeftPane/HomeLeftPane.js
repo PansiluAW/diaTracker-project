@@ -24,16 +24,38 @@ export default function HomeLeftPane() {
 
   const inputRef = useRef(null);
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  axios
+      .get("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php")
+      .then((response) => {
+        const data = JSON.parse(response.data.replace('<script type="text/javascript">alert("Data Successfully retireved into the system")</script>', ''))
+        if(Array.isArray(data)){
+          const formattedData = data.map(([added_data, sugar_data]) =>{
+            return [added_data, parseInt(sugar_data)];
+          })
+          setData(formattedData);
+          console.log(formattedData);
+        }else{
+          console.log("response.data is not an array : ", response.data)
+        }
+        // if (Array.isArray(response.data)){
+        //   setData(response.data.map(([date, sugarLevel]) => [date, parseInt(sugarLevel)]));
+        // }else{
+        //   alert("Mmm Hmm... An unexpected error occuered.");  
+        // }
+        // const formattedData = response.data.map((entry) => {
+        //   return [entry[0], parseInt(entry[1])];
+        // });
+        // setData(formattedData);
+        // console.log(formattedData);
+      }).catch((error) => {
+        console.log(error);
+        alert("Mmm... An unexpected error occuered.");  
 
-  // const getData = () => {
-  //   axios
-  //     .get("#")
-  //     .then((res) => res.data)
-  //     .then((r) => setData(r));
-  // };
+        
+      });
+      // .then((res) => res.data)
+      // .then((r) => setData(r));
+  };
 
   const saveValue = async () => {
     
