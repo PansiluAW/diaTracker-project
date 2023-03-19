@@ -9,6 +9,9 @@
 session_start();  
 if(isset($_SESSION['verified_user_id'])) {
     $_SESSION['status'] = "You are already Logged in ";
+
+     // set a cookie to remember the user
+     setcookie('remember_me', $user['id'], time() + (86400 * 30), "/"); // set for 30 days
     header("Location: home.php");
     exit();
 }

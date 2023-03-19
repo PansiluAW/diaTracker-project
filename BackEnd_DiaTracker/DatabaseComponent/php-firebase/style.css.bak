@@ -129,7 +129,7 @@ a:hover
     position: relative;
     
 	z-index: 9999;
-	margin-top: -25px;
+	margin-top: -20px;
 }
 
 @keyframes pulse {
