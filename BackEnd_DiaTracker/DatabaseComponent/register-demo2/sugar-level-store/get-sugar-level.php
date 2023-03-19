@@ -1,23 +1,23 @@
 <?php
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-// header("Access-Control-Allow-Header: Content-Type, Authorization");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 
 include('database_connection.php');
-if (isset($_COOKIE['username'])){
+// if (isset($_COOKIE['username'])){
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        $SQL_SELECT = "SELECT sugar_data FROM $_COOKIE['username'] ORDER BY entry_no DESC LIMIT 10";
+        //FROM $_COOKIE['username'] as the table name
+        $SQL_SELECT = "SELECT sugar_data  FROM hello ORDER BY added_date DESC LIMIT 10";
 
         $execSQL = mysqli_query($conn,$SQL_SELECT);
 
         if ($execSQL){
             echo '<script type="text/javascript">';
             echo 'alert("Data Successfully retireved into the system")';
-            echo '<scipt>';   
+            echo '</script>';   
         }else{
             echo '<script type="text/javascript">';
             echo 'alert("Urgh...an unexpected error occured")';
-            echo '<scipt>';
+            echo '</script>';
         }
 
         $arrayp = mysqli_fetch_array($execSQL)    
@@ -25,7 +25,7 @@ if (isset($_COOKIE['username'])){
     }
     mysqli_close($conn);
     // echo json_encode($arrayp);
-}else{
-    header('Location:  ../save_data/login.php')
-}
+// }else{
+//     header('Location:  ../save_data/login.php')
+// }
 ?>

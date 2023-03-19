@@ -1,7 +1,7 @@
 <?php
     // Enter  host name, database username, password, and database name.
     $servername = "localhost";
-    $username = "username";
+    $username = "root";
     $password = "";
     $dbname = "diaTracker_login_system";
     

@@ -5,7 +5,6 @@ import axios from "axios";
 <script src="/scripts/bootstrap.min.js"></script>;
 
 export default function LineChart({existingData}) {
-  console.log(existingData);
   // const current = new Date();
   // const date = `${current.getDate()}/${
   //   current.getMonth() + 1

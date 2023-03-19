@@ -19,9 +19,7 @@ import axios from "axios";
 
 export default function HomeLeftPane() {
   const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  const date = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
   const [data, setData] = useState([["x", "Suger Level"]]);
 
   const inputRef = useRef(null);
@@ -43,14 +41,17 @@ export default function HomeLeftPane() {
     if (currentInput) {
       try {
         const newRecord = [date, currentInput];
-        await axios.post("../../../../../../BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php", newRecord);
+        console.log(newRecord);
+        const response = await  axios.post("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php", {date:date, currentInput:currentInput});
+        console.log(response.data);
         setData((existingValues) => {
           const currentValues = [...existingValues];
           currentValues.push(newRecord);
-
           return currentValues;
         });
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
       inputRef.current.value = "";
     }
   };
