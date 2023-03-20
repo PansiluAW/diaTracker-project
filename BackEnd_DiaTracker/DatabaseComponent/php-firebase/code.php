@@ -23,7 +23,13 @@ if(isset($_POST['register_now_btn']))
        exit();
    }
 
-
+   // Check if email already exists in Firebase
+   $user = $auth->getUserByEmail($email);
+   if ($user) {
+       $_SESSION['status'] = "<div class='error'>User with this email already exists</div>";
+       header("Location: register.php");
+       exit();
+   }
 
    $userProperties = [
     'email' => $email,
@@ -44,6 +50,7 @@ else
     header("Location: register.php");
 }
 }
+
 
 
 
