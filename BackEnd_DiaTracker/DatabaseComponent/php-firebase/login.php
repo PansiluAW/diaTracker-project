@@ -1,11 +1,4 @@
 <?php
-    if(isset($_COOKIE['username'])){
-        header('Location:../../../FrontEnd_DiaTracker/react-script/src/App.js');
-        exit;
-    }
-?>
-
-<?php
 session_start();  
 if(isset($_SESSION['verified_user_id'])) {
     $_SESSION['status'] = "You are already Logged in ";
@@ -31,13 +24,11 @@ include('includes/header.php');
             <?php
                 if(isset($_SESSION['status']))
                 {
-                    // $username = 
-                    // set the username taken from the user into $username
-                    setcookie("username", $username, time()+2592000);
                     echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
                     unset($_SESSION['status']);
                 }
                 ?>
+
                 <div class="box">
                     <div class="card-header">
                         <h1>Login Here!</h1>
@@ -79,3 +70,4 @@ include('includes/header.php');
 <?php
 include("includes/footer.php");
 ?>
+

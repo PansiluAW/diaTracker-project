@@ -1,0 +1,45 @@
+<?php
+
+?>
+  <meta charset="UTF-8">
+  <!-- This sets the compatibility of the website with Internet Explorer -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- This sets the viewport width and initial scale for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- This links the external CSS file for the loading animation -->
+  <link rel="stylesheet" href="loading.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <title>DiaTracker | One Stop For All Your Diabetic Needs</title>
+
+<body class="yellowback">
+  <!-- This div is for the loading animation -->
+  <div class="loader"></div>
+  <div class="container d-flex justify-content-center min-vh-100 align-items-center">
+    <div class="row">
+      <div class="col-sm">
+      <div class="">
+        <!-- This div is for the image in the header -->
+        <div class="head-img">
+          <img src="DrawKit Vector Illustration Health & Medical (3).png" alt="DiaTracker Illustration">
+        </div>
+      </div>
+      </div>
+      <!-- This div is for the text content in the header -->
+      <div class="col-sm m-auto">
+        <div class="head-text">
+          <h1>One stop for all your diabetic needs</h1>
+          <p>DiaTracker is built with the sole purpose of providing functionalities for the ease of diabetes patients in managing diabetes with one single app </p> 
+          <!-- This div is for the button in the header -->
+          <div class="head-btn">
+            <a href="login.php">Get started</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  <!-- This script links the external JavaScript file for the loading animation -->
+  <script src="loading.js"></script>
+</body>
+
