@@ -4,8 +4,10 @@ header("Access-Control-Allow-Headers: *");
 include('database_connection.php');
 // if (isset($_COOKIE['username'])){
     $SQL_TABLE = "CREATE TABLE IF NOT EXISTS hello (
+        id INT(11) NOT NULL AUTO_INCREMENT,
         added_date DATE,
-        sugar_data INT(200) NOT NULL
+        sugar_data INT(200) NOT NULL,
+        PRIMARY KEY (id)
     )";
 
     $execSQL = mysqli_query($conn, $SQL_TABLE);

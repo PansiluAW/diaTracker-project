@@ -10,6 +10,11 @@ if(isset($_SESSION['verified_user_id'])) {
 }
 
 include('includes/header.php');
+// if(!isset($_COOKIE['verified_user_id'])) {
+    // CODE GOES HERE
+// }else {
+//     header("Location: home.php");
+// }
 
 ?>
 <div class="loader"></div>

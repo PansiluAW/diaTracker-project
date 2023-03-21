@@ -5,7 +5,7 @@
 //     // Get the cluster input value
 //     const clusterInput = document.getElementById("cluster-input").value;
 
-//         fetch(`/exercise_data?cluster=${clusterInput}`)
+//         fetch(`/food_data?cluster=${clusterInput}`)
 //         .then(response => {
 //             if (!response.ok) {
 //                 throw new Error("Network response was not ok");

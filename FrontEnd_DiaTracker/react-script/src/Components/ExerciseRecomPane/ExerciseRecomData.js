@@ -1,13 +1,25 @@
-const getFoodDataButton = document.getElementById("get-food-data");
-        const getExerciseDataButton = document.getElementById("get-exercise-data");
-
         // Attach a click event listener to the button
-        getFoodDataButton.addEventListener("click", () => {
-            const clusterInput = document.getElementById("cluster-input").value;
-            // Get the cluster input value
-
+        function getExerciseData(resentValue) {
+            var cluster;
+            if (resentValue > 250){
+                cluster = 0;
+            }else if(resentValue > 199) {
+                cluster = 1;
+            }else if(resentValue > 159){
+                cluster = 2;
+            }else if(resentValue > 139){
+                cluster = 3;
+            }else if(resentValue > 125){
+                cluster = 4;
+            }else if(resentValue > 99){
+                cluster = 5;
+            }else if (resentValue > 69){
+                cluster = 6;
+            }else{
+                cluster = 7;
+            }
             // Make an HTTP GET request to the Flask API endpoint with the cluster input value as a query parameter
-            fetch(`/food_data?cluster=${clusterInput}`)
+            fetch(`/exercise_data?cluster=${cluster}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Network response was not ok");
@@ -16,11 +28,10 @@ const getFoodDataButton = document.getElementById("get-food-data");
                 })
                 .then(data => {
                     // Display the filtered exercise and food data
-                    const foodDataDiv = document.getElementById("food-data");
-                    foodDataDiv.innerHTML = JSON.stringify(data.food_data);
+                    data
                 })
                 .catch(error => {
                     console.error("Error fetching data: ", error);
                 });
-            });
+            }
                 

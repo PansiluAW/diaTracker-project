@@ -6,13 +6,13 @@ include('database_connection.php');
 // if (isset($_COOKIE['username'])){
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
         //FROM $_COOKIE['username'] as the table name
-        $SQL_SELECT = "SELECT added_date, sugar_data  FROM hello ORDER BY added_date DESC LIMIT 10";
+        $SQL_SELECT = "SELECT added_date, sugar_data  FROM (SELECT added_date, sugar_data, ROW_NUMBER() OVER (ORDER BY id DESC) AS row_num FROM hello) AS temp_table WHERE row_num <= 10 ORDER BY row_num DESC";
 
         $execSQL = mysqli_query($conn,$SQL_SELECT);
 
         if ($execSQL){
             $data = array();
-            $data[] = []
+            $data[] = ["x", "Suger Level"];
             while($row = mysqli_fetch_array($execSQL)){
                 $data[] = array($row['added_date'], (int)$row['sugar_data']);
             }
