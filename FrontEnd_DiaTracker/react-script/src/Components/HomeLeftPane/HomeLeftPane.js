@@ -34,7 +34,7 @@ export default function HomeLeftPane({ data, setData }) {
       .then((response) => {
         const formattedData = response.data.map((item) => [item[0], item[1]]);
         setData(formattedData);
-        console.log(formattedData);
+        console.log(typeof(formattedData[1][1]));
       })
       .catch((error) => {
         console.log(error);
@@ -81,7 +81,7 @@ export default function HomeLeftPane({ data, setData }) {
         result = (
           <>
             {recentSugarLevel - previousSugarLevel}
-            <ArrowDropUpIcon />
+            <ArrowDropUpIcon/>
           </>
         );
       } else {

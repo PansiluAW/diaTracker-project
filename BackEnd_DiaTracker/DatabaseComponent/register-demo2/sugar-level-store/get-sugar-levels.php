@@ -12,6 +12,7 @@ include('database_connection.php');
 
         if ($execSQL){
             $data = array();
+            $data[] = []
             while($row = mysqli_fetch_array($execSQL)){
                 $data[] = array($row['added_date'], (int)$row['sugar_data']);
             }
