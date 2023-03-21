@@ -1,32 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import Chart from "react-google-charts";
-import axios from "axios";
 <script src="/scripts/bootstrap.min.js"></script>;
 
 export default function LineChart({existingData}) {
-  // const current = new Date();
-  // const date = `${current.getDate()}/${
-  //   current.getMonth() + 1
-  // }/${current.getFullYear()}`;
 
-  
-// for (let i = 0; i < data.length; i++) {
-//       [data.date, data.value]
-      
-//     }
-  const LineData = [
-    // ["x", "Suger Level"],
-    
-    [0, 15],
-    [1, 10],
-    [2, 23],
-    [3, 17],
-    [4, 18],
-    [5, 9],
-    [6, 11],
-    [7, 27],
-  ];
   const LineChartOptions = {
     hAxis: {
       title: "Date",

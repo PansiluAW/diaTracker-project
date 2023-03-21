@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./HomeLeftPane.css";
 import LineChart from "../../Components/LineChart/LineChart";
 import AddBoxIcon from "@mui/icons-material/AddBox";
@@ -6,7 +6,6 @@ import MedicationIcon from "@mui/icons-material/Medication";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { useRef } from "react";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.css";
 import MedicationPane from "../MedicationPane/MedicationPane";
@@ -15,39 +14,41 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { IconContext } from "react-icons";
 import axios from "axios";
 
-<script src="./src/Components/LineChart/LineChart"></script>;
-
-export default function HomeLeftPane() {
+export default function HomeLeftPane({ data, setData }) {
   const current = new Date();
-  const date = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
-  const [data, setData] = useState([["x", "Suger Level"]]);
+  const date = `${current.getFullYear()}-${
+    current.getMonth() + 1
+  }-${current.getDate()}`;
 
   const inputRef = useRef(null);
 
- 
+  useEffect(() => {
+    getData();
+  }, []);
+
   const getData = () => {
     axios
-      .get("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php")
+      .get(
+        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php"
+      )
       .then((res) => {
-        const data = JSON.parse(res.data.replace(/'/g, "\""));
+        const data = JSON.parse(res.data.replace(/'/g, '"'));
         setData(data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  
-  useEffect(() => {
-    getData();
-  }, []);
-  
+
   const saveValue = async () => {
-    
     const currentInput = Number(inputRef.current.value);
     if (currentInput) {
-      try {        
+      try {
         const newRecord = [date, currentInput];
-        await axios.post("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php", {date:date, currentInput:currentInput});
+        await axios.post(
+          "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
+          { date: date, currentInput: currentInput }
+        );
         setData((existingValues) => {
           const currentValues = [...existingValues];
           currentValues.push(newRecord);
@@ -58,57 +59,47 @@ export default function HomeLeftPane() {
       }
       inputRef.current.value = "";
     }
-    
   };
-
   const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
     useState(false);
-
-  // const [updated, setUpdated] = useState("");
-
-  // var recentSugarLevel;
-  // var previousSugarLevel;
-  // var result;
-
-  // const inputSugar = () => {
-  //   previousSugarLevel = updated;
-  //   setUpdated(inputRef.current.value);
-  //   recentSugarLevel = updated;
-  // };
-
-  // function RecentSugarLevel() {
-  //   return recentSugarLevel;
-  // }
-
-  // function PreviousSugarLevel() {
-  //   return previousSugarLevel;
-  // }
-
-  // function RecentChanges() {
-  //   if (recentSugarLevel >= previousSugarLevel) {
-  //     result = recentSugarLevel - previousSugarLevel;
-  //     <ArrowDropUpIcon />;
-  //   } else {
-  //     result = previousSugarLevel = recentSugarLevel;
-  //     <ArrowDropDownIcon />;
-  //   }
-  //   return result;
-  // }
 
   const [sideSettingsBar, setSideSettingsBar] = useState(false);
 
   const showSideSettingsbar = () => setSideSettingsBar(!sideSettingsBar);
 
   const [sideMedicationsBar, setSideMedicationsBar] = useState(false);
-
   const showSideMedicationbar = () =>
     setSideMedicationsBar(!sideMedicationsBar);
+
+  const summary = () => {
+    if (data.length > 2) {
+      const recentSugarLevel = data[data.length - 1][1];
+      const previousSugarLevel = data[data.length - 2][1];
+      let result;
+      if (recentSugarLevel >= previousSugarLevel) {
+        result = (
+          <>
+            {recentSugarLevel - previousSugarLevel}
+            <ArrowDropUpIcon />
+          </>
+        );
+      } else {
+        result = (
+          <>
+            {previousSugarLevel - recentSugarLevel}
+            <ArrowDropDownIcon />
+          </>
+        );
+      }
+
+      return result;
+    }
+  };
 
   return (
     <>
       <div className="leftPaneBox">
         <div className="iconPane mx-auto">
-          {/* <span className="vl"></span> */}
           <span className="d-flex span-buttons justify-content-center sticky-top align-items-center">
             <IconContext.Provider>
               <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
@@ -119,12 +110,12 @@ export default function HomeLeftPane() {
                 <div>
                   {sideSettingsBar ? (
                     <>
-                      <div className="settings-block p-2" onClick={showSideSettingsbar}>
-                        <KeyboardArrowLeftIcon  />
+                      <div className="settings-block p-2">
                         Settings
+                        <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
                       </div>
-                      <div className="top-panes">                        
-                      <SettingsPane/>
+                      <div className="top-panes">
+                        <SettingsPane />
                       </div>
                     </>
                   ) : null}
@@ -132,7 +123,7 @@ export default function HomeLeftPane() {
               </div>
             </IconContext.Provider>
           </span>
-          <span  className="span-buttons d-flex justify-content-center sticky-top align-items-center">
+          <span className="span-buttons d-flex justify-content-center sticky-top align-items-center">
             <IconContext.Provider>
               <MedicationIcon
                 onClick={showSideMedicationbar}
@@ -145,11 +136,13 @@ export default function HomeLeftPane() {
                 <div>
                   {sideMedicationsBar ? (
                     <>
-                    <div onClick={showSideMedicationbar} className="d-flex justify-content-center sticky-top medication-reminder-block pt-2">
-                      <KeyboardArrowLeftIcon/>
-                      <h3 className="pb-2 title-font">Add New Reminder</h3>
-                    </div>
-                      <MedicationPane/>
+                      <div className="d-flex justify-content-center sticky-top medication-reminder-block pt-2">
+                        <KeyboardArrowLeftIcon
+                          onClick={showSideMedicationbar}
+                        />
+                        <MedicationPane />
+                        <h3 className="pb-2 title-font">Add New Reminder</h3>
+                      </div>
                     </>
                   ) : null}
                 </div>
@@ -165,7 +158,7 @@ export default function HomeLeftPane() {
                 } else setIsUpdatingTheSugarLevelValue(true);
               }}
               fontSize="large"
-              className="addBoxIcon"              
+              className="addBoxIcon"
             />
           </span>
         </div>
@@ -188,25 +181,32 @@ export default function HomeLeftPane() {
         </div>
         <div className="userInputInfo addsugarcontainer">
           {!isUpdatingTheSugarLevelValue ? (
-            <>              
-            <h2>Summary</h2>
-            <div className="userInputSummery d-flex justify-content-center">
-              
+            <>
+              <h2>Summary</h2>
+              <div className="userInputSummery d-flex justify-content-center">
                 <div className="sugarLevelInfo py-4 px-5 mx-2">
                   <div className="pt-3 pb-2">
                     Recent Sugar Level <br />
-                    <div className="changes-data">{/* <RecentSugarLevel /> mmol/L */}</div>
+                    <div className="changes-data">
+                      {data.length > 1 && data?.[data.length - 1]?.[1] && (
+                        <>{data[data.length - 1][1]} mmol/L</>
+                      )}
+                    </div>
                   </div>
                   <hr className="mx-auto mt-3"></hr>
                   <div className="pt-1">
-                  Previous Sugar Level <br />
-                  <div className="changes-data">{/* <PreviousSugarLevel /> mmol/L */}</div>
+                    Previous Sugar Level <br />
+                    <div className="changes-data">
+                      {data.length > 2 && data?.[data.length - 2]?.[1] && (
+                        <>{data[data.length - 2][1]} mmol/L</>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className="px-5 mx-2 sugarLevelInfo ">
                   Recent Changes
                   <br />
-                  <div className="changes-data-recent">{/* <RecentChanges /> */}</div>
+                  <div className="changes-data-recent">{summary()}</div>
                 </div>
               </div>
             </>

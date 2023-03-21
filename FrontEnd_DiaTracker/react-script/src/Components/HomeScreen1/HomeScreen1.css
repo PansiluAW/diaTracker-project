@@ -1,0 +1,15 @@
+.recom{
+    display:flex;
+
+}
+.homebod{
+    background-color: #FBCD08;
+}
+.foodrec{
+    overflow-y: auto; 
+    
+}
+.excrec{
+    overflow-y: scroll; 
+    
+}

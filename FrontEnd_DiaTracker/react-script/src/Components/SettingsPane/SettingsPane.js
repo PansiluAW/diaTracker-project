@@ -3,12 +3,8 @@ import diatraclogo from "./diatraclogo.png";
 import "./SettingsPane.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-
 export default function SettingsPane() {
-  // const [isSettingsHide, setSettingsHide] = useState(false);
-
   const [value1, setValue1] = React.useState("English");
-
   const handleChange1 = (event) => {
     setValue1(event.target.value);
   };
@@ -26,84 +22,7 @@ export default function SettingsPane() {
   };
 
   return (
-    // <div className="SettingsPane">
-    //   <table>
-    //     <tr>
-    //       <td>
-    //         <label>Select Language</label>
-    //       </td>
-    //       <td>
-    //         <select>
-    //           <option value="English">English</option>
-
-    //           <option value="Sinhala">Sinhala</option>
-    //         </select>
-    //       </td>
-    //     </tr>
-
-    //     <tr>
-    //       <td>
-    //         <label>Enable Medication Reminder</label>
-    //       </td>
-    //       <td>
-    //         <select>
-    //           <option value="Enabled">Enabled</option>
-
-    //           <option value="Disabled">Disabled</option>
-    //         </select>
-    //       </td>
-    //     </tr>
-
-    //     <tr>
-    //       <td>
-    //         <label>Enable Mindfulness Notification</label>
-    //       </td>
-    //       <td>
-    //         <select>
-    //           <option value="Enabled">Enabled</option>
-
-    //           <option value="Disabled">Disabled</option>
-    //         </select>
-    //       </td>
-    //     </tr>
-
-    //     <tr>
-    //       <td>App Version</td>
-    //       <td>V1.0.0</td>
-    //     </tr>
-
-    //     <tr>
-    //       <td>Developer Info</td>
-    //       <td>Team Aspire</td>
-    //     </tr>
-
-    //     <tr>
-    //       <td>Privacy Policy</td>
-    //       <td>View Privacy Policies</td>
-    //     </tr>
-    //   </table>
-    //   <div className="logo">
-    //      <img src={diatraclogo} alt="Diatrac logo" />
-    //    </div>
-    //   <div className="copyRightSt">
-    //     DiaTracker Copyright &copy; 2022 - 2023 Team Aspire. All rights
-    //     reserved.
-    //   </div>
-    //   <p>We eat !</p>
-    // </div>
-
     <div className="SettingsPane text-wrap text-left pt-5">
-      {/* {!isSettingsHide ? (
-        <>
-        Settings
-        <KeyboardArrowLeftIcon
-      className="ArrowLeftIcon"
-      onClick={() => {
-        if (isSettingsHide === true) {
-          setSettingsHide(false);
-        } else setSettingsHide(true);
-      }}
-    /> */}
       <table className="table mx-4 table-responsive">
         <tr>
           <td>
@@ -145,17 +64,23 @@ export default function SettingsPane() {
         </tr>
 
         <tr>
-          <td><label>App Version</label></td>
+          <td>
+            <label>App Version</label>
+          </td>
           <td>V1.0.0</td>
         </tr>
 
         <tr>
-          <td><label>Developer Info</label></td>
+          <td>
+            <label>Developer Info</label>
+          </td>
           <td>Team Aspire</td>
         </tr>
 
         <tr>
-          <td><label>Privacy Policy</label></td>
+          <td>
+            <label>Privacy Policy</label>
+          </td>
           <td>View Privacy Policies</td>
         </tr>
       </table>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "bootstrap/dist/css/bootstrap.css";
 
-
 export default function OnGoingReminderPane(props) {
   const updated = props.mediName;
   const value1 = props.time;
@@ -23,7 +22,6 @@ export default function OnGoingReminderPane(props) {
 
             {value1}
             <span className="vl"></span>
-            {/* <DeleteIcon className="deleteIcon" onClick={deleteInput} /> */}
             <DeleteIcon className="deleteIcon" onClick={deleteInput} />
           </div>
         </>
