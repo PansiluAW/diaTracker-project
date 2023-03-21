@@ -127,9 +127,7 @@ a:hover
     font-family: 'open sans', sans-serif;
     text-align: center;
     position: relative;
-    
-	z-index: 9999;
-	margin-top: -25px;
+    animation: pulse 0.5s ease-out infinite alternate;
 }
 
 @keyframes pulse {

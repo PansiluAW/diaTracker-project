@@ -1,7 +1,7 @@
 <?php
-$dbhost = "mysql-116190-0.cloudclusters.net";
-$dbuser = "admin";
-$dbpass = "4bLpYyxW";
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
 $dbname = "diatracker_user_sugar_data";
 $dbServerPort = 15230;
 

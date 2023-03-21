@@ -1,10 +1,14 @@
 <?php
+    if(isset($_COOKIE['username'])){
+        header('Location:../../../FrontEnd_DiaTracker/react-script/src/index.js');
+        exit;
+    }
+?>
+
+<?php
 session_start();  
 if(isset($_SESSION['verified_user_id'])) {
     $_SESSION['status'] = "You are already Logged in ";
-
-     // set a cookie to remember the user
-     setcookie('remember_me', $user['id'], time() + (86400 * 30), "/"); // set for 30 days
     header("Location: home.php");
     exit();
 }
@@ -24,11 +28,13 @@ include('includes/header.php');
             <?php
                 if(isset($_SESSION['status']))
                 {
+                    // $username = 
+                    // set the username taken from the user into $username
+                    setcookie("username", $username, time()+2592000);
                     echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
                     unset($_SESSION['status']);
                 }
                 ?>
-
                 <div class="box">
                     <div class="card-header">
                         <h1>Login Here!</h1>
@@ -70,4 +76,3 @@ include('includes/header.php');
 <?php
 include("includes/footer.php");
 ?>
-

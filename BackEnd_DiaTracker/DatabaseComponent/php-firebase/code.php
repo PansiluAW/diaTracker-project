@@ -23,32 +23,99 @@ if(isset($_POST['register_now_btn']))
        exit();
    }
 
- // Check if email already exists in Firebase
-try {
-    $user = $auth->getUserByEmail($email);
-    if ($user) {
-        $_SESSION['status'] = "<div class='error'>User with this email already exists</div>";
-        header("Location: register.php");
-        exit();
-    }
- } catch (Kreait\Firebase\Exception\Auth\UserNotFound $e) {
-    // User does not exist, continue with registration
- }
- 
- // Register new user
- $newUser = $auth->createUserWithEmailAndPassword($email, $password);
- 
- if ($newUser) {
-    // User successfully registered
-    $_SESSION['status'] = "<div class='error'>User registration successful</div>";
-    header("Location: login.php");
-    exit();
- } else {
-    // Registration failed
-    $_SESSION['status'] = "<div class='error'>User registration failed</div>";
+
+
+   $userProperties = [
+    'email' => $email,
+    'emailVerified' => false,
+    'password' => $password,
+    'displayName' => $name,
+];
+
+$createdUser = $auth->createUser($userProperties);
+if($createdUser)
+{
+    $_SESSION['status'] = "<div class='error'>User created Successfully</div>";
     header("Location: register.php");
-    exit();
- }
+}
+else
+{
+    $_SESSION['status'] = "<div class='error'>User not Created</div>";
+    header("Location: register.php");
+}
 }
 
+
+
+//Delete Record
+if(isset($_POST['delete_btn']))
+{
+    $id = $_POST['id_key'];
+    $ref_table = "contacts/".$id;
+    $deleteData = $database->getReference($ref_table)->remove();
+
+    if($deleteData)
+    {
+        $_SESSION['status'] = "Data Deleted Successfully";
+        header("Location: index.php");
+    }
+    else
+    {
+        $_SESSION['status'] = "Data Not Deleted";
+        header("Location: index.php");
+    }
+}
+
+//Update Record
+if(isset($_POST['update_data']))
+{
+    $id = $_POST['id'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+
+    $updateData = [
+        "username" => $username,
+        "email" => $email,
+    ];
+
+    $ref_table = "contacts/".$id;
+    $updatequery = $database->getReference($ref_table)->update($updateData);
+
+    if($updatequery)
+    {
+        $_SESSION['status'] = "Data Updated Successfully";
+        header("Location: index.php");
+    }
+    else
+    {
+        $_SESSION['status'] = "Data Not Updated";
+        header("Location: index.php");
+    }
+}
+
+//Insert Record
+if(isset($_POST['save_data']))
+{
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+
+    $postData = [
+        "username" => $username,
+        "email" => $email,
+    ];
+
+    $ref_table = "contacts";
+    $postRef = $database->getReference($ref_table)->push($postData);
+
+    if($postRef)
+    {
+        $_SESSION['status'] = "Data Inserted Successfully";
+        header("Location: add-contact.php");
+    }
+    else
+    {
+        $_SESSION['status'] = "Data Not Inserted";
+        header("Location: add-contact.php");
+    }
+}
 ?>

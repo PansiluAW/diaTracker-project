@@ -24,24 +24,30 @@ export default function HomeLeftPane() {
 
   const inputRef = useRef(null);
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
-  // const getData = () => {
-  //   axios
-  //     .get("#")
-  //     .then((res) => res.data)
-  //     .then((r) => setData(r));
-  // };
-
+ 
+  const getData = () => {
+    axios
+      .get("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php")
+      .then((res) => {
+        const data = JSON.parse(res.data.replace(/'/g, "\""));
+        setData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
+  useEffect(() => {
+    getData();
+  }, []);
+  
   const saveValue = async () => {
     
     const currentInput = Number(inputRef.current.value);
     if (currentInput) {
       try {        
         const newRecord = [date, currentInput];
-        const response = await  axios.post("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php", {date:date, currentInput:currentInput});
+        await axios.post("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php", {date:date, currentInput:currentInput});
         setData((existingValues) => {
           const currentValues = [...existingValues];
           currentValues.push(newRecord);
@@ -52,7 +58,7 @@ export default function HomeLeftPane() {
       }
       inputRef.current.value = "";
     }
-    axios.get("http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php").then(response => console.log(data));
+    
   };
 
   const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
