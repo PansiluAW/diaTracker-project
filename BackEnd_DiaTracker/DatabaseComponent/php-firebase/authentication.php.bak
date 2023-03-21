@@ -29,7 +29,7 @@ try {
 }
 else
 {
-    $_SESSION['status'] = "<div class='error'>Login to access All Pages</div>";
+    $_SESSION['status'] = "Login to access All Pages";
     header("Location: login.php");
     exit();
 }
