@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fef5ac;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 h1,
@@ -84,6 +85,17 @@ a {
         flex-basis: 50%;
     }
 }
+@keyframes pulse {
+    0% {
+      background-color: #fef5ac;
+    }
+    50% {
+      background-color: #ffb3b3;
+    }
+    100% {
+      background-color:#fef5ac;
+    }
+  }
 
 .container {
     display: flex;
