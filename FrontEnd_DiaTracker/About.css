@@ -164,3 +164,7 @@ title {
     padding-right: 02px;
 
 }
+.fade-in {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
