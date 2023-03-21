@@ -15,7 +15,7 @@ export default function HomeScreen1() {
   const username = Cookies.get("username");
 
   const [data, setData] = useState([["x", "Suger Level"]]);
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
