@@ -28,7 +28,8 @@
                 })
                 .then(data => {
                     // Display the filtered exercise and food data
-                    data
+                    const foodDataDiv = document.getElementById("food-data");
+                    foodDataDiv.innerHTML = JSON.stringify(data.food_data);
                 })
                 .catch(error => {
                     console.error("Error fetching data: ", error);
