@@ -31,9 +31,10 @@ export default function HomeLeftPane({ data, setData }) {
       .get(
         "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php"
       )
-      .then((res) => {
-        const data = JSON.parse(res.data.replace(/'/g, '"'));
-        setData(data);
+      .then((response) => {
+        const formattedData = response.data.map((item) => [item[0], item[1]]);
+        setData(formattedData);
+        console.log(formattedData);
       })
       .catch((error) => {
         console.log(error);
