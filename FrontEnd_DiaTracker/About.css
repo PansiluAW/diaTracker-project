@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin: 0;
     padding: 0;
@@ -122,6 +122,8 @@ title {
 
 .mission-section {
     grid-area: sec2;
+     padding-top: 60px;
+}
 }
 
 .history-image {
@@ -132,6 +134,7 @@ title {
 
 .history-section {
     grid-area: sec3;
+    padding-top: 100px;
 }
 
 .team-image {
