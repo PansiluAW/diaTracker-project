@@ -1,0 +1,33 @@
+<?php
+?>
+<body class="yellowback">
+  <!-- This div is for the loading animation -->
+  <div class="loader"></div>
+  <div class="container d-flex justify-content-center min-vh-100 align-items-center">
+    <div class="row">
+      <div class="col-sm">
+      <div class="">
+        <!-- This div is for the image in the header -->
+        <div class="head-img">
+          <img src="DrawKit Vector Illustration Health & Medical (3).png" alt="DiaTracker Illustration">
+        </div>
+      </div>
+      </div>
+      <!-- This div is for the text content in the header -->
+      <div class="col-sm m-auto">
+        <div class="head-text">
+          <h1>One stop for all your diabetic needs</h1>
+          <p>DiaTracker is built with the sole purpose of providing functionalities for the ease of diabetes patients in managing diabetes with one single app </p> 
+          <!-- This div is for the button in the header -->
+          <div class="head-btn">
+            <a href="login.php">Get started</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  <!-- This script links the external JavaScript file for the loading animation -->
+  <script src="loading.js"></script>
+</body>
+

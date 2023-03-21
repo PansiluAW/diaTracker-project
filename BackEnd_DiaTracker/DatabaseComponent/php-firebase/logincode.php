@@ -21,7 +21,7 @@ if(isset($_POST['login_now_btn']))
             $_SESSION['verified_user_id'] =$uid;
             $_SESSION['idTokenString'] =$idTokenString;
 
-            $_SESSION['status'] = "You are Logged in Successfully";
+            $_SESSION['status'] = "<div class='error'>You are Logged in Successfully</div>";
             header("Location: home.php");
             exit();
 
