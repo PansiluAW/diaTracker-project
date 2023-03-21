@@ -97,6 +97,7 @@ a {
     position: relative;
     right: 350px;
     padding-bottom: 400px;
+    font-family: Comic sans-serif;
 }
 
 title {
@@ -135,6 +136,7 @@ title {
 .history-section {
     grid-area: sec3;
     padding-top: 100px;
+     padding-left: 02px;
 }
 
 .team-image {
@@ -143,4 +145,6 @@ title {
 
 .team-section {
     grid-area: sec6;
+     padding-top: 80px;
+    padding-right: 02px;
 }
