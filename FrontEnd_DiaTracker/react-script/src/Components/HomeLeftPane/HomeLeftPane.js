@@ -35,7 +35,6 @@ export default function HomeLeftPane({ data, setData }) {
       .then((response) => {
         const formattedData = response.data.map((item) => [item[0], item[1]]);
         setData(formattedData);
-        console.log(typeof(formattedData[1][1]));
       })
       .catch((error) => {
         console.log(error);

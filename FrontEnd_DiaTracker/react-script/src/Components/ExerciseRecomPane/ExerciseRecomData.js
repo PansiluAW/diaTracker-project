@@ -18,8 +18,9 @@
             }else{
                 cluster = 7;
             }
+            console.log(cluster);
             // Make an HTTP GET request to the Flask API endpoint with the cluster input value as a query parameter
-            fetch(`/exercise_data?cluster=${cluster}`)
+            return fetch(`http://localhost:5000/exercise_data?cluster=${cluster}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Network response was not ok");
@@ -28,8 +29,7 @@
                 })
                 .then(data => {
                     // Display the filtered exercise and food data
-                    const foodDataDiv = document.getElementById("food-data");
-                    foodDataDiv.innerHTML = JSON.stringify(data.food_data);
+                    return data.exercise_data
                 })
                 .catch(error => {
                     console.error("Error fetching data: ", error);
