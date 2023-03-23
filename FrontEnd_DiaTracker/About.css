@@ -164,11 +164,55 @@ title {
     padding-right: 02px;
 
 }
-.fade-in {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
+.fade-in img,
+.fade-in p,
+.fade-in h2 {
+  opacity: 0;
+}
+
+.fade-in img {
+  animation: fadeInImage 16s ease forwards;
   
-  .fade-in.active {
-    opacity: 1;
+}
+
+.fade-in p {
+  animation: fadeInParagraph  25s ease forwards;
+}
+
+.fade-in h2 {
+  animation: fadeInHeading 16s ease forwards;
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInParagraph {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInHeading {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
