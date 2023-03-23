@@ -22,7 +22,7 @@ if(isset($_POST['login_now_btn']))
             $_SESSION['idTokenString'] =$idTokenString;
 
             $_SESSION['status'] = "<div class='error'>You are Logged in Successfully</div>";
-            header("Location: home.php");
+            header("Location: http://localhost:3000");
             exit();
 
         } catch (FailedToVerifyToken $e) {
