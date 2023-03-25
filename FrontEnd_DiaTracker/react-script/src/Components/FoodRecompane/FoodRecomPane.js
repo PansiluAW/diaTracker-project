@@ -1,8 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./FoodRecomPane.css";
-import "./FoodRecomPane.css";
-import "../FoodRecompane/FoodRecomData.js";
+import Card from "react-bootstrap/Card";
+import axios from "axios";
 
 export default function FoddRecomPane({ resentValue }) {
-  return <div className="foodRecomPane">Food Recoomendation</div>;
+  const [foodData, setFoodData] = useState([]);
+
+  useEffect(() => {
+    getFoodData();
+  }, [resentValue]);
+
+  // Attach a click event listener to the button
+  const getFoodData = () => {
+    if (resentValue > 0) {
+      var cluster;
+      if (resentValue > 250) {
+        cluster = 0;
+      } else if (resentValue > 199) {
+        cluster = 1;
+      } else if (resentValue > 159) {
+        cluster = 2;
+      } else if (resentValue > 139) {
+        cluster = 3;
+      } else if (resentValue > 125) {
+        cluster = 4;
+      } else if (resentValue > 99) {
+        cluster = 5;
+      } else if (resentValue > 69) {
+        cluster = 6;
+      } else {
+        cluster = 7;
+      }
+      console.log(cluster);
+      // Make an HTTP GET request to the Flask API endpoint with the cluster input value as a query parameter
+      axios({
+        method: "GET",
+        url: `http://localhost:5000/food_data?cluster=${cluster}`,
+      })
+        .then((response) => {
+          const res = response.data;
+          // Display the filtered exercise and food data
+          console.log(response);
+          setFoodData(res.food_data);
+          // return data.exercise_data;
+        })
+
+        .catch((error) => {
+          console.error("Error fetching data: ", error);
+        });
+    }
+  };
+
+  return (
+    <div className="ExRecomPane">
+      Food Recoomendation
+      {foodData.map((exercise, index) => (
+        <Card>
+          <Card.Title>{exercise["Activity (1H)"]}</Card.Title>
+          <Card.Body>
+            <Card.Title>
+              <Card.Text>
+                Calories per kg: {exercise["Calories per kg"]}
+              </Card.Text>
+            </Card.Title>
+          </Card.Body>
+        </Card>
+      ))}
+    </div>
+  );
 }
