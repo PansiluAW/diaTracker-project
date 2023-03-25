@@ -3,6 +3,7 @@ import "./navBar.css";
 import diatraclogo from "./diatraclogo.png";
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import About from "../../Pages/About/About.js";
 // import HomeScreen from "../../Pages/HomeScreen/HomeScreen";
 // import About from "./FrontEnd_DiaTracker/About.html";
 // import LogOut from "./BackEnd_DiaTracker/DatabaseComponent/php-firebase/logout.php";
@@ -10,11 +11,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 export default function NavBar() {
   return (
     <>
-{/* 
-        <div class="navbar">
+      {/* <div class="navbar">
           <Route path="/" component={HomeScreen} />
           <Route path="/FrontEnd_DiaTracker/About.html" component={About} />
-          <Route path="/BackEnd_DiaTracker/DatabaseComponent/php-firebase/logout.php" component={LogOut} />
         </div> */}
 
       <nav>
@@ -24,15 +23,20 @@ export default function NavBar() {
 
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <a href="/">Home</a>
+          </li>
+          {/* <li>
+          <Route path="/Pages/About/About.js" component={About} />
+          </li> */}
+          <li>
+            <a href="">
+              About Us
+            </a>
           </li>
           <li>
-            <Link to="/FrontEnd_DiaTracker/About.html">About</Link>
-          </li>
-          <li>
-            <Link to="/BackEnd_DiaTracker/DatabaseComponent/php-firebase/logout.php">
+            <a href="http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/php-firebase/logout.php">
               Log Out
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

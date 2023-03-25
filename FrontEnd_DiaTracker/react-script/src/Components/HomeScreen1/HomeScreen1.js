@@ -19,7 +19,7 @@ export default function HomeScreen1() {
 
   return (
     <>
-      <Router>
+
         <div className="container-fluid pt-2 pb-5 homebod">
           <div className="sticky-top nav-background mb-3">
             <NavBar />
@@ -38,7 +38,7 @@ export default function HomeScreen1() {
             </div>
           </div>
         </div>
-      </Router>
+
     </>
   );
 }

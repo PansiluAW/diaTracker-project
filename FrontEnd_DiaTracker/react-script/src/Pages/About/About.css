@@ -1,0 +1,217 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    background-color:  #fcdf03;
+
+}
+
+h1,
+h2 {
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+nav a {
+    color: #000;
+    margin: 0 10px;
+    text-decoration: double;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    
+
+
+}
+
+section h2 {
+    margin-bottom: 5px;
+    text-decoration-style: solid;
+}
+
+p {
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 30px;
+ 
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 05px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+a {
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex-grow: 1;
+        margin: 50px;
+    }
+
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        padding: top 150px;
+    }
+
+    section:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+
+    section:nth-child(even) {
+        flex-direction: row;
+    }
+
+    section > * {
+        flex-basis: 50%;
+    }
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 60%;
+    position: relative;
+    right: 350px;
+    font-family: Comic sans-serif;
+    padding-top: 300px;
+
+ 
+}
+
+title {
+    text-shadow: 2px 2px #000;
+    
+}
+
+.main-content {
+    display: grid;
+    grid-template-areas:
+        'sec1 sec2'
+        'sec3 sec4'
+        'sec5 sec6';
+        font-weight: bold;
+        font-weight: lighter;
+        
+}
+
+.mission-image {
+    grid-area: sec1;
+    display: flex;
+    justify-content: center;
+    
+   
+}
+
+.mission-section {
+    grid-area: sec2;
+    padding-top: 20px;
+}
+
+.history-image {
+    grid-area: sec4;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.history-section {
+    grid-area: sec3;
+    padding-top: 40px;
+    padding-left: 02px;
+}
+
+.team-image {
+    grid-area: sec5;
+    justify-content: center;
+    display: flex;
+
+}
+
+.team-section {
+    grid-area: sec6;
+    padding-top: 40px;
+    padding-right: 02px;
+
+}
+.fade-in img,
+.fade-in p,
+.fade-in h2 {
+  opacity: 0;
+}
+
+.fade-in img {
+  animation: fadeInImage 16s ease forwards;
+  
+}
+
+.fade-in p {
+  animation: fadeInParagraph  25s ease forwards;
+}
+
+.fade-in h2 {
+  animation: fadeInHeading 16s ease forwards;
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInParagraph {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInHeading {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

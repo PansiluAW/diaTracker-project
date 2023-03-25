@@ -2,20 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./ExerciseRecomPane.css";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
-import getExerciseData from "./ExerciseRecomData.js";
 
 export default function ExerciseRecomPane({ resentValue }) {
-  // const exerciseData = getExerciseData(resentValue);
-  // console.log(exerciseData);
-  console.log(resentValue);
   const [exerciseData, setExerciseData] = useState([]);
 
   useEffect(() => {
     getExerciseData();
-  }, []);
+  }, [resentValue]);
 
   // Attach a click event listener to the button
-  const getExerciseData = (resentValue) => {
+  const getExerciseData = () => {
     if (resentValue > 0) {
       var cluster;
       if (resentValue > 250) {
@@ -37,37 +33,23 @@ export default function ExerciseRecomPane({ resentValue }) {
       }
       console.log(cluster);
       // Make an HTTP GET request to the Flask API endpoint with the cluster input value as a query parameter
-      // return fetch(`http://localhost:5000/exercise_data?cluster=${cluster}`)
       axios({
         method: "GET",
-        url: "/exercise_data",
+        url: `http://localhost:5000/exercise_data?cluster=${cluster}`,
       })
         .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((response) => {
-          const res = response.data
+          const res = response.data;
           // Display the filtered exercise and food data
+          console.log(response);
           setExerciseData(res.exercise_data);
           // return data.exercise_data;
         })
+
         .catch((error) => {
           console.error("Error fetching data: ", error);
         });
     }
   };
-
-  // const fetchData = () => {
-  //   if (resentValue > 0) {
-  //     const fetchData = async () => {
-  //       const data = await -getExerciseData(resentValue);
-
-  //     };
-  //   }
-  // };
 
   return (
     <div className="ExRecomPane">
