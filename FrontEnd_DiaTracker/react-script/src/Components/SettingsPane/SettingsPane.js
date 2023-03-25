@@ -20,7 +20,7 @@ export default function SettingsPane() {
   const handleChange3 = (event) => {
     setValue3(event.target.value);
 
-    if (value3 === "Enabled") {
+    if (event.target.value === "Enabled") {
 
         // If granted, create the notifications loop
         var messages = [
@@ -296,3 +296,4 @@ export default function SettingsPane() {
     </div>
   );
 }
+
