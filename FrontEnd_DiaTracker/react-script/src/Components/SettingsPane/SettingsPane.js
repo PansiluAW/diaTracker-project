@@ -221,6 +221,7 @@ export default function SettingsPane() {
             });
         }, 600000); // Show the next message every 30 seconds
     }
+  }
 
   return (
     <div className="SettingsPane text-wrap text-left pt-5">
@@ -294,4 +295,4 @@ export default function SettingsPane() {
       </div>
     </div>
   );
-}}
+}

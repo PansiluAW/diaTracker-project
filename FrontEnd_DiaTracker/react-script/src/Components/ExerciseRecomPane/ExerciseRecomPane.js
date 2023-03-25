@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ExerciseRecomPane.css";
 import Card from "react-bootstrap/Card";
+import axios from "axios";
 import getExerciseData from "./ExerciseRecomData.js";
 
 export default function ExerciseRecomPane({ resentValue }) {
@@ -36,16 +37,21 @@ export default function ExerciseRecomPane({ resentValue }) {
       }
       console.log(cluster);
       // Make an HTTP GET request to the Flask API endpoint with the cluster input value as a query parameter
-      return fetch(`http://localhost:5000/exercise_data?cluster=${cluster}`)
+      // return fetch(`http://localhost:5000/exercise_data?cluster=${cluster}`)
+      axios({
+        method: "GET",
+        url: "/exercise_data",
+      })
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then((data) => {
+        .then((response) => {
+          const res = response.data
           // Display the filtered exercise and food data
-          setExerciseData(data.exercise_data);
+          setExerciseData(res.exercise_data);
           // return data.exercise_data;
         })
         .catch((error) => {
@@ -54,13 +60,11 @@ export default function ExerciseRecomPane({ resentValue }) {
     }
   };
 
- 
-
   // const fetchData = () => {
   //   if (resentValue > 0) {
   //     const fetchData = async () => {
   //       const data = await -getExerciseData(resentValue);
-        
+
   //     };
   //   }
   // };

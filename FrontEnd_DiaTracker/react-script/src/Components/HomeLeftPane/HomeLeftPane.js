@@ -117,7 +117,7 @@ export default function HomeLeftPane({ data, setData }) {
                         <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
                       </div>
                       <div className="top-panes">
-                        <SettingsPane />
+                        <SettingsPane/>
                       </div>
                     </>
                   ) : null}
@@ -125,7 +125,7 @@ export default function HomeLeftPane({ data, setData }) {
               </div>
             </IconContext.Provider>
           </span>
-          <span className="span-buttons d-flex justify-content-center sticky-top align-items-center">
+          {/* <span className="span-buttons d-flex justify-content-center sticky-top align-items-center">
             <IconContext.Provider>
               <MedicationIcon
                 onClick={showSideMedicationbar}
@@ -150,7 +150,7 @@ export default function HomeLeftPane({ data, setData }) {
                 </div>
               </div>
             </IconContext.Provider>
-          </span>
+          </span> */}
 
           <span className="d-flex span-buttons justify-content-center align-items-center">
             <AddBoxIcon
