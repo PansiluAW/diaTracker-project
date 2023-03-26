@@ -225,8 +225,6 @@ export default function SettingsPane() {
           <td>
             <select value={value1} onChange={handleChange1}>
               <option value="English">English</option>
-
-              <option value="Sinhala">Sinhala</option>
             </select>
           </td>
         </tr>
@@ -238,7 +236,6 @@ export default function SettingsPane() {
           <td>
             <select value={value3} onChange={handleChange3}>
               <option value="Enabled">Enabled</option>
-
               <option value="Disabled">Disabled</option>
             </select>
           </td>
