@@ -16,7 +16,7 @@ if(isset($_POST['register_now_btn']))
        exit();
    }
    
-   if(strlen($password) < 6) 
+   if(strlen($password) < 8) 
    {
        $_SESSION['pwd_error'] = "<div class='error'>Password must be at least 6 characters long</div>";
        header("Location: register.php");
