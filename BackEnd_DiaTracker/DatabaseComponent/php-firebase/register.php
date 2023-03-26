@@ -17,10 +17,7 @@ include('includes/header.php');
                     unset($_SESSION['status']);
                 }
                 ?>
-        
-        
-        
-        
+    
         <div class="box">
             <div class="card-header">
                 <h1>Register here!</h1>
@@ -42,12 +39,12 @@ include('includes/header.php');
                 <br>
                 <div class="form-group-mb-3">
                 <p>Password</p>
-                    <input type="password" name="password1" class="form-control" placeholder="Enter Password" required="">
+                    <input type="password" name="password1" class="form-control" placeholder="Enter Password" required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).*$" title="Password must have at least one digit, one uppercase letter, one non-alphanumeric character, and be at least 8 characters long">
                 </div>
                 <br>
                 <div class="form-group-mb-3">
                 <p>Retype Password</p>
-                    <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required="">
+                    <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required ="">
                 </div>
                 <?php 
                 if(isset($_SESSION['pwd_error'])) { ?>
@@ -73,3 +70,4 @@ include('includes/header.php');
 <?php
 include("includes/footer.php");
 ?>
+
