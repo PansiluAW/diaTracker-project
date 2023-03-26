@@ -10,3 +10,16 @@
     border-radius: 10px;
     font-size: 18px;
 }
+.exerCard{
+    background-color: #ffd415;
+    
+}
+
+.exerCardTitle{
+    color: #372E18;
+    font-weight:bold;
+}
+.table-container{
+    display: flex;
+    justify-content: center;
+}

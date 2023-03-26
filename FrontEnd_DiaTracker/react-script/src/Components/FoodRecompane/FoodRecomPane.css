@@ -10,3 +10,16 @@
     border-radius: 10px;
     font-size: 18px;
 }
+.foodCard{
+    background-color: #ffd415;
+    
+}
+
+.foodCardTitle{
+    color: #372E18;
+    font-weight:bold;
+}
+.table-container{
+    display: flex;
+    justify-content: center;
+}
