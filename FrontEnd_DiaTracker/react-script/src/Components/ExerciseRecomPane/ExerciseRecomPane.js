@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./ExerciseRecomPane.css";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
+
 
 export default function ExerciseRecomPane({ resentValue }) {
   const [exerciseData, setExerciseData] = useState([]);
@@ -55,16 +57,81 @@ export default function ExerciseRecomPane({ resentValue }) {
     <div className="ExRecomPane">
       Exercise Recoomendation
       {exerciseData.map((exercise, index) => (
-        <Card>
-          <Card.Title>{exercise["Activity (1H)"]}</Card.Title>
-          <Card.Body>
+        <Card className="mt-3 foodCard">
+          <Card.Title className="exerCardTitle mt-4 font-weight-bold">{exercise["Activity (1H)"]}</Card.Title>
+          <Card.Body className="text-center">
             <Card.Title>
-              <Card.Text>
-                Calories per kg: {exercise["Calories per kg"]}
+              <Card.Text>                
+                <div className="table-container">
+                 <table className="table table-responsive justify-content-center align-items px-10 table stripped">
+                   <tr>
+                     <tr>
+                     <td>Calories per kg</td>
+                     </tr>
+                     <tr>
+                     <td>{exercise["Calories per kg"]}</td>
+                     </tr>
+                   </tr>
+                  </table>
+                  </div>
               </Card.Text>
             </Card.Title>
           </Card.Body>
         </Card>
+
+// <Card className="mt-3 foodCard">
+// <Card.Title >{food["Food"]}</Card.Title>
+// <Card.Body >
+//   <Card.Title>
+//   <Card.Text>                
+//   <div className="table-container">
+//     <table className="table table-responsive justify-content-center align-items px-10 table stripped">
+//       <tr>
+//         <tr>
+//         <td>Measure</td>
+//         <td>Grams</td>
+//         </tr>
+//         <tr>
+//         <td>{food["Measure"]}</td>
+//         <td>{food["Grams"]}</td>
+//         </tr>
+//       </tr>
+//       <tr>
+//       <tr>
+//         <td>Calories</td>
+//         <td>Carbs</td>
+//         </tr>
+//         <tr>
+//         <td>{food["Calories"]}</td>
+//         <td>{food["Carbs"]}</td>
+//         </tr>
+//       </tr>
+//       <tr>
+//       <tr>
+//         <td>Fat</td>
+//         <td>Fiber</td>
+//         </tr>
+//         <tr>
+//         <td>{food["Fat"]}</td>
+//         <td>{food["Fiber"]}</td>
+//         </tr>                 
+//       </tr>
+//       <tr>
+//       <tr>
+//         <td>Protein</td>
+//         <td>Saturated Fats</td>
+//         </tr>
+//         <tr>
+//         <td>{food["Protein"]}</td>
+//         <td>{food["Sat.Fat"]}</td>
+//         </tr>
+//       </tr>
+//     </table>              
+//   </div>
+//     </Card.Text>  
+//   </Card.Title>
+// </Card.Body>
+// </Card>
       ))}
     </div>
   );
