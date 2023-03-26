@@ -9,7 +9,7 @@ export default function SettingsPane() {
     setValue1(event.target.value);
   };
 
-  const [value3, setValue3] = React.useState("Disabled");
+  const [value3, setValue3] = React.useState("");
 
   const handleChange3 = (event) => {
     setValue3(event.target.value);
