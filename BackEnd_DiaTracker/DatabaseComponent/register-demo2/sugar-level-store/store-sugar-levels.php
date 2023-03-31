@@ -1,9 +1,11 @@
 <?php
+session_start();
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 include('database_connection.php');
-// if (isset($_COOKIE['username'])){
-    $SQL_TABLE = "CREATE TABLE IF NOT EXISTS hello (
+if (isset($_SESSION['verified_user_id'])){
+    $user_table_name = "user_".$_SESSION['verified_user_id'];
+    $SQL_TABLE = "CREATE TABLE IF NOT EXISTS $user_table_name (
         id INT(11) NOT NULL AUTO_INCREMENT,
         added_date DATE,
         sugar_data INT(200) NOT NULL,
@@ -15,6 +17,7 @@ include('database_connection.php');
         echo '<script type="text/javascript">';
         echo 'alert("Data Successfully entered into the system")';
         echo '</script>';
+        exit();
     }else{
         echo '<script type="text/javascript">';
         echo 'alert("Urgh...an unexpected error occured")';
@@ -26,9 +29,6 @@ include('database_connection.php');
         $data = json_decode(file_get_contents("php://input"), true);
         $date = $data['date'];
         $sugar_data = $data['currentInput'];
-
-        echo "Date: ".$date."\n";
-        echo "Current Input: ".$sugar_data."\n";
         // $date = $_POST['date'];
         // $sugar_data = $_POST['date'];
         
@@ -48,7 +48,7 @@ include('database_connection.php');
         }
     }
     mysqli_close($conn);
-// }else{
-//     header('Location:  ../save_data/login.php')
-// }
+}else{
+    header('Location:  http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/php-firebase/login.php');
+}
 ?>

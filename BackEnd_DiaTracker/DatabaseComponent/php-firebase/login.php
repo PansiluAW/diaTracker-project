@@ -1,11 +1,11 @@
 <?php
 session_start();  
 if(isset($_SESSION['verified_user_id'])) {
-    $_SESSION['status'] = "You are already Logged in ";
+    $_SESSION['status'] = "You are logged in";
 
      // set a cookie to remember the user
-     setcookie('remember_me', $user['id'], time() + (86400 * 30), "/"); // set for 30 days
-    header("Location: home.php");
+    //  setcookie('remember_me', $user['id'], time() + (86400 * 30), "/"); // set for 30 days
+    header("Location: http://localhost:3000/");
     exit();
 }
 
@@ -15,6 +15,10 @@ include('includes/header.php');
 // }else {
 //     header("Location: home.php");
 // }
+// if(isset($_COOKIE['remember_user'])){
+
+// }
+
 
 ?>
 <div class="loader"></div>

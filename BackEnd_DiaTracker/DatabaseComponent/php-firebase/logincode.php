@@ -17,15 +17,18 @@ if(isset($_POST['login_now_btn']))
             $verifiedIdToken = $auth->verifyIdToken($idTokenString);
             $uid = $verifiedIdToken->claims()->get('sub');
             
+            $userRecord = $auth->getUser($uid);
+            $displayName = $userRecord->displayName;
 
             $_SESSION['verified_user_id'] =$uid;
             $_SESSION['idTokenString'] =$idTokenString;
 
             $_SESSION['status'] = "<div class='error'>You are Logged in Successfully</div>";
+            $_SESSION['username'] = $displayName;
             header("Location: http://localhost:3000");
             exit();
 
-        } catch (FailedToVerifyToken $e) {
+        } catch (Exception $e) {
             echo 'The token is invalid: '.$e->getMessage();
         }
     } catch (\Kreait\Firebase\Exception\Auth\UserNotFound $e) {

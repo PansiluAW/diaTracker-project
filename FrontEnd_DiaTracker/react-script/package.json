@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "html-loader": "^4.2.0",
+    "nodemon": "^2.0.22",
     "react-scripts": "^5.0.1"
   }
 }
