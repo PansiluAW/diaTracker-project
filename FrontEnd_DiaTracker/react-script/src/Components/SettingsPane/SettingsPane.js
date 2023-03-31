@@ -212,7 +212,7 @@ export default function SettingsPane() {
             body: messages[randomIndex].body
           });
         }
-      }, 30000);
+      }, 600000);
     }
 
 
