@@ -2,6 +2,7 @@
 session_start();
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 
 include('database_connection.php');
 if (isset($_SESSION['verified_user_id'])){
@@ -9,7 +10,7 @@ if (isset($_SESSION['verified_user_id'])){
         //FROM $_COOKIE['username'] as the table name
         $user_table_name = "user_".$_SESSION['verified_user_id'];
         $SQL_SELECT = "SELECT added_date, sugar_data  FROM (SELECT added_date, sugar_data, ROW_NUMBER() OVER (ORDER BY id DESC) AS row_num FROM $user_table_name) AS temp_table WHERE row_num <= 10 ORDER BY row_num DESC";
-
+        
         $execSQL = mysqli_query($conn,$SQL_SELECT);
         if ($execSQL){
             $data = array();

@@ -2,6 +2,7 @@
 session_start();
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 include('database_connection.php');
 if (isset($_SESSION['verified_user_id'])){
     $user_table_name = "user_".$_SESSION['verified_user_id'];
@@ -11,7 +12,6 @@ if (isset($_SESSION['verified_user_id'])){
         sugar_data INT(200) NOT NULL,
         PRIMARY KEY (id)
     )";
-
     $execSQL = mysqli_query($conn, $SQL_TABLE);
     if ($execSQL){
         echo '<script type="text/javascript">';
