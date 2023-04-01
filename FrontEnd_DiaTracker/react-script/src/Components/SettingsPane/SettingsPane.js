@@ -61,12 +61,12 @@ export default function SettingsPane() {
         },
         {
           title: "New Notification!",
-          body: "Your time is limited, don't waste it living someone else's life.",
+          body: "Every day is a new opportunity to take care of your diabetes and live your best life.",
           
         },
         {
           title: "New Notification!",
-          body: "Be the change that you wish to see in the world.",
+          body: "Don't let diabetes define you. You define your diabetes.",
           
         },
         {
@@ -76,7 +76,7 @@ export default function SettingsPane() {
         },
         {
           title: "New Notification!",
-          body: "In three words I can sum up everything I've learned about life: it goes on.",
+          body: "Remember, you have the power to control your diabetes, not the other way around.",
           
         },
         {
