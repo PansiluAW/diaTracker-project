@@ -2,11 +2,12 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Credentials: *");
 header('Content-Type: application/json');
 session_start();
 
 include('database_connection.php');
-if (isset($_SESSION['verified_user_id'])){
+if (isset($_SESSION['verified_user_id']) && !empty($_SESSION['verified_user_id'])){
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
         //FROM $_COOKIE['username'] as the table name
         $user_table_name = "user_".$_SESSION['verified_user_id'];
