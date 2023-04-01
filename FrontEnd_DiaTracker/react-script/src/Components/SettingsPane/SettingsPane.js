@@ -31,7 +31,7 @@ export default function SettingsPane() {
       var messages = [
         {
           title: "New Notification!",
-          body: "With each breath, bring your focus to the present moment and let go of any worries about the future or regrets about the past.",
+          body: "Diabetes is not a death sentence, it's a life sentence to a lifetime of healthy eating and exercise.",
           
         },
         {
@@ -46,7 +46,7 @@ export default function SettingsPane() {
         },
         {
           title: "New Notification!",
-          body: "In the end, it's not the years in your life that count. It's the life in your years.",
+          body: "Diabetes can be a daily struggle, but it doesn't have to be a daily defeat.",
           
         },
         {
@@ -56,17 +56,17 @@ export default function SettingsPane() {
         },
         {
           title: "New Notification!",
-          body: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+          body: "Your diabetes is not a reflection of your worth. You are so much more than your numbers.",
           
         },
         {
           title: "New Notification!",
-          body: "Your time is limited, don't waste it living someone else's life.",
+          body: "Every day is a new opportunity to take care of your diabetes and live your best life.",
           
         },
         {
           title: "New Notification!",
-          body: "Be the change that you wish to see in the world.",
+          body: "Don't let diabetes define you. You define your diabetes.",
           
         },
         {
@@ -76,7 +76,7 @@ export default function SettingsPane() {
         },
         {
           title: "New Notification!",
-          body: "In three words I can sum up everything I've learned about life: it goes on.",
+          body: "Remember, you have the power to control your diabetes, not the other way around.",
           
         },
         {
