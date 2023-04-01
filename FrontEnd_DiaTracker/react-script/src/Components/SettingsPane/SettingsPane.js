@@ -31,7 +31,7 @@ export default function SettingsPane() {
       var messages = [
         {
           title: "New Notification!",
-          body: "With each breath, bring your focus to the present moment and let go of any worries about the future or regrets about the past.",
+          body: "Diabetes is not a death sentence, it's a life sentence to a lifetime of healthy eating and exercise.",
           
         },
         {
