@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 session_start();  
 if(isset($_SESSION['verified_user_id'])) {
     $_SESSION['status'] = "You are logged in";

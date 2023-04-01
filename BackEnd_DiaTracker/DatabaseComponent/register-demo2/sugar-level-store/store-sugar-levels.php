@@ -1,8 +1,8 @@
 <?php
-session_start();
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
+session_start();
 include('database_connection.php');
 if (isset($_SESSION['verified_user_id'])){
     $user_table_name = "user_".$_SESSION['verified_user_id'];
@@ -33,7 +33,7 @@ if (isset($_SESSION['verified_user_id'])){
         // $sugar_data = $_POST['date'];
         
         // $sugar_data = json_decode(file_get_contents(""))
-        $SQL_INSERT = "INSERT INTO hello(added_date,sugar_data)
+        $SQL_INSERT = "INSERT INTO $user_table_name (added_date,sugar_data)
         VALUES ('$date', '$sugar_data')";
 
         if (mysqli_query($conn,$SQL_INSERT)){

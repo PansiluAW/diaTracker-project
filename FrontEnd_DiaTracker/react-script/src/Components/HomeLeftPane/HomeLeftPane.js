@@ -30,13 +30,14 @@ export default function HomeLeftPane({ data, setData }) {
   const getData = () => {
     axios
       .get(
-        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php"
+        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php", {withCredentials: true}
       )
       .then((response) => {
+        console.log(response);
         const formattedData = response.data.map((item) => [item[0], item[1]]);
         setData(formattedData);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   };

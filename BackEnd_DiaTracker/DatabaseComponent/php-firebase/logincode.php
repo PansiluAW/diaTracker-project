@@ -1,6 +1,9 @@
 <?php
-
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 session_start();
+
 include("dbcon.php");
 
 if(isset($_POST['login_now_btn']))
@@ -25,6 +28,7 @@ if(isset($_POST['login_now_btn']))
 
             $_SESSION['status'] = "<div class='error'>You are Logged in Successfully</div>";
             $_SESSION['username'] = $displayName;
+            echo "User ID: {$_SESSION['verified_user_id']}";
             header("Location: http://localhost:3000");
             exit();
 
