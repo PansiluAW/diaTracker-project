@@ -46,7 +46,7 @@ export default function SettingsPane() {
         },
         {
           title: "New Notification!",
-          body: "In the end, it's not the years in your life that count. It's the life in your years.",
+          body: "Diabetes can be a daily struggle, but it doesn't have to be a daily defeat.",
           
         },
         {
@@ -56,7 +56,7 @@ export default function SettingsPane() {
         },
         {
           title: "New Notification!",
-          body: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+          body: "Your diabetes is not a reflection of your worth. You are so much more than your numbers.",
           
         },
         {
