@@ -22,64 +22,59 @@ include('includes/header.php');
 
 // }
 
+echo "<div class=loader></div>";
+    // <!-- This div is for the login form -->
+    echo "<div class=mainbox>";
+        echo "<img src=diatracker-logo-transparent.png alt=diatracker-logo width=600 class=logo>";
+        echo "</div>";
+echo "<div class=container>";
+        echo "<div class=row justify-content-center>";
+            echo "<div class='col-md-5 mt-5'>";
 
-?>
-<div class="loader"></div>
-    <!-- This div is for the login form -->
-    <div class="mainbox">
-        <img src="diatracker-logo-transparent.png" alt="diatracker-logo" width="600" class="logo">
-        </div>
-<div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-5 mt-5">
-
-            <?php
+            
                 if(isset($_SESSION['status']))
                 {
                     echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
                     unset($_SESSION['status']);
                 }
-                ?>
+                
 
-                <div class="box">
-                    <div class="card-header">
-                        <h1>Login Here!</h1>
-                </div>
-                <div class="card-body">
-                    <form action="logincode.php" method="POST">
-                        <div class="form-group-mb-3">
-                        <p>Email</p>
-                            <input type="email" name="email" class="form-control" placeholder="Enter Email Address" required="">
-                        </div>
-                        <br>
-                        <div class="form-group-mb-3">
-                        <p>Password</p>
-                            <input type="password" name = "password" class="form-control" placeholder="Enter Password" required="">
-                        </div>
-                        <br>
-                        <div class="form-group-mb-3 text-center">
-                        <input type="submit" name="login_now_btn" class="btn btn-primary" value="Login"></input>
-                        </div>
-                        <br>
-                        <script src="loading.js"></script>
-                <p class="text-center">Don't have an account? <a href="register.php">Sign Up</a></p>
-                </div>
+                echo "<div class=box>";
+                    echo "<div class=card-header>";
+                        echo "<h1>Login Here!</h1>";
+                echo "</div>";
+                echo "<div class=card-body>";
+                    echo "<form action=logincode.php method=POST>";
+                        echo "<div class=form-group-mb-3>";
+                        echo "<p>Email</p>";
+                            echo "<input type=email name=email class=form-control placeholder='Enter Email Address' required=''>";
+                        echo "</div>";
+                        echo "<br>";
+                        echo "<div class=form-group-mb-3>";
+                        echo "<p>Password</p>";
+                            echo "<input type=password name = password class=form-control placeholder='Enter Password' required=''>";
+                        echo "</div>";
+                        echo "<br>";
+                        echo "<div class='form-group-mb-3 text-center'>";
+                        echo "<input type='submit' name='login_now_btn' class='btn btn-primary' value=Login></input>";
+                        echo "</div>";
+                        echo "<br>";
+                        echo "<script src=loading.js></script>";
+                echo "<p class=text-center>Don't have an account? <a href=register.php>Sign Up</a></p>";
+                echo "</div>";
     
 
-                <?php
                 // check if password is incorrect and display error message
                 if(isset($_SESSION['status']) && $_SESSION['status'] == 'Password is incorrect') {
                     echo "<h4 class='alert alert-danger'>Password is incorrect</h4>";
                     unset($_SESSION['status']);
                 }
-                ?>
 
-            </form>
-        </div>    
-    </div>
-    </div>
-</div>
-<?php
+            echo "</form>";
+        echo "</div>";
+    echo "</div>";
+    echo "</div>";
+echo "</div>";
 include("includes/footer.php");
 ?>
 
