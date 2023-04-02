@@ -36,8 +36,8 @@ if (isset($_SESSION['verified_user_id']) && !empty($_SESSION['verified_user_id']
             }else{                
                 $data[] = [0,0];
             }
-            echo json_encode($_SESSION['verified_user_id']);
-            // echo json_encode($data);
+            // echo json_encode($_SESSION['verified_user_id']);
+            echo json_encode($data);
         }else{
             exit();
         }
