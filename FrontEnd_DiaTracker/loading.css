@@ -6,20 +6,22 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
-    background-color: #fbcd08;
+    background-color: #fbcd08; /* Set a default background color for all elements */
  
   }
 /* Set default styles for the body element */
   body{
     list-style: none;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Set the default font family for the page */
   }
 /* Hide the loader element when it is not needed */  
   .loader--hidden {
     opacity: 0;
     pointer-events: none;
   }
+
+/* Style the loader element */
   .loader {
     width: 48px;
     height: 48px;
@@ -32,10 +34,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fbcd08;
-    transition: opacity 2s ease-in-out;
-    z-index: 9999;
+    background: #fbcd08; /* Set the background color of the loader */
+    transition: opacity 2s ease-in-out; 
+    z-index: 9999; /* Make the loader appear on top of other elements */
   }
+/* Style the loader elements before and after the main circle */
   .loader::before , .loader::after{
     content: '';
     animation: loading 1s ease infinite;
@@ -61,12 +64,16 @@
     border-radius: 50%;
     animation: blast 1s ease-in infinite;
   }
+
+
+/* Style the loader element after the main circle */
   .loader::after {
     font-size: 1px;
     background: #fff;
     animation: bounce 1s ease-in infinite;
   }
-  
+
+/* Define the keyframe animations for the loader */  
   @keyframes bounce {
     0% , 100%{ font-size: 0.75px }
     50% { font-size: 1.5px }
@@ -151,11 +158,15 @@ header{
     
   }
 
+/* When the user hovers over a link inside an element with the class "head-btn",
+a box-shadow effect is applied and the transition takes 400ms */
   .head-btn a:hover{
     box-shadow: 0 20px 50px #372e18;
     transition: 400ms;
   }
 
+/* When the user clicks on a link inside an element with the class "head-btn",
+a 12px inset border with the color #fbcd08 is applied and the transition takes 50ms */
   .head-btn a:active{
     border: 12px inset #fbcd08;
     transition: 50ms;
