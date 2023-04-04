@@ -48,9 +48,8 @@ export default function HomeLeftPane({ data, setData }) {
       try {
         const newRecord = [date, currentInput];
         await axios.post(
-          "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
-          { date: date, currentInput: currentInput },
-          {withCredentials: true}
+          "/api/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
+          { date: date, currentInput: currentInput},
         );
         setData((existingValues) => {
           const currentValues = [...existingValues];
