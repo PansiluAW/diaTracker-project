@@ -1,7 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE. OPTIONS");
+header("Access-Control-Allow-Credentials: true");
 session_start();  
 if(isset($_SESSION['verified_user_id'])) {
     $_SESSION['status'] = "You are logged in";
@@ -21,7 +22,7 @@ include('includes/header.php');
 // if(isset($_COOKIE['remember_user'])){
 
 // }
-echo "<script src='https://www.google.com/recaptcha/api.js'; async defer></script>";
+// echo "<script src='https://www.google.com/recaptcha/api.js'; async defer></script>";
 echo "<div class=loader></div>";
     // <!-- This div is for the login form -->
     echo "<div class=mainbox>";
@@ -55,7 +56,7 @@ echo "<div class=container>";
                             echo "<input type=password name = password class=form-control placeholder='Enter Password' required=''>";
                         echo "</div>";
                         echo "<br>";
-                        echo "<div class='g-recaptcha' data-sitekey='6LeAIFglAAAAAIDTV8PGC9MqAJT_Cd8dG7f4lOGP'></div>";
+                        // echo "<div class='g-recaptcha' data-sitekey='6LeAIFglAAAAAIDTV8PGC9MqAJT_Cd8dG7f4lOGP'></div>";
                         echo "<div class='form-group-mb-3 text-center'>";
                         echo "<input type='submit' name='login_now_btn' id=submit-btn class='btn btn-primary' value=Login></input>";
                         echo "</div>";
@@ -76,7 +77,6 @@ echo "<div class=container>";
     echo "</div>";
     echo "</div>";
 echo "</div>";
-// <script>
 // const form = document.querySelector('#login-form');
 // const submitBtn = document.querySelector('#submit-btn');
 
@@ -91,13 +91,12 @@ echo "</div>";
 //             fetch('logincode.php', {
 //                 method: 'POST',
 //                 body: formData
-//             }).then((response) => {
-                
+//             }).then((response.status == 200) => {
+//                 window.location.href = "logincode.php";
 //             })
 //         })
 //     })
 // })
-// </script>
 include("includes/footer.php");
 ?>
 
