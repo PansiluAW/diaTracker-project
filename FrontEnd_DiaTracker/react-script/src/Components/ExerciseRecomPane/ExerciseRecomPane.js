@@ -55,7 +55,7 @@ export default function ExerciseRecomPane({ resentValue }) {
 
   return (
     <div className="ExRecomPane">
-      Exercise Recoomendation
+      Exercise Recommendation
       {exerciseData.map((exercise, index) => (
         <Card className="mt-3 foodCard">
           <Card.Title className="exerCardTitle mt-4 font-weight-bold">{exercise["Activity (1H)"]}</Card.Title>
@@ -69,7 +69,7 @@ export default function ExerciseRecomPane({ resentValue }) {
                      <td>Calories per kg</td>
                      </tr>
                      <tr>
-                     <td>{exercise["Calories per kg"]}</td>
+                     <td>{exercise["Calories per kg"]} kcals</td>
                      </tr>
                    </tr>
                   </table>
