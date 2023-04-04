@@ -2,85 +2,97 @@ import React, { useState, useEffect, useRef } from "react";
 import "./HomeLeftPane.css";
 import LineChart from "../../Components/LineChart/LineChart";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import MedicationIcon from "@mui/icons-material/Medication";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.css";
-import MedicationPane from "../MedicationPane/MedicationPane";
 import SettingsPane from "../SettingsPane/SettingsPane";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { IconContext } from "react-icons";
 import axios from "axios";
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export default function HomeLeftPane({ data, setData }) {
   const current = new Date();
+  //date variable to pass to the line chart x axis
   const date = `${current.getFullYear()}-${
     current.getMonth() + 1
   }-${current.getDate()}`;
 
-  const inputRef = useRef(null);
-
+  //render getData() only when the initialization of the application
   useEffect(() => {
     getData();
   }, []);
 
+  //To get previously added sugar level inputs from the database
   const getData = () => {
     axios
       .get(
-        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php",{withCredentials: true}
+        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php",
+        { withCredentials: true }
       )
       .then((response) => {
         console.log(response);
         const formattedData = response.data.map((item) => [item[0], item[1]]);
         setData(formattedData);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
-  
+  //get the user added input from the text field on line 223
+  const inputRef = useRef(null);
+  //when clicks on the add button this fuction will get triggered
   const saveValue = async () => {
+    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and 
+    //for the line chart y axis
     const currentInput = Number(inputRef.current.value);
-      try {
-        const newRecord = [date, currentInput];
-        await axios.post(
-          "http://localhost:80/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
-          {date: date, currentInput: currentInput},
-        );
-        setData((existingValues) => {
-          const currentValues = [...existingValues];
-          currentValues.push(newRecord);
-          return currentValues;
-        });
-      } catch (error) {
-        console.log(error);
-      }
-      inputRef.current.value = "";
+
+    try {
+      //push the user input sugar level as an array to the database using api link
+      const newRecord = [date, currentInput];
+      await axios.post(
+        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
+        { date: date, currentInput: currentInput }
+      );
+      setData((existingValues) => {
+        const currentValues = [...existingValues];
+        currentValues.push(newRecord);
+        return currentValues;
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    //when the user clicks on the add button input get push to the database and textfeild become a empty string
+    inputRef.current.value = "";
   };
+  //to show the user either sugar input textfield or recent and previous sugar levels and the differance of the sugar level
   const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
     useState(false);
-
+  //to show the setting pane when user clicks on the settings icon
   const [sideSettingsBar, setSideSettingsBar] = useState(false);
-
+  //this is a fuction to check whether the settings pane visible or not
   const showSideSettingsbar = () => setSideSettingsBar(!sideSettingsBar);
 
-  const [sideMedicationsBar, setSideMedicationsBar] = useState(false);
-  const showSideMedicationbar = () =>
-    setSideMedicationsBar(!sideMedicationsBar);
+  // const [sideMedicationsBar, setSideMedicationsBar] = useState(false);
+  // const showSideMedicationbar = () =>
+  //   setSideMedicationsBar(!sideMedicationsBar);
 
+
+  //this function is use to calculate and display recent and previous sugar levels accessing from the linechart
   const summary = () => {
     if (data.length > 2) {
+      //data is a associative array of date and sugar level passing from HomeScreen page as a prop 
+      //then the last and the before the last index of the array is being accessed
       const recentSugarLevel = data[data.length - 1][1];
       const previousSugarLevel = data[data.length - 2][1];
       let result;
+      //
       if (recentSugarLevel >= previousSugarLevel) {
         result = (
           <>
             {recentSugarLevel - previousSugarLevel}
-            <ArrowDropUpIcon/>
+            <ArrowDropUpIcon />
           </>
         );
       } else {
@@ -116,7 +128,7 @@ export default function HomeLeftPane({ data, setData }) {
                         <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
                       </div>
                       <div className="top-panes">
-                        <SettingsPane/>
+                        <SettingsPane />
                       </div>
                     </>
                   ) : null}
