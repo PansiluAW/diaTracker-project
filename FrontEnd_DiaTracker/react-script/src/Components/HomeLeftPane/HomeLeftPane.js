@@ -46,31 +46,31 @@ export default function HomeLeftPane({ data, setData }) {
   const saveValue = async () => {
     //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis
     const currentInput = Number(inputRef.current.value);
-    
-      try {
-        //push the user input sugar level as an array to the database using api link
-        const newRecord = [date, currentInput];
-        await axios.post(
-          "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
-          { date: date, currentInput: currentInput }
-        );
-        setData((existingValues) => {
-          const currentValues = [...existingValues];
-          currentValues.push(newRecord);
-          return currentValues;
-        });
-      } catch (error) {
-        console.log(error);
-      }
-      //when the user clicks on the add button input get push to the database and textfeild become a empty string
-      inputRef.current.value = "";
 
+    try {
+      //push the user input sugar level as an array to the database using api link
+      const newRecord = [date, currentInput];
+      await axios.post(
+        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
+        { date: date, currentInput: currentInput }
+      );
+      setData((existingValues) => {
+        const currentValues = [...existingValues];
+        currentValues.push(newRecord);
+        return currentValues;
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    //when the user clicks on the add button input get push to the database and textfeild become a empty string
+    inputRef.current.value = "";
   };
   //to show the user either sugar input textfield or recent and previous sugar levels and the differance of the sugar level
-  const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] = useState(false);
-
+  const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
+    useState(false);
+  //to show the setting pane when user clicks on the settings icon
   const [sideSettingsBar, setSideSettingsBar] = useState(false);
-
+  //this is a fuction to check whether the settings pane visible or not
   const showSideSettingsbar = () => setSideSettingsBar(!sideSettingsBar);
 
   // const [sideMedicationsBar, setSideMedicationsBar] = useState(false);
