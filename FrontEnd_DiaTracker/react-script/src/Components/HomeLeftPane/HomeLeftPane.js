@@ -20,11 +20,12 @@ export default function HomeLeftPane({ data, setData }) {
   }-${current.getDate()}`;
 
 
-
+//render getData() only when the initialization of the application 
   useEffect(() => {
     getData();
   }, []);
 
+  
   const getData = () => {
     axios
       .get(
