@@ -66,16 +66,16 @@ export default function HomeLeftPane({ data, setData }) {
       inputRef.current.value = "";
 
   };
-  const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
-    useState(false);
+  //to show the user either sugar input textfield or recent and previous sugar levels and the differance of the sugar level
+  const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] = useState(false);
 
   const [sideSettingsBar, setSideSettingsBar] = useState(false);
 
   const showSideSettingsbar = () => setSideSettingsBar(!sideSettingsBar);
 
-  const [sideMedicationsBar, setSideMedicationsBar] = useState(false);
-  const showSideMedicationbar = () =>
-    setSideMedicationsBar(!sideMedicationsBar);
+  // const [sideMedicationsBar, setSideMedicationsBar] = useState(false);
+  // const showSideMedicationbar = () =>
+  //   setSideMedicationsBar(!sideMedicationsBar);
 
   const summary = () => {
     if (data.length > 2) {
