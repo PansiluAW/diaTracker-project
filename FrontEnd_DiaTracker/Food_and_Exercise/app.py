@@ -19,7 +19,7 @@ def get_exercise_data():
     exercise_data_filtered = [d for d in exercise_data if d['Cluster'] == cluster]
     
     # Select 5 random instances from the filtered exercise data
-    exercise_data_selected = random.sample(exercise_data_filtered, min(5, len(exercise_data_filtered)))
+    exercise_data_selected = random.sample(exercise_data_filtered, min(6, len(exercise_data_filtered)))
 
     # Return selected data as JSON response
     return jsonify({

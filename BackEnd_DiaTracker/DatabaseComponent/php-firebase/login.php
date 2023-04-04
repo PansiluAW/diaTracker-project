@@ -21,7 +21,7 @@ include('includes/header.php');
 // if(isset($_COOKIE['remember_user'])){
 
 // }
-
+echo "<script src='https://www.google.com/recaptcha/api.js'; async defer></script>";
 echo "<div class=loader></div>";
     // <!-- This div is for the login form -->
     echo "<div class=mainbox>";
@@ -44,7 +44,7 @@ echo "<div class=container>";
                         echo "<h1>Login Here!</h1>";
                 echo "</div>";
                 echo "<div class=card-body>";
-                    echo "<form action=logincode.php method=POST>";
+                    echo "<form id=login-form action=logincode.php method=POST>";
                         echo "<div class=form-group-mb-3>";
                         echo "<p>Email</p>";
                             echo "<input type=email name=email class=form-control placeholder='Enter Email Address' required=''>";
@@ -55,8 +55,9 @@ echo "<div class=container>";
                             echo "<input type=password name = password class=form-control placeholder='Enter Password' required=''>";
                         echo "</div>";
                         echo "<br>";
+                        echo "<div class='g-recaptcha' data-sitekey='6LeAIFglAAAAAIDTV8PGC9MqAJT_Cd8dG7f4lOGP'></div>";
                         echo "<div class='form-group-mb-3 text-center'>";
-                        echo "<input type='submit' name='login_now_btn' class='btn btn-primary' value=Login></input>";
+                        echo "<input type='submit' name='login_now_btn' id=submit-btn class='btn btn-primary' value=Login></input>";
                         echo "</div>";
                         echo "<br>";
                         echo "<script src=loading.js></script>";
@@ -75,6 +76,28 @@ echo "<div class=container>";
     echo "</div>";
     echo "</div>";
 echo "</div>";
+// <script>
+// const form = document.querySelector('#login-form');
+// const submitBtn = document.querySelector('#submit-btn');
+
+// submitBtn.addEventListener('click', (event) =>{
+//     event.preventDefault();
+
+//     grecaptcha.ready(() => {
+//         grecaptcha.execute('6LeAIFglAAAAAIDTV8PGC9MqAJT_Cd8dG7f4lOGP', {action: 'submit'}).then((token) => {
+//             const formData = new FormData(form);
+//             formData.append('token', token);
+
+//             fetch('logincode.php', {
+//                 method: 'POST',
+//                 body: formData
+//             }).then((response) => {
+                
+//             })
+//         })
+//     })
+// })
+// </script>
 include("includes/footer.php");
 ?>
 
