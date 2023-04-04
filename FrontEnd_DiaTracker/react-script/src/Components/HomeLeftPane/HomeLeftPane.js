@@ -48,6 +48,7 @@ export default function HomeLeftPane({ data, setData }) {
     const currentInput = Number(inputRef.current.value);
     
       try {
+        //push the user input sugar level as an array to the database using api link
         const newRecord = [date, currentInput];
         await axios.post(
           "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
@@ -61,6 +62,7 @@ export default function HomeLeftPane({ data, setData }) {
       } catch (error) {
         console.log(error);
       }
+      //when the user clicks on the add button input get push to the database and textfeild become a empty string
       inputRef.current.value = "";
 
   };
