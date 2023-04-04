@@ -9,6 +9,30 @@ if(isset($_POST['register_now_btn']))
    $email=$_POST["email"];
    $password=$_POST["password1"];
    $confirmpassword=$_POST["password2"];
+   
+   // Verify reCAPTCHA response
+   $response = $_POST['g-recaptcha-response'];
+   $url = 'https://www.google.com/recaptcha/api/siteverify';
+   $data = array(
+       'secret' => '6Le40FklAAAAAPKmNcILR5lxqhXoxWwLozY7dktx',
+       'response' => $response
+   );
+   $options = array(
+       'http' => array (
+           'method' => 'POST',
+           'content' => http_build_query($data)
+       )
+   );
+   $context  = stream_context_create($options);
+   $verify = file_get_contents($url, false, $context);
+   $captcha_success = json_decode($verify);
+
+   if (!$captcha_success->success) {
+       // reCAPTCHA verification failed
+       $_SESSION['status'] = "<div class='error'>reCAPTCHA verification failed</div>";
+       header("Location: register.php");
+       exit();
+   }
 
    // Check if passwords match
    if($password !== $confirmpassword)
