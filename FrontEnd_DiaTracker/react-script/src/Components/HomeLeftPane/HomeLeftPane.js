@@ -44,7 +44,8 @@ export default function HomeLeftPane({ data, setData }) {
   const inputRef = useRef(null);
   //when clicks on the add button this fuction will get triggered
   const saveValue = async () => {
-    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis
+    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and 
+    //for the line chart y axis
     const currentInput = Number(inputRef.current.value);
 
     try {
@@ -77,11 +78,16 @@ export default function HomeLeftPane({ data, setData }) {
   // const showSideMedicationbar = () =>
   //   setSideMedicationsBar(!sideMedicationsBar);
 
+
+  //this function is use to calculate and display recent and previous sugar levels accessing from the linechart
   const summary = () => {
     if (data.length > 2) {
+      //data is a associative array of date and sugar level passing from HomeScreen page as a prop 
+      //then the last and the before the last index of the array is being accessed
       const recentSugarLevel = data[data.length - 1][1];
       const previousSugarLevel = data[data.length - 2][1];
       let result;
+      //
       if (recentSugarLevel >= previousSugarLevel) {
         result = (
           <>
