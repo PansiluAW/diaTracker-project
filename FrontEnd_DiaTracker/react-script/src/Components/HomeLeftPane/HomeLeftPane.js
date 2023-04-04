@@ -14,7 +14,7 @@ import axios from "axios";
 
 export default function HomeLeftPane({ data, setData }) {
   const current = new Date();
-  //
+  //date variable to pass to the line chart x axis
   const date = `${current.getFullYear()}-${
     current.getMonth() + 1
   }-${current.getDate()}`;
@@ -39,7 +39,7 @@ export default function HomeLeftPane({ data, setData }) {
         console.log(error);
       });
   };
-  
+
   const inputRef = useRef(null);
   const saveValue = async () => {
     const currentInput = Number(inputRef.current.value);
