@@ -14,11 +14,12 @@ import axios from "axios";
 
 export default function HomeLeftPane({ data, setData }) {
   const current = new Date();
+  //
   const date = `${current.getFullYear()}-${
     current.getMonth() + 1
   }-${current.getDate()}`;
 
-  const inputRef = useRef(null);
+
 
   useEffect(() => {
     getData();
@@ -39,6 +40,7 @@ export default function HomeLeftPane({ data, setData }) {
       });
   };
   
+  const inputRef = useRef(null);
   const saveValue = async () => {
     const currentInput = Number(inputRef.current.value);
     if (currentInput) {
