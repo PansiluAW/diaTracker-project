@@ -13,7 +13,6 @@ import SettingsPane from "../SettingsPane/SettingsPane";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { IconContext } from "react-icons";
 import axios from "axios";
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export default function HomeLeftPane({ data, setData }) {
   const current = new Date();
