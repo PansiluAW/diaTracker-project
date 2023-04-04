@@ -35,7 +35,7 @@ if(isset($_POST['login_now_btn']))
         $result = file_get_contents($url, false, $context);
         $response = json_decode($result);
         if(!$response->success) {
-            $_SESSION['status'] = "<div class='error'>reCAPTCHA verification failed. Please try again.</div>";
+            $_SESSION['status'] = "<div class='error'>reCAPTCHA Verification Failed. Please Try Again.</div>";
             header("Location: login.php");
             exit();
         }
