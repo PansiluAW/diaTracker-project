@@ -46,7 +46,7 @@ export default function HomeLeftPane({ data, setData }) {
   const saveValue = async () => {
     //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis
     const currentInput = Number(inputRef.current.value);
-    if (currentInput) {
+    
       try {
         const newRecord = [date, currentInput];
         await axios.post(
@@ -62,7 +62,7 @@ export default function HomeLeftPane({ data, setData }) {
         console.log(error);
       }
       inputRef.current.value = "";
-    }
+
   };
   const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
     useState(false);
