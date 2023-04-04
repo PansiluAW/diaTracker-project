@@ -25,7 +25,7 @@ export default function HomeLeftPane({ data, setData }) {
     getData();
   }, []);
 
-  
+  //To get previously added sugar level inputs from the database
   const getData = () => {
     axios
       .get(
