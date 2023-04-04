@@ -40,8 +40,9 @@ export default function HomeLeftPane({ data, setData }) {
         console.log(error);
       });
   };
-
+//get the user added input from the text field on line 223
   const inputRef = useRef(null);
+  //when clicks on the add button this fuction will get triggered
   const saveValue = async () => {
     const currentInput = Number(inputRef.current.value);
     if (currentInput) {
