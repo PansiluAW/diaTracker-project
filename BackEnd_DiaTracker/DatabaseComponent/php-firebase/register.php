@@ -1,5 +1,9 @@
 <?php
+
+// start the session
 session_start();
+
+// include the header file, which contains the HTML header and navigation
 include('includes/header.php');
 ?>
         <div class="loader"></div>
@@ -11,6 +15,7 @@ include('includes/header.php');
         <div class ="col-md-5 mt-5">
         
         <?php
+                // display any password error messages
                 if(isset($_SESSION['status']))
                 {
                     echo "<h4>".$_SESSION['status']."</h4>";
@@ -61,6 +66,7 @@ include('includes/header.php');
                 <p class="text-center">Already have an account? <a href="login.php">Sign in</a></p>
 
             </form>
+                
             <script src="loading.js"></script>
         </div>    
     </div>
@@ -68,6 +74,7 @@ include('includes/header.php');
 </div>
 
 <?php
+// include the footer file, which contains the closing HTML tags
 include("includes/footer.php");
 ?>
 
