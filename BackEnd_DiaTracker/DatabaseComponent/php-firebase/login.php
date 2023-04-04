@@ -56,9 +56,8 @@ echo "<div class=container>";
                             echo "<input type=password name = password class=form-control placeholder='Enter Password' required=''>";
                         echo "</div>";
                         echo "<br>";
-                        <!-- Add reCAPTCHA widget -->
-                        <div class="g-recaptcha" data-sitekey="6Le40FklAAAAABRczZ6GGVMI-0Mxot82OtlM3YJy">
-                        </div>
+                        // Add reCAPTCHA widget
+                        echo '<div class="g-recaptcha" data-sitekey="6Le40FklAAAAABRczZ6GGVMI-0Mxot82OtlM3YJy"> </div>';                        
                         echo "<br>";
                         echo "<div class='form-group-mb-3 text-center'>";
                         echo "<input type='submit' name='login_now_btn' id=submit-btn class='btn btn-primary' value=Login></input>";
@@ -77,7 +76,7 @@ echo "<div class=container>";
 
             echo "</form>";
         echo "</div>";
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
+        echo '<script src="https://www.google.com/recaptcha/api.js" async defer></script>';
     echo "</div>";
     echo "</div>";
 echo "</div>";
