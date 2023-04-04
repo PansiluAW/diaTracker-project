@@ -22,7 +22,7 @@ include('includes/header.php');
 // if(isset($_COOKIE['remember_user'])){
 
 // }
-// echo "<script src='https://www.google.com/recaptcha/api.js'; async defer></script>";
+
 echo "<div class=loader></div>";
     // <!-- This div is for the login form -->
     echo "<div class=mainbox>";
@@ -56,7 +56,6 @@ echo "<div class=container>";
                             echo "<input type=password name = password class=form-control placeholder='Enter Password' required=''>";
                         echo "</div>";
                         echo "<br>";
-                        // echo "<div class='g-recaptcha' data-sitekey='6LeAIFglAAAAAIDTV8PGC9MqAJT_Cd8dG7f4lOGP'></div>";
                         echo "<div class='form-group-mb-3 text-center'>";
                         echo "<input type='submit' name='login_now_btn' id=submit-btn class='btn btn-primary' value=Login></input>";
                         echo "</div>";
