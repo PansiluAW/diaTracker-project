@@ -2,6 +2,7 @@
 session_start();
 include('dbcon.php');
 
+// Check if the Register button has been pressed
 if(isset($_POST['register_now_btn']))
 {
    $name=$_POST["username"];
@@ -9,6 +10,7 @@ if(isset($_POST['register_now_btn']))
    $password=$_POST["password1"];
    $confirmpassword=$_POST["password2"];
 
+   // Check if passwords match
    if($password !== $confirmpassword)
    {
        $_SESSION['status'] = "<div class='error'>Passwords do not match</div>";
@@ -16,6 +18,7 @@ if(isset($_POST['register_now_btn']))
        exit();
    }
    
+   // Check if password is at least 8 characters long
    if(strlen($password) < 8) 
    {
        $_SESSION['pwd_error'] = "<div class='error'>Password must be at least 8 characters long</div>";
