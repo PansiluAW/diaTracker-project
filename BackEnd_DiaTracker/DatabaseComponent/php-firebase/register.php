@@ -58,8 +58,11 @@ include('includes/header.php');
                 </div>
                 <?php } ?>
                 <br>
+                 // Add reCAPTCHA widget
+                 echo '<div class="g-recaptcha" data-sitekey="6Le40FklAAAAABRczZ6GGVMI-0Mxot82OtlM3YJy"> </div>';                        
+                 echo "<br>";
                 <div class="myform2 ">
-                    <input type="submit" name="register_now_btn" class="btn btn-primary"value="Register" ></input>
+                 <input type="submit" name="register_now_btn" class="btn btn-primary"value="Register" ></input>
                 </div>
                 
                 <br>
@@ -68,6 +71,7 @@ include('includes/header.php');
             </form>
                 
             <script src="loading.js"></script>
+            echo '<script src="https://www.google.com/recaptcha/api.js" async defer></script>';
         </div>    
     </div>
     </div>
