@@ -1,49 +1,50 @@
-body {
+/* Sets the font family, font size, margin, padding, and background color for the entire code body */
+ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     margin: 0;
     padding: 0;
-    background-color:  #fcdf03;
-
-}
-
-h1,
-h2 {
+    background-color: #fcdf03;
+    }
+    
+    /* Centers and sets padding for all h1 and h2 elements */
+    h1,
+    h2 {
     text-align: center;
     padding: 20px;
-}
-
-nav {
+    }
+    
+    /* Creates a flexible container for a navigation menu and centers it horizontally with some margin at the bottom */
+    nav {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-}
-
-nav a {
+    }
+    
+    /* Styles for links within the navigation menu, including color, margin, text decoration, font size, and font family */
+    nav a {
     color: #000;
     margin: 0 10px;
     text-decoration: double;
     font-size: larger;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+    }
     
-
-
-}
-
-section h2 {
+    /* Sets margin bottom and text decoration style for all h2 elements within a section */
+    section h2 {
     margin-bottom: 5px;
     text-decoration-style: solid;
-}
-
-p {
+    }
+    
+    /* Sets text alignment, letter spacing, and line height for all paragraphs */
+    p {
     text-align: justify;
     letter-spacing: 1px;
     line-height: 30px;
- 
-}
-
-footer {
+    }
+    
+    /* Styles for footer, including background color, text color, padding, text alignment, and flex layout */
+    footer {
     background-color: #000;
     color: #fff;
     padding: 05px;
@@ -54,165 +55,162 @@ footer {
     background-color: #000;
     color: #fff;
     text-align: center;
-}
-a {
-    color: #fff;
-}
-
-@media (min-width: 768px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
     }
-
+    
+    /* Styles for links within the footer, including color */
+    a {
+    color: #fff;
+    }
+    
+    /* Media query for screens with a minimum width of 768px, changing the layout and styles of various elements /
+    @media (min-width: 768px) {
+    / Sets the flex layout and minimum height of the code body */
+    body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    }
+    
+    css
+    Copy code
+    /* Styles for the main content area, including flex growth and margin */
     main {
         flex-grow: 1;
         margin: 50px;
     }
-
+    
+    /* Styles for all sections, including a flexible, wrap layout and padding at the top */
     section {
         display: flex;
         flex-wrap: wrap;
         padding: top 150px;
     }
-
+    
+    /* Styles for odd numbered sections, including a reversed row direction */
     section:nth-child(odd) {
         flex-direction: row-reverse;
     }
-
+    
+    /* Styles for even numbered sections, including a regular row direction */
     section:nth-child(even) {
         flex-direction: row;
     }
-
+    
+    /* Styles for all elements within a section, including a 50% flexible basis */
     section > * {
         flex-basis: 50%;
     }
-}
 
-
-.container {
+    
+    /* Styles for a container, including a flex layout and centering of items */
+    .container {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.text {
+    }
+    
+    /* Styles for a text element within a container, including padding, width, position, font family, and padding at the top */
+    .text {
     padding-left: 10px;
     padding-top: 10px;
     width: 60%;
     position: relative;
     right: 350px;
     font-family: Comic sans-serif;
-    padding-top: 300px;
-
- 
-}
-
-title {
+    padding: top 300px;
+    }
+/* This styles the "title" element with a text shadow */
+.title {
     text-shadow: 2px 2px #000;
-    
 }
 
+/* This styles the "main-content" element with a grid layout and sets its font weight */
 .main-content {
     display: grid;
     grid-template-areas:
         'sec1 sec2'
         'sec3 sec4'
         'sec5 sec6';
-        font-weight: bold;
-        font-weight: lighter;
-        
+    font-weight: bold;
+    font-weight: lighter;
 }
 
+/* This styles the "mission-image" element, placing it in grid area "sec1" and centering it horizontally */
 .mission-image {
     grid-area: sec1;
     display: flex;
     justify-content: center;
-    
-   
 }
 
+/* This styles the "mission-section" element, placing it in grid area "sec2" and adding some top padding */
 .mission-section {
     grid-area: sec2;
     padding-top: 20px;
 }
 
+/* This styles the "history-image" element, placing it in grid area "sec4" and centering it horizontally */
 .history-image {
     grid-area: sec4;
     display: flex;
     justify-content: center;
-   
 }
 
+/* This styles the "history-section" element, placing it in grid area "sec3" and adding some top and left padding */
 .history-section {
     grid-area: sec3;
     padding-top: 40px;
     padding-left: 02px;
 }
 
+/* This styles the "team-image" element, placing it in grid area "sec5" and centering it horizontally */
 .team-image {
     grid-area: sec5;
     justify-content: center;
     display: flex;
-
 }
 
+/* This styles the "team-section" element, placing it in grid area "sec6" and adding some top and right padding */
 .team-section {
     grid-area: sec6;
     padding-top: 40px;
     padding-right: 02px;
-
 }
-.fade-in img,
-.fade-in p,
-.fade-in h2 {
+
+/* These elements are initially hidden, to be revealed with the animation */
+.mission-section,
+.history-section,
+.team-section,
+.history-image,
+.mission-image,
+.team-image {
   opacity: 0;
+  transform: translateY(-100%);
 }
 
-.fade-in img {
-  animation: fadeInImage 16s ease forwards;
-  
+/* The following sections will use the "dropin" animation to reveal the elements */
+.mission-section,
+.mission-image {
+  animation: dropin 1s ease forwards;
+  animation-delay: 0.2s;
 }
 
-.fade-in p {
-  animation: fadeInParagraph  25s ease forwards;
+.history-section,
+.history-image {
+  animation: dropin 1s ease forwards;
+  animation-delay: 1.2s;
 }
 
-.fade-in h2 {
-  animation: fadeInHeading 16s ease forwards;
+.team-section,
+.team-image {
+  animation: dropin 1s ease forwards;
+  animation-delay: 2.2s;
 }
 
-@keyframes fadeInImage {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+/* This keyframe animation will animate the reveal of each section */
+@keyframes dropin {
   to {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInParagraph {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInHeading {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
   }
 }
 
