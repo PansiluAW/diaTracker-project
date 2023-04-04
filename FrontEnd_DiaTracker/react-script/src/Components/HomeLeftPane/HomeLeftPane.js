@@ -44,12 +44,11 @@ export default function HomeLeftPane({ data, setData }) {
   
   const saveValue = async () => {
     const currentInput = Number(inputRef.current.value);
-    if (currentInput) {
       try {
         const newRecord = [date, currentInput];
-        axios.post(
-          "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
-          { date: date, currentInput: currentInput},
+        await axios.post(
+          "http://localhost:80/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
+          {date: date, currentInput: currentInput},
         );
         setData((existingValues) => {
           const currentValues = [...existingValues];
@@ -60,7 +59,6 @@ export default function HomeLeftPane({ data, setData }) {
         console.log(error);
       }
       inputRef.current.value = "";
-    }
   };
   const [isUpdatingTheSugarLevelValue, setIsUpdatingTheSugarLevelValue] =
     useState(false);
