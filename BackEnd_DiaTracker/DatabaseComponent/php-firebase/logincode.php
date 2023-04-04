@@ -14,6 +14,36 @@ if(isset($_POST['login_now_btn']))
     // retrieve the email and password from the form
     $email = $_POST['email'];
     $clearTextPassword = $_POST['password'];
+    
+        // check reCAPTCHA response
+    if(isset($_POST['g-recaptcha-response'])) {
+        $captcha = $_POST['g-recaptcha-response'];
+        $secret_key = "6Le40FklAAAAAPKmNcILR5lxqhXoxWwLozY7dktx";
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = array(
+            'secret' => $secret_key,
+            'response' => $captcha
+        );
+        $options = array(
+            'http' => array(
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
+                'content' => http_build_query($data)
+            )
+        );
+        $context = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        $response = json_decode($result);
+        if(!$response->success) {
+            $_SESSION['status'] = "<div class='error'>reCAPTCHA verification failed. Please try again.</div>";
+            header("Location: login.php");
+            exit();
+        }
+    } else {
+        $_SESSION['status'] = "<div class='error'>reCAPTCHA response not found.</div>";
+        header("Location: login.php");
+        exit();
+    }
 
     try {
         // get the user with the given email
