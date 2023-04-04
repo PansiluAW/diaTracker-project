@@ -19,8 +19,7 @@ export default function HomeLeftPane({ data, setData }) {
     current.getMonth() + 1
   }-${current.getDate()}`;
 
-
-//render getData() only when the initialization of the application 
+  //render getData() only when the initialization of the application
   useEffect(() => {
     getData();
   }, []);
@@ -29,28 +28,30 @@ export default function HomeLeftPane({ data, setData }) {
   const getData = () => {
     axios
       .get(
-        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php",{withCredentials: true}
+        "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/get-sugar-levels.php",
+        { withCredentials: true }
       )
       .then((response) => {
         console.log(response);
         const formattedData = response.data.map((item) => [item[0], item[1]]);
         setData(formattedData);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
-//get the user added input from the text field on line 223
+  //get the user added input from the text field on line 223
   const inputRef = useRef(null);
   //when clicks on the add button this fuction will get triggered
   const saveValue = async () => {
+    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis
     const currentInput = Number(inputRef.current.value);
     if (currentInput) {
       try {
         const newRecord = [date, currentInput];
         await axios.post(
           "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
-          { date: date, currentInput: currentInput},
+          { date: date, currentInput: currentInput }
         );
         setData((existingValues) => {
           const currentValues = [...existingValues];
@@ -83,7 +84,7 @@ export default function HomeLeftPane({ data, setData }) {
         result = (
           <>
             {recentSugarLevel - previousSugarLevel}
-            <ArrowDropUpIcon/>
+            <ArrowDropUpIcon />
           </>
         );
       } else {
@@ -119,7 +120,7 @@ export default function HomeLeftPane({ data, setData }) {
                         <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
                       </div>
                       <div className="top-panes">
-                        <SettingsPane/>
+                        <SettingsPane />
                       </div>
                     </>
                   ) : null}
