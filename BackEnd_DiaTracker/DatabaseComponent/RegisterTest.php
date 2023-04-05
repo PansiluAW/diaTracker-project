@@ -9,7 +9,7 @@ class RegisterTest extends TestCase
         $formData = [
             'username' => 'testuser',
             'email' => 'test@example.com',
-            'password1' => 'password',
+            'password1' => 'password1',
             'password2' => 'differentpassword'
         ];
     
