@@ -47,4 +47,4 @@ def get_food_data():
     })
 
 if __name__ == '__main__':
-    app.run()
+    app.run() #method that runs the flask application
