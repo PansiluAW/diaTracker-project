@@ -5,6 +5,7 @@
     $password = "";
     $dbname = "NotifySystem";
     
+    // Establish a connection to the database
     $con = mysqli_connect("localhost","root","","NotifySystem");
     // Check connection
     if (mysqli_connect_errno()){
