@@ -55,7 +55,7 @@ export default function FoddRecomPane({ resentValue }) {
 
   return (
     <div className="foodRecomPane">
-      Food Recoomendation
+      Food Recommendation
       {foodData.map((food, index) => (
         <Card className="mt-3 foodCard">
           <Card.Title className="foodCardTitle mt-4 font-weight-bold">{food["Food"]}</Card.Title>
@@ -71,7 +71,7 @@ export default function FoddRecomPane({ resentValue }) {
                   </tr>
                   <tr>
                   <td>{food["Measure"]}</td>
-                  <td>{food["Grams"]}</td>
+                  <td>{food["Grams"]} g</td>
                   </tr>
                 </tr>
                 <tr>
@@ -80,8 +80,8 @@ export default function FoddRecomPane({ resentValue }) {
                   <td>Carbs</td>
                   </tr>
                   <tr>
-                  <td>{food["Calories"]}</td>
-                  <td>{food["Carbs"]}</td>
+                  <td>{food["Calories"]} kcals</td>
+                  <td>{food["Carbs"]} g</td>
                   </tr>
                 </tr>
                 <tr>
@@ -90,8 +90,8 @@ export default function FoddRecomPane({ resentValue }) {
                   <td>Fiber</td>
                   </tr>
                   <tr>
-                  <td>{food["Fat"]}</td>
-                  <td>{food["Fiber"]}</td>
+                  <td>{food["Fat"]} g</td>
+                  <td>{food["Fiber"]} g</td>
                   </tr>                 
                 </tr>
                 <tr>
@@ -100,8 +100,8 @@ export default function FoddRecomPane({ resentValue }) {
                   <td>Saturated Fats</td>
                   </tr>
                   <tr>
-                  <td>{food["Protein"]}</td>
-                  <td>{food["Sat.Fat"]}</td>
+                  <td>{food["Protein"]} g</td>
+                  <td>{food["Sat.Fat"]} g</td>
                   </tr>
                 </tr>
               </table>              

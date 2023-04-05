@@ -5,7 +5,7 @@ session_start();
 
 // include the header file, which contains the HTML header and navigation
 include('includes/header.php');
-?>
+
         echo '<div class="loader"></div>';
         echo '<div class="mainbox">';
         echo '<img src="diatracker-logo-transparent.png" alt="diatracker-logo" width="600" class="logo">';
@@ -14,18 +14,17 @@ include('includes/header.php');
         echo '<div class="row justify-content-center">';
         echo '<div class ="col-md-5 mt-5">';
         
-        <?php
                 // display any password error messages
                 if(isset($_SESSION['status']))
                 {
                     echo "<h4>".$_SESSION['status']."</h4>";
                     unset($_SESSION['status']);
                 }
-                ?>
+
     
         echo '<div class="box">';
             echo '<div class="card-header">';
-                <h1>Register here!</h1>
+                echo '<h1>Register here!</h1>';
  
         echo "</div>";
         echo '<div class="card-body">';
@@ -36,7 +35,7 @@ include('includes/header.php');
                 echo "<p>Username</p>";
                 echo '<input type="text" name="username" class="form-control" placeholder="Enter Username" required="">';
                 echo"</div>";
-                echo '<br>";
+                echo "<br>";
                 echo '<div class="form-group-mb-3">';
                 echo "<p>Email</p>";  
                 echo '<input type="email" name="email" class="form-control" placeholder="Enter Email Address" required="">';
@@ -51,12 +50,12 @@ include('includes/header.php');
                 echo "<p>Retype Password</p>";
                 echo '<input type="password" name="password2" class="form-control" placeholder="Confirm Password" required ="">';
                 echo "</div>";
-                <?php 
-                if(isset($_SESSION['pwd_error'])) { ?>
+
+                if(isset($_SESSION['pwd_error'])) {
                 echo '<div class="alert alert-danger">';
-                    <?php echo $_SESSION['pwd_error']; unset($_SESSION['pwd_error']); ?>
+                    echo $_SESSION['pwd_error']; unset($_SESSION['pwd_error']);
                 echo '</div>';
-                <?php } ?>
+                }
                 echo "<br>";
                  // Add reCAPTCHA widget
                  echo '<div class="g-recaptcha" data-sitekey="6Le40FklAAAAABRczZ6GGVMI-0Mxot82OtlM3YJy"> </div>';                        
@@ -77,7 +76,6 @@ include('includes/header.php');
     echo "</div>";
 echo "</div>";
 
-<?php
 // include the footer file, which contains the closing HTML tags
 include("includes/footer.php");
 ?>
