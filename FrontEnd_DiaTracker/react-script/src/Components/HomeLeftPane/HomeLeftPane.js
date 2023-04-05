@@ -44,7 +44,7 @@ export default function HomeLeftPane({ data, setData }) {
   const inputRef = useRef(null);
   //when clicks on the add button this fuction will get triggered
   const saveValue = async () => {
-    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis 
+    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis
     const currentInput = Number(inputRef.current.value);
 
     try {
@@ -53,7 +53,7 @@ export default function HomeLeftPane({ data, setData }) {
       axios.post(
         "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
         { date: date, currentInput: currentInput },
-        {withCredentials: true}
+        { withCredentials: true }
       );
       setData((existingValues) => {
         const currentValues = [...existingValues];
@@ -78,7 +78,6 @@ export default function HomeLeftPane({ data, setData }) {
   // const showSideMedicationbar = () =>
   //   setSideMedicationsBar(!sideMedicationsBar);
 
-
   //this function is use to calculate and display recent and previous sugar levels accessing from the linechart
   const summary = () => {
     if (data.length > 2) {
@@ -87,7 +86,7 @@ export default function HomeLeftPane({ data, setData }) {
       const previousSugarLevel = data[data.length - 2][1];
       //this is  a variable is use to store the result of the different between recent and previous sugar level
       let result;
-      
+      //if recent sugar level is high comparing to previous sugar level display the difereance and a dropup icon
       if (recentSugarLevel >= previousSugarLevel) {
         result = (
           <>
@@ -95,7 +94,9 @@ export default function HomeLeftPane({ data, setData }) {
             <ArrowDropUpIcon />
           </>
         );
-      } else {
+      }
+      //if recent sugar level is low comparing to previous sugar level display the difereance and a dropdown icon
+      else {
         result = (
           <>
             {previousSugarLevel - recentSugarLevel}
@@ -107,7 +108,6 @@ export default function HomeLeftPane({ data, setData }) {
       return result;
     }
   };
-  console.log(data);
 
   return (
     <>
@@ -115,6 +115,7 @@ export default function HomeLeftPane({ data, setData }) {
         <div className="iconPane mx-auto">
           <span className="d-flex span-buttons justify-content-center sticky-top align-items-center">
             <IconContext.Provider>
+              {/* when the user clicks on the  settings icon showSideSettingsbar function get triggered and */}
               <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
 
               <div
@@ -123,11 +124,14 @@ export default function HomeLeftPane({ data, setData }) {
                 <div>
                   {sideSettingsBar ? (
                     <>
+                      {/* settings content */}
                       <div className="settings-block p-2">
                         Settings
+                        {/* back button exit the settings  */}
                         <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
                       </div>
                       <div className="top-panes">
+                        {/* import settings pane from the SettingsPane */}
                         <SettingsPane />
                       </div>
                     </>
@@ -164,6 +168,7 @@ export default function HomeLeftPane({ data, setData }) {
           </span> */}
 
           <span className="d-flex span-buttons justify-content-center align-items-center">
+            {/* add box icon for the visibility of the summary and the user input text field */}
             <AddBoxIcon
               onClick={() => {
                 if (isUpdatingTheSugarLevelValue === true) {
@@ -176,6 +181,7 @@ export default function HomeLeftPane({ data, setData }) {
           </span>
         </div>
         <div className="sugarcontainer sugarLineChart ">
+          {/* import line chart from the LineChart */}
           <LineChart existingData={data} />
         </div>
         <div className="infopane subinfo1">
@@ -193,12 +199,15 @@ export default function HomeLeftPane({ data, setData }) {
           </div>
         </div>
         <div className="userInputInfo addsugarcontainer">
+          {/* when user clicks on the add icon this fuction gets triggered */}
           {!isUpdatingTheSugarLevelValue ? (
             <>
+            {/* summary of the user inputs */}
               <h2>Summary</h2>
               <div className="userInputSummery d-flex justify-content-center">
                 <div className="sugarLevelInfo py-4 px-5 mx-2">
                   <div className="pt-3 pb-2">
+                    {/* display recent sugar level */}
                     Recent Sugar Level <br />
                     <div className="changes-data">
                       {data.length > 1 && data?.[data.length - 1]?.[1] && (
@@ -208,6 +217,7 @@ export default function HomeLeftPane({ data, setData }) {
                   </div>
                   <hr className="mx-auto mt-3"></hr>
                   <div className="pt-1">
+                    {/* display preivious sugar level */}
                     Previous Sugar Level <br />
                     <div className="changes-data">
                       {data.length > 2 && data?.[data.length - 2]?.[1] && (
@@ -217,6 +227,7 @@ export default function HomeLeftPane({ data, setData }) {
                   </div>
                 </div>
                 <div className="px-5 mx-2 sugarLevelInfo ">
+                  {/* display differance between recent and previous sugar levels */}
                   Recent Changes
                   <br />
                   <div className="changes-data-recent">{summary()}</div>
@@ -226,10 +237,12 @@ export default function HomeLeftPane({ data, setData }) {
           ) : (
             <>
               <div className="addsugarcontainer">
+                {/* user sugar level input */}
                 <h2>Add New Sugar Level</h2> <br />
                 <Form>
                   <Form.Group className="mb-3" controlId="addsugar">
                     <Form.Label>_</Form.Label>
+                    {/* sugar level input text field */}
                     <Form.Control
                       type="number"
                       className="sugarinput"
@@ -238,6 +251,7 @@ export default function HomeLeftPane({ data, setData }) {
                     />
                   </Form.Group>
                 </Form>
+                {/* add button to add sugar level */}
                 <button
                   type="button"
                   class="btn mx-2 px-4 btn-outline-warning"
