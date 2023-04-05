@@ -87,7 +87,7 @@ export default function HomeLeftPane({ data, setData }) {
       const previousSugarLevel = data[data.length - 2][1];
       //this is  a variable is use to store the result of the different between recent and previous sugar level
       let result;
-      
+      //if recent sugar level is high comparing to previous sugar level display the difereance and a dropup icon
       if (recentSugarLevel >= previousSugarLevel) {
         result = (
           <>
@@ -95,7 +95,9 @@ export default function HomeLeftPane({ data, setData }) {
             <ArrowDropUpIcon />
           </>
         );
-      } else {
+      } 
+      //if recent sugar level is low comparing to previous sugar level display the difereance and a dropdown icon
+      else {
         result = (
           <>
             {previousSugarLevel - recentSugarLevel}
@@ -107,7 +109,6 @@ export default function HomeLeftPane({ data, setData }) {
       return result;
     }
   };
-  console.log(data);
 
   return (
     <>
