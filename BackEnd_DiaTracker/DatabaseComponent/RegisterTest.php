@@ -21,12 +21,11 @@ class RegisterTest extends TestCase
     public function testPasswordLengthIsLessThan8()
     {
         $url = 'http://localhost/register.php';
-        $formData = [
+        $postData = [
             'username' => 'John',
             'email' => 'john@example.com',
             'password1' => 'pass',
-            'password2' => 'pass',
-            'g-recaptcha-response' => 'test'
+            'password2' => 'pass'
         ];
         $response = $this->post($url, $formData);
     
