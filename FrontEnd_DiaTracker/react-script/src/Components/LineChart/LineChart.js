@@ -4,6 +4,7 @@ import Chart from "react-google-charts";
 <script src="/scripts/bootstrap.min.js"></script>;
 
 export default function LineChart({ existingData }) {
+  //getting date and last sugar input as a prop named existingData
   const LineChartOptions = {
     hAxis: {
       title: "Date",
