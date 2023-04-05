@@ -3,12 +3,15 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE. OPTIONS");
 header("Access-Control-Allow-Credentials: true");
-session_start();  
+session_start(); 
+
+
+// Check if the user is already logged in
 if(isset($_SESSION['verified_user_id'])) {
     $_SESSION['status'] = "You are logged in";
 
-     // set a cookie to remember the user
-    //  setcookie('remember_me', $user['id'], time() + (86400 * 30), "/"); // set for 30 days
+     
+    // Redirect the user to the homepage and exit the script
     header("Location: http://localhost:3000/");
     exit();
 }
@@ -32,7 +35,7 @@ echo "<div class=container>";
         echo "<div class=row justify-content-center>";
             echo "<div class='col-md-5 mt-5'>";
 
-            
+            // If the user has successfully logged in, display a success message
                 if(isset($_SESSION['status']))
                 {
                     echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
@@ -76,6 +79,7 @@ echo "<div class=container>";
 
             echo "</form>";
         echo "</div>";
+        // Include the reCAPTCHA script
         echo '<script src="https://www.google.com/recaptcha/api.js" async defer></script>';
     echo "</div>";
     echo "</div>";

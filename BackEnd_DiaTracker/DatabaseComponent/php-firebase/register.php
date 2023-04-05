@@ -14,14 +14,12 @@ include('includes/header.php');
         echo '<div class="row justify-content-center">';
         echo '<div class ="col-md-5 mt-5">';
         
-                // display any password error messages
-                if(isset($_SESSION['status']))
-                {
-                    echo "<h4>".$_SESSION['status']."</h4>";
-                    unset($_SESSION['status']);
-                }
-
-    
+         // display any password error messages
+         if(isset($_SESSION['status']))
+         {
+         echo "<h4>".$_SESSION['status']."</h4>";
+         unset($_SESSION['status']);
+         } 
         echo '<div class="box">';
             echo '<div class="card-header">';
                 echo '<h1>Register here!</h1>';
@@ -29,8 +27,7 @@ include('includes/header.php');
         echo "</div>";
         echo '<div class="card-body">';
             echo '<form action="code.php" method="POST">';
-                
-            
+                  
                 echo '<div class="myform2">';
                 echo "<p>Username</p>";
                 echo '<input type="text" name="username" class="form-control" placeholder="Enter Username" required="">';
