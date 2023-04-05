@@ -35,7 +35,7 @@ echo "<div class=container>";
         echo "<div class=row justify-content-center>";
             echo "<div class='col-md-5 mt-5'>";
 
-            
+            // If the user has successfully logged in, display a success message
                 if(isset($_SESSION['status']))
                 {
                     echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
