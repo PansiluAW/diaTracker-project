@@ -202,6 +202,7 @@ export default function HomeLeftPane({ data, setData }) {
           {/* when user clicks on the add icon this fuction gets triggered */}
           {!isUpdatingTheSugarLevelValue ? (
             <>
+            {/* summary of the user inputs */}
               <h2>Summary</h2>
               <div className="userInputSummery d-flex justify-content-center">
                 <div className="sugarLevelInfo py-4 px-5 mx-2">
@@ -233,6 +234,7 @@ export default function HomeLeftPane({ data, setData }) {
           ) : (
             <>
               <div className="addsugarcontainer">
+                {/* user sugar level input */}
                 <h2>Add New Sugar Level</h2> <br />
                 <Form>
                   <Form.Group className="mb-3" controlId="addsugar">
