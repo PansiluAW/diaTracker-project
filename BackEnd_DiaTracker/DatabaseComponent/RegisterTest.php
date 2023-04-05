@@ -10,7 +10,7 @@ class RegisterTest extends TestCase
             'username' => 'testuser',
             'email' => 'test@example.com',
             'password1' => 'password1',
-            'password2' => 'differentpassword'
+            'password2' => 'password2'
         ];
     
         $response = $this->post($url, $formData);
