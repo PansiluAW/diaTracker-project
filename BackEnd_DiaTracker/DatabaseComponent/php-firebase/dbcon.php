@@ -1,4 +1,5 @@
 <?php
+// Load the Firebase SDK and create a new factory object
 require __DIR__.'/vendor/autoload.php';
 
 use Kreait\Firebase\Factory;
