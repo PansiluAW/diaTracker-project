@@ -79,6 +79,7 @@ echo "<div class=container>";
 
             echo "</form>";
         echo "</div>";
+        // Include the reCAPTCHA script
         echo '<script src="https://www.google.com/recaptcha/api.js" async defer></script>';
     echo "</div>";
     echo "</div>";
