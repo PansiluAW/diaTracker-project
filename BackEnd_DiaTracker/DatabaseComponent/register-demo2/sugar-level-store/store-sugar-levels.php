@@ -16,16 +16,16 @@ if (isset($_SESSION['verified_user_id'])){
         PRIMARY KEY (id)
     )";
     $execSQL = mysqli_query($conn, $SQL_TABLE);
-    if ($execSQL){
-        echo '<script type="text/javascript">';
-        echo 'alert("Data Successfully entered into the system")';
-        echo '</script>';
-        exit();
-    }else{
-        echo '<script type="text/javascript">';
-        echo 'alert("Urgh...an unexpected error occured")';
-        echo '</script>';
-    }
+    // if ($execSQL){
+    //     echo '<script type="text/javascript">';
+    //     echo 'alert("Data Successfully entered into the system")';
+    //     echo '</script>';
+    //     exit();
+    // }else{
+    //     echo '<script type="text/javascript">';
+    //     echo 'alert("Urgh...an unexpected error occured")';
+    //     echo '</script>';
+    // }
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         // $last_index = count($_POST)-1;
         // $last_update = $_POST[$last_index];
@@ -39,16 +39,16 @@ if (isset($_SESSION['verified_user_id'])){
         $SQL_INSERT = "INSERT INTO $user_table_name (added_date,sugar_data)
         VALUES ('$date', '$sugar_data')";
 
-        if (mysqli_query($conn,$SQL_INSERT)){
-            echo '<script type="text/javascript">';
-            echo 'alert("Data Successfully entered into the system")';
-            echo '</script>';   
-        }else{
-            echo '<script type="text/javascript">';
-            echo 'alert("Urgh...an unexpected error occured")';
-            echo '</script>';
-            exit();
-        }
+        // if (mysqli_query($conn,$SQL_INSERT)){
+        //     echo '<script type="text/javascript">';
+        //     echo 'alert("Data Successfully entered into the system")';
+        //     echo '</script>';   
+        // }else{
+        //     echo '<script type="text/javascript">';
+        //     echo 'alert("Urgh...an unexpected error occured")';
+        //     echo '</script>';
+        //     exit();
+        // }
     }
     mysqli_close($conn);
 }else{
