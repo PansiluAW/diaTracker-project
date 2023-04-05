@@ -26,13 +26,16 @@ export default function HomeScreen1() {
           </div>
           <div className="row">
             <div className="col">
+              {/* passing data array and setData function as props */}
               <HomeLeftPane data={data} setData={setData} />
             </div>
             <div className="col recom">
               <div className="col foodrec">
+                {/* passing only the recent Sugar number in the data array  to the food reccommanding pane*/}
                 <FoodRecomPane resentValue={data?.[data.length - 1][1]} />
               </div>
               <div className="col excrec">
+                {/* passing only the recent Sugar number in the data array  to the exercise reccommanding pane*/}
                 <ExerciseRecomPane resentValue={data?.[data.length - 1][1]} />
               </div>
             </div>
