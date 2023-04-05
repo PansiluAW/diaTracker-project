@@ -10,6 +10,7 @@ $factory = (new Factory)
 ->withDatabaseUri('https://fir-project-5a710-default-rtdb.firebaseio.com/');
 
 // Create a database reference and an authentication reference
+// Create a new database reference object
 $database = $factory->createDatabase();
 $auth = $factory->createAuth();
 
