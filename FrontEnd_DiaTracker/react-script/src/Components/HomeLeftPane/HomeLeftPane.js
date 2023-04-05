@@ -44,7 +44,7 @@ export default function HomeLeftPane({ data, setData }) {
   const inputRef = useRef(null);
   //when clicks on the add button this fuction will get triggered
   const saveValue = async () => {
-    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis 
+    //convert the string input passing from the textfield in to a number as it is pass to the database as a number and for the line chart y axis
     const currentInput = Number(inputRef.current.value);
 
     try {
@@ -53,7 +53,7 @@ export default function HomeLeftPane({ data, setData }) {
       axios.post(
         "http://localhost/diaTracker-project/BackEnd_DiaTracker/DatabaseComponent/register-demo2/sugar-level-store/store-sugar-levels.php",
         { date: date, currentInput: currentInput },
-        {withCredentials: true}
+        { withCredentials: true }
       );
       setData((existingValues) => {
         const currentValues = [...existingValues];
@@ -78,7 +78,6 @@ export default function HomeLeftPane({ data, setData }) {
   // const showSideMedicationbar = () =>
   //   setSideMedicationsBar(!sideMedicationsBar);
 
-
   //this function is use to calculate and display recent and previous sugar levels accessing from the linechart
   const summary = () => {
     if (data.length > 2) {
@@ -95,7 +94,7 @@ export default function HomeLeftPane({ data, setData }) {
             <ArrowDropUpIcon />
           </>
         );
-      } 
+      }
       //if recent sugar level is low comparing to previous sugar level display the difereance and a dropdown icon
       else {
         result = (
@@ -116,6 +115,7 @@ export default function HomeLeftPane({ data, setData }) {
         <div className="iconPane mx-auto">
           <span className="d-flex span-buttons justify-content-center sticky-top align-items-center">
             <IconContext.Provider>
+              {/* when the user clicks on the  settings icon showSideSettingsbar function get triggered and */}
               <SettingsIcon onClick={showSideSettingsbar} fontSize="large" />
 
               <div
@@ -124,11 +124,14 @@ export default function HomeLeftPane({ data, setData }) {
                 <div>
                   {sideSettingsBar ? (
                     <>
+                      {/* settings content */}
                       <div className="settings-block p-2">
                         Settings
+                        {/* back button exit the settings  */}
                         <KeyboardArrowLeftIcon onClick={showSideSettingsbar} />
                       </div>
                       <div className="top-panes">
+                        {/* import settings pane from the SettingsPane */}
                         <SettingsPane />
                       </div>
                     </>
@@ -165,6 +168,7 @@ export default function HomeLeftPane({ data, setData }) {
           </span> */}
 
           <span className="d-flex span-buttons justify-content-center align-items-center">
+            {/* add box icon for the visibility of the summary and the user input text field */}
             <AddBoxIcon
               onClick={() => {
                 if (isUpdatingTheSugarLevelValue === true) {
@@ -177,6 +181,7 @@ export default function HomeLeftPane({ data, setData }) {
           </span>
         </div>
         <div className="sugarcontainer sugarLineChart ">
+          {/* import line chart from the LineChart */}
           <LineChart existingData={data} />
         </div>
         <div className="infopane subinfo1">
@@ -194,6 +199,7 @@ export default function HomeLeftPane({ data, setData }) {
           </div>
         </div>
         <div className="userInputInfo addsugarcontainer">
+          {/* when user clicks on the add icon this fuction gets triggered */}
           {!isUpdatingTheSugarLevelValue ? (
             <>
               <h2>Summary</h2>
