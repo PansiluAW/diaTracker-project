@@ -207,6 +207,7 @@ export default function HomeLeftPane({ data, setData }) {
               <div className="userInputSummery d-flex justify-content-center">
                 <div className="sugarLevelInfo py-4 px-5 mx-2">
                   <div className="pt-3 pb-2">
+                    {/* display recent sugar level */}
                     Recent Sugar Level <br />
                     <div className="changes-data">
                       {data.length > 1 && data?.[data.length - 1]?.[1] && (
@@ -216,6 +217,7 @@ export default function HomeLeftPane({ data, setData }) {
                   </div>
                   <hr className="mx-auto mt-3"></hr>
                   <div className="pt-1">
+                    {/* display preivious sugar level */}
                     Previous Sugar Level <br />
                     <div className="changes-data">
                       {data.length > 2 && data?.[data.length - 2]?.[1] && (
@@ -225,6 +227,7 @@ export default function HomeLeftPane({ data, setData }) {
                   </div>
                 </div>
                 <div className="px-5 mx-2 sugarLevelInfo ">
+                  {/* display differance between recent and previous sugar levels */}
                   Recent Changes
                   <br />
                   <div className="changes-data-recent">{summary()}</div>
@@ -239,6 +242,7 @@ export default function HomeLeftPane({ data, setData }) {
                 <Form>
                   <Form.Group className="mb-3" controlId="addsugar">
                     <Form.Label>_</Form.Label>
+                    {/* sugar level input text field */}
                     <Form.Control
                       type="number"
                       className="sugarinput"
@@ -247,6 +251,7 @@ export default function HomeLeftPane({ data, setData }) {
                     />
                   </Form.Group>
                 </Form>
+                {/* add button to add sugar level */}
                 <button
                   type="button"
                   class="btn mx-2 px-4 btn-outline-warning"
