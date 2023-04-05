@@ -10,8 +10,8 @@ session_start();
 if(isset($_SESSION['verified_user_id'])) {
     $_SESSION['status'] = "You are logged in";
 
-     // set a cookie to remember the user
-    //  setcookie('remember_me', $user['id'], time() + (86400 * 30), "/"); // set for 30 days
+     
+    // Redirect the user to the homepage and exit the script
     header("Location: http://localhost:3000/");
     exit();
 }
