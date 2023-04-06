@@ -3,13 +3,14 @@ import "./navBar.css";
 import diatraclogo from "./diatraclogo.png";
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function NavBar() {
   return (
     <>
       <nav>
         <div class="logo">
-          <img src={diatraclogo} alt="Diatrac logo" />
+          <img class="mx-4" src={diatraclogo} alt="Diatrac logo" />
         </div>
 
         <ul>
