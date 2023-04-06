@@ -1,1 +1,0 @@
-{"version":1,"defects":{"SugarLevelTest::testTableCreation":7,"SugarLevelTest::testGetSugarLevels":7,"SugarLevelTest::testGetRecentSugarData":8},"times":{"SugarLevelTest::testTableCreation":0.009,"SugarLevelTest::testGetSugarLevels":0.083}}
