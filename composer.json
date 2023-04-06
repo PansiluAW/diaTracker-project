@@ -1,0 +1,11 @@
+{
+    "name": "your-vendor/your-package",
+    "description": "A brief description of your package.",
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "license": "MIT"
+}
